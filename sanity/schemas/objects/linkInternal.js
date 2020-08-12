@@ -20,7 +20,6 @@ export default {
       page: 'link.pageInfo',
     },
     prepare({page}) {
-      console.log('page:', page)
       return {
         title: page.name,
         subtitle: `/${page.slug.current}`,

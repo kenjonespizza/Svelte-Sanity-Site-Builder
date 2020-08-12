@@ -6,6 +6,7 @@ export { default as two_tiers_with_extra_tier_pricing } from './pricing/two_tier
 export { default as with_sign_up_and_media_content_hero } from './heros/with_sign_up_and_media_content_hero';
 export { default as with_angled_image_on_right_hero } from './heros/with_angled_image_on_right_hero';
 export { default as simple_centered_hero } from './heros/simple_centered_hero';
+export { default as split_image_text_hero } from './heros/split_image_text_hero';
 // Cta
 export { default as simple_centered_cta } from './cta/simple_centered_cta';
 export { default as simple_justified_cta } from './cta/simple_justified_cta';

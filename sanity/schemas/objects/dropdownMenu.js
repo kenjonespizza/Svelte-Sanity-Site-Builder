@@ -24,7 +24,6 @@ export default {
       pages: 'pages',
     },
     prepare({pages, name}) {
-      console.log('pages:', pages)
       const numOfPages = pages?.length > 0 ? pages.length : 0
       return {
         title: `${name ? `${name} - Dropdown` : `Dropdown`}`,

@@ -1,3 +1,9 @@
+<script>
+	export let menuSettings = []
+	
+	const navItems = menuSettings[0].headerNavigation;
+</script>
+
 <!-- This example requires Tailwind CSS v1.4.0+ -->
 <div class="z-0 relative bg-white">
   <div class="relative z-10 shadow">
@@ -25,7 +31,14 @@
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
               </svg>
             </button>
-          </div>
+					</div>
+					{#each navItems as item,i}
+						{#if item._type === "link"}
+							<a href="/" class="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
+								{item.text}
+							</a>
+						{/if}
+					{/each}
           <a href="/" class="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
             Pricing
           </a>

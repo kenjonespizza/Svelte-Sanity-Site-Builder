@@ -15,7 +15,9 @@
     "go": "concurrently \"npm run dev\" \"npm run watch:tailwind\""
   },
   "dependencies": {
+    "@movingbrands/svelte-portable-text": "^0.0.11",
     "@rollup/plugin-json": "^4.1.0",
+    "@sanity/block-content-to-hyperscript": "^2.0.10",
     "@sanity/client": "^1.149.18",
     "@tailwindcss/typography": "^0.2.0",
     "@tailwindcss/ui": "^0.4.0",

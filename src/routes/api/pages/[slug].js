@@ -4,7 +4,6 @@ export async function get (req, res) {
   try {
     // We have access to req.params.slug because the filename has [slug] in it.
     const { slug } = req.params;
-    console.log('slug:', slug)
     const filter = '*[defined(pageInfo.slug.current) && pageInfo.slug.current == $slug][0]';
     const projection = `{
       ...
