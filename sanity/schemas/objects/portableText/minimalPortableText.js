@@ -1,11 +1,11 @@
 export default {
-  name: 'excerptPortableText',
+  name: 'minimalPortableText',
   type: 'array',
-  title: 'Excerpt',
+  title: 'Description',
   of: [
     {
-      title: 'Block',
       type: 'block',
+      title: 'Block',
       styles: [{title: 'Normal', value: 'normal'}],
       lists: [],
       marks: {
@@ -13,8 +13,7 @@ export default {
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
           {title: 'Code', value: 'code'}
-        ],
-        annotations: []
+        ]
       }
     }
   ]

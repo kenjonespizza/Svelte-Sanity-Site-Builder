@@ -20,9 +20,8 @@ import cta from './objects/cta';
 import link from './objects/link'
 import linkInternal from './objects/linkInternal'
 import linkExternal from './objects/linkExternal'
-import descriptionPortableText from './objects/portableText/descriptionPortableText';
-// import bodyPortableText from './objects/portableText/bodyPortableText';
-import excerptPortableText from './objects/portableText/excerptPortableText';
+import minimalPortableText from './objects/portableText/minimalPortableText';
+import portableText from './objects/portableText/portableText';
 
 // Import Page Sections
 // import { heroSimpleCentered } from './pageSections/heros';
@@ -53,9 +52,8 @@ export default createSchema({
       // Objects
       button,
       pageInfo,
-      descriptionPortableText,
-      // bodyPortableText,
-      excerptPortableText,
+      minimalPortableText,
+      portableText,
       titleAndDescription,
       figure,
       dropdownMenu,

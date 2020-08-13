@@ -1,10 +1,6 @@
-<script>
-  import BlockContent from "@movingbrands/svelte-portable-text";
-  
-  import Image from "./Image";
-  import Link from "./Link";
+<script context="module">
+  import BlockContentPkg from "@movingbrands/svelte-portable-text";
 
-  export let content;
   export const customSerializers = {
     // types: {
     //   image: props => {
@@ -27,8 +23,15 @@
     //   }
     // }
   };
+  
+  // import Image from "./Image";
+  // import Link from "./Link";
+</script>
+<script>
+  export let content;
+  
 </script>
 
 <div class="prose">
-  <BlockContent blocks={content} serializers={customSerializers} />
+  <BlockContentPkg blocks={content} serializers={customSerializers} />
 </div>
