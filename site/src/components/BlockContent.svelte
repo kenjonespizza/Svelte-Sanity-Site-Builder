@@ -32,6 +32,6 @@
   
 </script>
 
-<div class="prose">
+<div>
   <BlockContentPkg blocks={content} serializers={customSerializers} />
 </div>

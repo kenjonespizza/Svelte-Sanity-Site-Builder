@@ -6,12 +6,12 @@ export default {
     {
       name: 'heading',
       title: 'Heading',
-      type: 'string',
+      type: 'headingPortableText',
     },
     {
       name: 'content',
       title: 'Content',
-      type: 'portableText',
+      type: 'minimalPortableText',
     },
   ],
   preview: {

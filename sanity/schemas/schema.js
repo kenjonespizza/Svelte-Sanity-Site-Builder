@@ -20,6 +20,7 @@ import cta from './objects/cta';
 import link from './objects/link'
 import linkInternal from './objects/linkInternal'
 import linkExternal from './objects/linkExternal'
+import headingPortableText from './objects/portableText/headingPortableText';
 import minimalPortableText from './objects/portableText/minimalPortableText';
 import portableText from './objects/portableText/portableText';
 
@@ -52,6 +53,7 @@ export default createSchema({
       // Objects
       button,
       pageInfo,
+      headingPortableText,
       minimalPortableText,
       portableText,
       titleAndDescription,
