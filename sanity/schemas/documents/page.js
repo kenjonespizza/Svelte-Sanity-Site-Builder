@@ -63,7 +63,7 @@ export default {
         { type: 'split_with_grid_on_right_logo' },
       ],
       options: {
-        editModal: 'popover',
+        editModal: 'dialog',
       },
     },
   ],

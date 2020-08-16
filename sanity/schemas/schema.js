@@ -11,6 +11,7 @@ import themeSettings from './documents/siteSettings/themeSettings';
 import menuSettings from './documents/siteSettings/menuSettings';
 
 // Import Objects
+import basicImage from './objects/basicImage';
 import button from './objects/button';
 import pageInfo from './objects/pageInfo';
 import titleAndDescription from './objects/titleAndDescription'
@@ -51,6 +52,7 @@ export default createSchema({
       menuSettings,
 
       // Objects
+      basicImage,
       button,
       pageInfo,
       headingPortableText,

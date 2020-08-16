@@ -10,7 +10,7 @@ export default {
       title: 'Colors on light theme',
       options: {
         collapsible: true, // Makes the whole fieldset collapsible
-        collapsed: true, // Defines if the fieldset should be collapsed by default or not
+        collapsed: false, // Defines if the fieldset should be collapsed by default or not
         columns: 1, // Defines a grid for the fields and how many columns it should have
       },
     },
@@ -19,7 +19,7 @@ export default {
       title: 'Colors on dark theme',
       options: {
         collapsible: true, // Makes the whole fieldset collapsible
-        collapsed: true, // Defines if the fieldset should be collapsed by default or not
+        collapsed: false, // Defines if the fieldset should be collapsed by default or not
         columns: 1, // Defines a grid for the fields and how many columns it should have
       },
     },
@@ -37,15 +37,15 @@ export default {
       },
       fieldset: 'colorsLight',
     },
-    {
-      name: 'colorSecondaryLight',
-      title: 'Secondary Color',
-      type: 'color',
-      options: {
-        disableAlpha: true,
-      },
-      fieldset: 'colorsLight',
-    },
+    // {
+    //   name: 'colorSecondaryLight',
+    //   title: 'Secondary Color',
+    //   type: 'color',
+    //   options: {
+    //     disableAlpha: true,
+    //   },
+    //   fieldset: 'colorsLight',
+    // },
     {
       name: 'colorPrimaryDark',
       title: 'Primary Color',
@@ -55,15 +55,15 @@ export default {
       },
       fieldset: 'colorsDark',
     },
-    {
-      name: 'colorSecondaryDark',
-      title: 'Secondary Color',
-      type: 'color',
-      options: {
-        disableAlpha: true,
-      },
-      fieldset: 'colorsDark',
-    },
+    // {
+    //   name: 'colorSecondaryDark',
+    //   title: 'Secondary Color',
+    //   type: 'color',
+    //   options: {
+    //     disableAlpha: true,
+    //   },
+    //   fieldset: 'colorsDark',
+    // },
   ],
   preview: {
     prepare() {

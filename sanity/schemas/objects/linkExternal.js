@@ -4,7 +4,7 @@ export default {
   type: 'object',
   fields: [
     {
-      name: 'link',
+      name: 'url',
       title: 'Link URL',
       type: 'url',
       description: 'Example: https://www.google.com',

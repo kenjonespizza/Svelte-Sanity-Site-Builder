@@ -3,8 +3,12 @@
     try {
       // As with the server route, we have acces to params.slug here
       const res = await this.fetch(`api/pages/${params.slug}`);
-      const { page } = await res.json();
-      return { page };
+      const { pageData } = await res.json();
+      let {page, allPageData} = pageData
+      page = page[0]
+      return { page, allPageData };
+      // console.log('allPageData:', allPageData)
+      // console.log('page:', page)
     } catch (err) {
       this.error(500, err);
     }
@@ -12,13 +16,14 @@
 </script>
 
 <script>
-  // import BlockContent from "@movingbrands/svelte-portable-text";
-  // import serializers from "../../components/serializers";
+  import BlockRenderer from "../components/BlockRenderer.svelte";
+  import { setContext } from 'svelte';
 
-import BlockRenderer from "../components/BlockRenderer.svelte";
-import { set_input_type } from "svelte/internal";
-
-  export let page;
+  // const {page, allPageData} = pageData;
+  export let page
+  export let allPageData
+	
+  setContext('allPageData', allPageData);
 </script>
 
 <svelte:head>
@@ -26,11 +31,9 @@ import { set_input_type } from "svelte/internal";
 </svelte:head>
 
 <!-- This component requires Tailwind CSS >= 1.5.1 and @tailwindcss/ui >= 0.4.0 -->
-{#if page.pageSections.length > 0}
 {#each page.pageSections as pageSection}
-<BlockRenderer {pageSection} />
+  <BlockRenderer {pageSection}/>
 {/each}
-{/if}
 <div class="relative py-16 bg-white overflow-hidden">
   <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
     <div class="relative h-full text-lg max-w-prose mx-auto">

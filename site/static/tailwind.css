@@ -2,49 +2,4 @@
 
 @tailwind components;
 
-a.button, button.button {
-  @apply px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white transition duration-150 ease-in-out
-}
-
-@screen lg {
-  a.button, button.button {
-    @apply py-4 text-lg px-10
-  }
-}
-
-.button, .button-primary {
-  @apply bg-pink-600
-}
-
-.button-secondary {
-  @apply bg-blue-600
-}
-
-.button-default {
-  @apply bg-gray-900
-}
-
-.button:hover{
-  @apply bg-pink-600
-}
-
-.button-primary:hover {
-  @apply bg-blue-600
-}
-
-.button:focus {
-  @apply outline-none border-pink-600 shadow-outline
-}
-
-.button-primary:focus {
-  @apply border-blue-600
-}
-
-.button:active {
-  @apply bg-pink-700
-}
-.button-primary:active {
-  @apply bg-blue-700
-}
-
 @tailwind utilities;

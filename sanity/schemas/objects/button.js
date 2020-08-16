@@ -18,13 +18,13 @@ export default {
             title: 'Primary',
             value: 'primary',
           },
+          // {
+          //   title: 'Secondary',
+          //   value: 'secondary',
+          // },
           {
-            title: 'Secondary',
-            value: 'secondary',
-          },
-          {
-            title: 'Default - Same as text',
-            value: 'default',
+            title: 'Basic',
+            value: 'basic',
           },
         ],
         layout: 'radio',

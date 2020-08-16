@@ -1,7 +1,7 @@
 <script>
 	export let menuSettings = []
 	
-	const navItems = menuSettings[0].headerNavigation;
+	const navItems = menuSettings.headerNavigation;
 </script>
 
 <!-- This example requires Tailwind CSS v1.4.0+ -->
