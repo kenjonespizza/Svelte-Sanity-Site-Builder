@@ -23,17 +23,75 @@
 	console.log('$sitePreferences:', $sitePreferences)
 </script>
 
-<button
-	aria-label="Toggle theme"
-	title="Toggle theme"
-	on:click={toggle}
->
-	toggle theme {$sitePreferences.theme}
-
-	<!-- <svg viewBox="0 0 24 24">
-		<path class="light" d="M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,15.31L23.31,12L20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31Z" />
-		<path class="dark" d="M12,18C11.11,18 10.26,17.8 9.5,17.45C11.56,16.5 13,14.42 13,12C13,9.58 11.56,7.5 9.5,6.55C10.26,6.2 11.11,6 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31L23.31,12L20,8.69Z" />
-	</svg> -->
+<button on:click={toggle} class="text-gray-500">
+	<svg
+		width="20"
+		height="20"
+		viewBox="0 0 20 20"
+		class={`text-gray-500 transform origin-center ${
+			$sitePreferences.theme === 'light' ? 'rotate-45' : 'rotate-90'
+		}`}
+	>
+		<mask id="moon-mask-ypdj">
+			<rect x="0" y="0" width="20" height="20" fill="#FFF" />
+			<circle
+				cx={`${$sitePreferences.theme === 'light' ? '11' : '20'}`}
+				cy={`${$sitePreferences.theme === 'light' ? '2' : '0'}`}
+				r="9"
+				fill="black"
+			/>
+		</mask>
+		<circle
+			class="transition duration-300"
+			cx="10"
+			cy="10"
+			fill="currentColor"
+			mask="url(#moon-mask-ypdj)"
+			r={`${$sitePreferences.theme === 'light' ? '10' : '4'}`}
+		/>
+		<g
+			class={`transition duration-300 ${
+				$sitePreferences.theme === 'light' ? 'opacity-0' : 'opacity-100'
+			}`}
+		>
+			<circle
+				cx={`${$sitePreferences.theme === 'light' ? '10' : '6'}`}
+				cy={`${$sitePreferences.theme === 'light' ? '10' : '3.07'}`}
+				r="2"
+				fill="currentColor"
+			/>
+			<circle
+				cx={`${$sitePreferences.theme === 'light' ? '10' : '14'}`}
+				cy={`${$sitePreferences.theme === 'light' ? '10' : '3.07'}`}
+				r="2"
+				fill="currentColor"
+			/>
+			<circle
+				cx={`${$sitePreferences.theme === 'light' ? '10' : '18'}`}
+				cy={`${$sitePreferences.theme === 'light' ? '10' : '10'}`}
+				r="2"
+				fill="currentColor"
+			/>
+			<circle
+				cx={`${$sitePreferences.theme === 'light' ? '10' : '14'}`}
+				cy={`${$sitePreferences.theme === 'light' ? '10' : '16.93'}`}
+				r="2"
+				fill="currentColor"
+			/>
+			<circle
+				cx={`${$sitePreferences.theme === 'light' ? '10' : '6'}`}
+				cy={`${$sitePreferences.theme === 'light' ? '10' : '16.93'}`}
+				r="2"
+				fill="currentColor"
+			/>
+			<circle
+				cx={`${$sitePreferences.theme === 'light' ? '10' : '2'}`}
+				cy={`${$sitePreferences.theme === 'light' ? '10' : '10'}`}
+				r="2"
+				fill="currentColor"
+			/>
+		</g>
+	</svg>
 </button>
 
 <style>

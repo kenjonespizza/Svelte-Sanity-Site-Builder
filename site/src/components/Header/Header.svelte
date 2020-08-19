@@ -38,7 +38,7 @@
         {/if}
         </Link>
       </div>
-      <div className="flex space-x-4 md:space-x-10">
+      <div class="flex space-x-4 md:space-x-10">
         <Nav {menuSettings} />
         <ThemeToggler />
       </div>
