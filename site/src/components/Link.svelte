@@ -24,28 +24,36 @@
 
   export let classes;
   export let link;
+  export let ref;
 
   let linkData;
 
-  if (link.link[0]._type === "linkInternal") {
+  if ((link && link.link[0]._type === "linkInternal") || ref) {
     const allPageData = getContext('allPageData'); // Grab all pages link info
-    linkData = getPageInfoFromRef(link.link[0].link._ref, allPageData) // Retrun specific pages info
+    if (ref) {
+      linkData = getPageInfoFromRef(ref, allPageData) // Retrun specific pages info
+    } else {
+      linkData = getPageInfoFromRef(link.link[0].link._ref, allPageData) // Retrun specific pages info
+    }
   }
   
-  if (link.link[0]._type === "linkExternal") {
+  if (link && link.link[0]._type === "linkExternal") {
     linkData = link
   }
 	
   
 </script>
 
-
-{#if link.link[0]._type === "linkInternal" && !linkData.openInNewTab}
+{#if ref}
+  <a class={classes} href={`/${linkData.pageInfo.slug.current}`} rel={linkData.openInNewTab ? 'noopener noreferrer' : 'prefetch'} target={linkData.openInNewTab ? '_blank' : ''}>
+    <slot>{link.text}</slot>
+  </a>
+{:else if link.link[0]._type === "linkInternal" && !linkData.openInNewTab}
   <a class={classes} href={`/${linkData.pageInfo.slug.current}`} rel={linkData.openInNewTab ? 'noopener noreferrer' : 'prefetch'} target={linkData.openInNewTab ? '_blank' : ''}>
     <slot>{link.text}</slot>
   </a>
 {:else if link.link[0]._type === "linkExternal"}
   <a class={classes} href={linkData.link[0].url} rel={linkData.openInNewTab ? 'noopener noreferrer' : 'external'} target={linkData.openInNewTab ? '_blank' : ''}>
-    <slot></slot>
+    <slot>{link.text}</slot>
   </a>
 {/if}

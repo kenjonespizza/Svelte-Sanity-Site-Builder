@@ -45,18 +45,6 @@ export default {
       fieldset: 'header',
     },
     {
-      name: 'logoOnLight',
-      title: 'Logo on light',
-      type: 'figure',
-      fieldset: 'header',
-    },
-    {
-      name: 'logoOnDark',
-      title: 'Logo on dark',
-      type: 'figure',
-      fieldset: 'header',
-    },
-    {
       name: 'logoHeight',
       title: 'Height of Logo',
       type: 'number',

@@ -1,7 +1,12 @@
 <script>
+  import ThemeToggler from '../ThemeToggler.svelte';
+  import Link from '../Link.svelte';
+  import Button from '../Button.svelte';
+  // import Dropdown from '../Dropdown.svelte';
+	
 	export let menuSettings = []
 	
-	const navItems = menuSettings.headerNavigation;
+	const navData = menuSettings.headerNavigation;
 </script>
 
 <!-- This example requires Tailwind CSS v1.4.0+ -->
@@ -32,7 +37,7 @@
               </svg>
             </button>
 					</div>
-					{#each navItems as item,i}
+					{#each navData as item,i}
 						{#if item._type === "link"}
 							<a href="/" class="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
 								{item.text}
@@ -65,6 +70,7 @@
               Sign up
             </a>
           </span>
+          <ThemeToggler />
         </div>
       </div>
     </div>

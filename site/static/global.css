@@ -5,9 +5,17 @@ html, body {
 
 ::-moz-selection {
 	background: var(--primary-500);
-	color: var(--gray-100);
+	color: var(--textOnPrimary);
 }
 ::selection {
 	background: var(--primary-500);
-	color: var(--gray-100);
+	color: var(--textOnPrimary);
+}
+
+html.light .hiddenOnLight {
+	display: none;
+}
+
+html.dark .hiddenOnDark {
+	display: none;
 }

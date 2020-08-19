@@ -7,6 +7,7 @@ module.exports = {
       colors: {
         white: 'var(--white)',
         black: 'var(--black)',
+        textOnPrimary: 'var(--textOnPrimary)',
         indigo: {
           900: 'var(--primary-900)',
           800: 'var(--primary-800)',

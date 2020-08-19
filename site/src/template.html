@@ -7,13 +7,21 @@
 
 	<script>
 		try {
-			if (!('theme' in localStorage)) {
-				localStorage.theme = window.matchMedia('(prefers-color-scheme: dark)').matches
-					? 'dark'
-					: 'light';
+			if (!('sitePreferences' in localStorage)) {
+				let sitePreferences = {
+					theme: 'dark',
+					contrast: 'normal'
+				}
+				let JSONSitePreferences = JSON.stringify(sitePreferences)
+				// localStorage.theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+				// 	? 'dark'
+				// 	: 'light';
+				localStorage.sitePreferences = JSONSitePreferences;
 			}
 
-			document.querySelector('html').classList.add(localStorage.theme);
+			var {theme} = JSON.parse(localStorage.sitePreferences);
+
+			document.querySelector('html').classList.add(theme);
 		} catch (e) {
 			console.error(e);
 		}

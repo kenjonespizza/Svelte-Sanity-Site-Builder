@@ -8,9 +8,9 @@
   let classesPerType;
 
   if (button.color === "basic") {
-    classesPerType = 'text-indigo-600 bg-white hover:text-indigo-500 focus:border-indigo-700 focus:shadow-outline-indigo'
+    classesPerType = 'bg-white text-indigo-600 hover:text-indigo-500 focus:border-indigo-700 focus:shadow-outline-indigo'
   } else {
-    classesPerType = 'text-white bg-indigo-600 hover:bg-indigo-300 focus:border-indigo-700 focus:shadow-outline-indigo focus:border-indigo-300 focus:shadow-outline-indigo'
+    classesPerType = 'bg-indigo-600 text-textOnPrimary hover:bg-indigo-400 focus:border-indigo-700 focus:shadow-outline-indigo focus:border-indigo-300 focus:shadow-outline-indigo'
   }
 </script>
 

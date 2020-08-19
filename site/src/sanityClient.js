@@ -6,6 +6,9 @@ const client = sanityClient({
   projectId,
   dataset,
   useCdn: true
+
+  // useCdn: false,
+  // withCredentials: true, // Add this line
 })
 
 export default client

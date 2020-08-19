@@ -6,7 +6,6 @@ export async function get (req, res) {
     const { slug } = req.params;
     const pageFilter = '*[][0]';
     const pageProjection = `{
-      'allPageData': *[defined(pageInfo.slug.current)]{...},
       'page': *[pageInfo.slug.current == "${slug}"]{...}
     }`;
     

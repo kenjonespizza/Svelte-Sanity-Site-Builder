@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default {
   name: 'themeSettings',
   type: 'document',
@@ -26,6 +24,9 @@ export default {
   ],
   initialValue: {
     // Todo: Add default colors if possible
+    isThemeToggleable: true,
+    defaultTheme: 'light'
+
   },
   fields: [
     {
@@ -64,6 +65,36 @@ export default {
     //   },
     //   fieldset: 'colorsDark',
     // },
+    {
+      name: 'logoOnLight',
+      title: 'Logo on light',
+      type: 'figure',
+    },
+    {
+      name: 'logoOnDark',
+      title: 'Logo on dark',
+      type: 'figure',
+    },
+    {
+      name: 'isThemeToggleable',
+      title: 'Allow light/dark mode to be toggled',
+      type: 'boolean',
+      description: 'Default: True'
+    },
+    {
+      name: 'defaultTheme',
+      title: 'Default Theme',
+      type: 'string',
+      options: {
+        list: [
+          {title: "Light", value: "light"},
+          {title: "Dark", value: "dark"},
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      description: "Default Light"
+    },
   ],
   preview: {
     prepare() {

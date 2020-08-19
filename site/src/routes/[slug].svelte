@@ -4,9 +4,9 @@
       // As with the server route, we have acces to params.slug here
       const res = await this.fetch(`api/pages/${params.slug}`);
       const { pageData } = await res.json();
-      let {page, allPageData} = pageData
+      let {page} = pageData
       page = page[0]
-      return { page, allPageData };
+      return { page };
       // console.log('allPageData:', allPageData)
       // console.log('page:', page)
     } catch (err) {
@@ -17,13 +17,9 @@
 
 <script>
   import BlockRenderer from "../components/BlockRenderer.svelte";
-  import { setContext } from 'svelte';
 
   // const {page, allPageData} = pageData;
   export let page
-  export let allPageData
-	
-  setContext('allPageData', allPageData);
 </script>
 
 <svelte:head>
