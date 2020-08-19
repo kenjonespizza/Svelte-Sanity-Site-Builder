@@ -12,19 +12,20 @@ export default {
       name: 'color',
       title: 'Color',
       type: 'string',
+      description: 'Default: Primary',
       options: {
         list: [
           {
             title: 'Primary',
             value: 'primary',
           },
-          // {
-          //   title: 'Secondary',
-          //   value: 'secondary',
-          // },
           {
             title: 'Basic',
             value: 'basic',
+          },
+          {
+            title: 'Faint',
+            value: 'faint',
           },
         ],
         layout: 'radio',
@@ -40,7 +41,7 @@ export default {
     prepare({color, text}) {
       return {
         title: text || 'Button',
-        subtitle: `${color && `${color.charAt(0).toUpperCase() + color.slice(1)} `}Button`,
+        subtitle: `${color ? `${color.charAt(0).toUpperCase() + color.slice(1)}` : "Primary"} Button`,
       }
     }
   }

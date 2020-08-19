@@ -1,5 +1,5 @@
 <script>
-	import {sitePreferences} from '../stores';
+	import {sitePreferences} from '../localStorageStores';
   
 	let newTheme
 	const toggle = () => {
@@ -20,7 +20,7 @@
 			// ignore
 		}
 	};
-	console.log('$sitePreferences:', $sitePreferences)
+
 </script>
 
 <button on:click={toggle} class="text-gray-500">
@@ -28,7 +28,7 @@
 		width="20"
 		height="20"
 		viewBox="0 0 20 20"
-		class={`text-gray-500 transform origin-center ${
+		class={`text-gray-500 hover:text-indigo-600 transform origin-center ${
 			$sitePreferences.theme === 'light' ? 'rotate-45' : 'rotate-90'
 		}`}
 	>

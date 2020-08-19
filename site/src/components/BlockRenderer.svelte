@@ -4,7 +4,9 @@
   export let pageSection
 </script>
 
-<svelte:component
-  data={pageSection}
-  this={getComponent(pageSection._type)}
-/>
+{#if pageSection && !pageSection.disabled}
+  <svelte:component
+    data={pageSection}
+    this={getComponent(pageSection._type)}
+  />
+{/if}

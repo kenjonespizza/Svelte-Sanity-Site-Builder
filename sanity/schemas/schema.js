@@ -32,7 +32,6 @@ import portableText from './objects/portableText/portableText';
 // All the TUI components
 import * as pageSections from './pageSections';
 import sectionsDefaultFields from './pageSections/_sectionsDefaultFields';
-// import { three_tiers_with_emphasized_tier } from './pageSections';
 
 const allPageSections = Object.values(pageSections).map((section) => {
   return { ...section, fields: sectionsDefaultFields.concat(section.fields) };

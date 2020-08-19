@@ -2,12 +2,8 @@
   import Link from '../Link.svelte'
 
   let isOpen = false
-  console.log('isOpen:', isOpen)
 
-  const toggle = () => {
-    isOpen = !isOpen
-    console.log('isOpen:', isOpen)
-  }
+  function toggle() {isOpen = !isOpen}
 
   export let data;
 </script>

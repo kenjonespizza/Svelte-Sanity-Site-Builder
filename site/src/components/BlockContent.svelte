@@ -29,9 +29,9 @@
 </script>
 <script>
   export let content;
-  
+  export let classes;
 </script>
 
-<div>
+<div class={classes}>
   <BlockContentPkg blocks={content} serializers={customSerializers} />
 </div>

@@ -1,22 +1,17 @@
+import {blockPreview} from '../../../src/utils/helpers'
+const sectionName = `Hero: Split Image & Text`
+
 export default {
   name: 'split_image_text_hero',
   type: 'object',
-  title: 'Hero: Split Image & Text',
+  title: sectionName,
   fieldsets: [
     {
       name: 'heading', 
       title: 'Heading',
-      options: {
-        // columns: 2
-      }
     }
   ],
   fields: [
-    // {
-    //   name: 'heading',
-    //   title: 'Heading',
-    //   type: 'headingPortableText',
-    // },
     {
       name: 'heading',
       title: 'Heading',
@@ -59,13 +54,15 @@ export default {
   ],
   preview: {
     select: {
-      title: 'heading',
+      heading: 'heading',
       disabled: 'disabled',
+      image: 'image.image',
     },
-    prepare({ title, disabled }) {
+    prepare({ heading, disabled, image }) {
       return {
-        title: `${disabled ? '⚠️ DISABLED' : title}`,
-        subtitle: `Hero: Split Image & Text: ${disabled ? 'DISABLED' : title}`,
+        title: `${disabled ? '⚠️ DISABLED' : (heading || "No Heading")}`,
+        subtitle: sectionName,
+        media: image,
       };
     },
   },

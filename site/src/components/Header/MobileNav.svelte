@@ -1,221 +1,103 @@
 <script>
+  import { isMobileNavOpen } from '../../stores'
+  import {urlFor} from '../../utils/helpers'
   import ThemeToggler from '../ThemeToggler.svelte';
   import Link from '../Link.svelte';
   import Button from '../Button.svelte';
-  // import Dropdown from '../Dropdown.svelte';
+  import MobileDropdown from './MobileDropdown.svelte';
 	
+	// export let segment = []
+	export let themeSettings = []
 	export let menuSettings = []
+	export let siteSettings = []
 	
-	const navData = menuSettings.headerNavigation;
+  const navItems = menuSettings.headerNavigation;
+
+  function toggleMobileNav() {
+    isMobileNavOpen.update(() => !$isMobileNavOpen)
+  }
+
 </script>
 
-<!-- This example requires Tailwind CSS v1.4.0+ -->
-<div class="z-0 relative bg-white">
-  <div class="relative z-10 shadow">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
-      <div>
-        <a href="/" class="flex">
-          <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-on-white.svg" alt="Workflow">
-        </a>
-      </div>
-      <div class="-mr-2 -my-2 md:hidden">
-        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-      <div class="hidden md:flex-1 md:flex md:items-center md:justify-between md:space-x-12">
-        <nav class="flex space-x-10">
-          <div class="relative">
-            <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-            <button type="button" class="text-gray-500 group inline-flex items-center space-x-2 text-base leading-6 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
-              <span>Solutions</span>
-              <!-- Item active: "text-gray-600", Item inactive: "text-gray-400" -->
-              <svg class="text-gray-400 h-5 w-5 group-hover:text-gray-500 group-focus:text-gray-500 transition ease-in-out duration-150" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </button>
-					</div>
-					{#each navData as item,i}
-						{#if item._type === "link"}
-							<a href="/" class="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
-								{item.text}
-							</a>
-						{/if}
-					{/each}
-          <a href="/" class="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
-            Pricing
-          </a>
-          <a href="/" class="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
-            Docs
-          </a>
-          <div class="relative">
-            <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-            <button type="button" class="text-gray-500 group inline-flex items-center space-x-2 text-base leading-6 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
-              <span>Menu</span>
-              <!-- Item active: "text-gray-600", Item inactive: "text-gray-400" -->
-              <svg class="text-gray-400 h-5 w-5 group-hover:text-gray-500 group-focus:text-gray-500 transition ease-in-out duration-150" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </button>
-          </div>
-        </nav>
-        <div class="flex items-center space-x-8">
-          <a href="/" class="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
-            Sign in
-          </a>
-          <span class="inline-flex rounded-md shadow-sm">
-            <a href="/" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
-              Sign up
-            </a>
-          </span>
-          <ThemeToggler />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Solutions menu -->
-  <!--
-    'Solutions' flyout menu, show/hide based on flyout menu state.
-
-    Entering: "transition ease-out duration-200"
-      From: "opacity-0 -translate-y-1"
-      To: "opacity-100 translate-y-0"
-    Leaving: "transition ease-in duration-150"
-      From: "opacity-100 translate-y-0"
-      To: "opacity-0 -translate-y-1"
-  -->
-  
-  <!-- More menu -->
-  <!--
-    'More' flyout menu, show/hide based on flyout menu state.
-
-    Entering: "transition ease-out duration-200"
-      From: "opacity-0 -translate-y-1"
-      To: "opacity-100 translate-y-0"
-    Leaving: "transition ease-in duration-150"
-      From: "opacity-100 translate-y-0"
-      To: "opacity-0 -translate-y-1"
-  -->
-  
-
-  <!--
-    Mobile menu, show/hide based on mobile menu state.
-
-    Entering: "duration-200 ease-out"
-      From: "opacity-0 scale-95"
-      To: "opacity-100 scale-100"
-    Leaving: "duration-100 ease-in"
-      From: "opacity-100 scale-100"
-      To: "opacity-0 scale-95"
-  -->
-  <div class="absolute z-20 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-    <div class="rounded-lg shadow-lg">
-      <div class="rounded-lg shadow-xs bg-white divide-y-2 divide-gray-50">
-        <div class="pt-5 pb-6 px-5 space-y-6 sm:space-y-8 sm:pb-8">
-          <div class="flex items-center justify-between">
-            <div>
-              <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-on-white.svg" alt="Workflow">
-            </div>
-            <div class="-mr-2">
-              <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
+<button
+  on:click={toggleMobileNav}
+  class={`${
+    $isMobileNavOpen
+      ? 'opacity-75 z-30 pointer-events-auto'
+      : 'opacity-0 z-0 pointer-events-none'
+  } absolute top-0 left-0 w-screen h-screen bg-black opacity-10 md:hidden cursor-default transition duration-300`}
+/>
+<div
+  class={`${
+    $isMobileNavOpen ? 'fixed' : 'hidden'
+  } mobile-nav top-0 inset-x-0 p-2 z-30 transition transform origin-top-right md:hidden`}
+>
+  <div class="rounded-lg shadow-lg">
+    <div class="rounded-lg shadow-xs bg-white divide-y-2 divide-gray-50">
+      <div class="pt-5 pb-6 px-5 space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <Link classes="flex" ref={siteSettings.frontpage._ref}>
+              <!-- Logo On Light -->
+              {#if themeSettings.logoOnLight || themeSettings.logoOnDark}
+                <img class="hiddenOnDark w-auto" style="height: {menuSettings.logoHeight}px" src={urlFor(themeSettings.logoOnLight || themeSettings.logoOnDark).quality(100).height(menuSettings.logoHeight * 2)} alt={siteSettings.siteName}>
+              {/if}
+              <!-- Logo On Dark -->
+              {#if themeSettings.logoOnLight || themeSettings.logoOnDark}
+                <img class="hiddenOnLight w-auto" style="height: {menuSettings.logoHeight}px" src={urlFor(themeSettings.logoOnDark || themeSettings.logoOnLight).quality(100).height(menuSettings.logoHeight * 2)} alt={siteSettings.siteName}>
+              {/if}
+              <!-- Show text as logo if no light or dark logo is uploaded -->
+              {#if siteSettings.siteName && !(themeSettings.logoOnLight && themeSettings.logoOnDark)}
+                <span class="font-bold text-2xl flex items-center" style="minHeight: {menuSettings.logoHeight}">{siteSettings.siteName}</span>
+              {/if}
+            </Link>
           </div>
           <div>
-            <nav class="space-y-8">
-              <div class="grid gap-7 sm:grid-cols-2 sm:row-gap-8 sm:col-gap-4">
-                <a href="/" class="-m-3 space-x-4 flex items-center p-3 rounded-lg hover:bg-gray-50 transition ease-in-out duration-150">
-                  <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
-                  </div>
-                  <div class="text-base leading-6 font-medium text-gray-900">
-                    Analytics
-                  </div>
-                </a>
-                <a href="/" class="-m-3 space-x-4 flex items-center p-3 rounded-lg hover:bg-gray-50 transition ease-in-out duration-150">
-                  <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
-                    </svg>
-                  </div>
-                  <div class="text-base leading-6 font-medium text-gray-900">
-                    Engagement
-                  </div>
-                </a>
-                <a href="/" class="-m-3 space-x-4 flex items-center p-3 rounded-lg hover:bg-gray-50 transition ease-in-out duration-150">
-                  <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                  </div>
-                  <div class="text-base leading-6 font-medium text-gray-900">
-                    Security
-                  </div>
-                </a>
-                <a href="/" class="-m-3 space-x-4 flex items-center p-3 rounded-lg hover:bg-gray-50 transition ease-in-out duration-150">
-                  <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                    </svg>
-                  </div>
-                  <div class="text-base leading-6 font-medium text-gray-900">
-                    Integrations
-                  </div>
-                </a>
-              </div>
-              <div class="text-base leading-6">
-                <a href="/" class="font-medium text-indigo-600 hover:text-indigo-500 transition ease-in-out duration-150">
-                  View all products &rarr;
-                </a>
-              </div>
-            </nav>
+            <button
+              on:click={toggleMobileNav}
+              type="button"
+              class="-mr-2 -mt-1 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
           </div>
         </div>
-        <div class="py-6 px-5 space-y-6">
-          <div class="grid grid-cols-2 gap-4">
-            <a href="/" class="rounded-md text-base leading-6 font-medium text-gray-900 hover:text-gray-700 transition ease-in-out duration-150">
-              Pricing
-            </a>
-            <a href="/" class="rounded-md text-base leading-6 font-medium text-gray-900 hover:text-gray-700 transition ease-in-out duration-150">
-              Docs
-            </a>
-            <a href="/" class="rounded-md text-base leading-6 font-medium text-gray-900 hover:text-gray-700 transition ease-in-out duration-150">
-              Company
-            </a>
-            <a href="/" class="rounded-md text-base leading-6 font-medium text-gray-900 hover:text-gray-600 transition ease-in-out duration-150">
-              Resources
-            </a>
-            <a href="/" class="rounded-md text-base leading-6 font-medium text-gray-900 hover:text-gray-600 transition ease-in-out duration-150">
-              Blog
-            </a>
-            <a href="/" class="rounded-md text-base leading-6 font-medium text-gray-900 hover:text-gray-600 transition ease-in-out duration-150">
-              Contact Sales
-            </a>
-          </div>
-          <div class="space-y-6">
-            <span class="w-full flex rounded-md shadow-sm">
-              <a href="/" class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
-                Sign up
-              </a>
-            </span>
-            <p class="text-center text-base leading-6 font-medium text-gray-500">
-              Existing customer?
-              <a href="/" class="text-indigo-600 hover:text-indigo-500 transition ease-in-out duration-150">
-                Sign in
-              </a>
-            </p>
-          </div>
+        <div>
+          <nav class="flex flex-col space-y-2">
+            {#each navItems as item}
+              {#if item._type === 'link'}
+                <div on:click={toggleMobileNav}>
+                  <Link
+                    link={item}
+                    classes="text-base leading-6 font-medium px-6 py-3 text-gray-900 flex items-center rounded-md hover:bg-gray-100 transition ease-in-out duration-150"
+                  />
+                </div>
+              {:else if item._type === 'button'}
+                <div on:click={toggleMobileNav}>
+                  <Button 
+                    on:click={toggleMobileNav}
+                    button={item} 
+                    additionalClasses="w-full" />
+                </div>
+              {:else if item._type === 'dropdownMenu'}
+                <MobileDropdown data={item} />
+              {/if}
+            {/each}
+          </nav>
         </div>
       </div>
     </div>
   </div>
 </div>
-

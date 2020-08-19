@@ -28,6 +28,7 @@
 
   let linkData;
 
+  // Build linkData to grab & normalize the data
   if ((link && link.link[0]._type === "linkInternal") || ref) {
     const allPageData = getContext('allPageData'); // Grab all pages link info
     if (ref) {
@@ -48,8 +49,8 @@
   <a class={classes} href={`/${linkData.pageInfo.slug.current}`} rel={linkData.openInNewTab ? 'noopener noreferrer' : 'prefetch'} target={linkData.openInNewTab ? '_blank' : ''}>
     <slot>{link.text}</slot>
   </a>
-{:else if link.link[0]._type === "linkInternal" && !linkData.openInNewTab}
-  <a class={classes} href={`/${linkData.pageInfo.slug.current}`} rel={linkData.openInNewTab ? 'noopener noreferrer' : 'prefetch'} target={linkData.openInNewTab ? '_blank' : ''}>
+{:else if link.link[0]._type === "linkInternal"}
+  <a class={classes} href={`/${linkData.pageInfo.slug.current}`} rel={linkData.openInNewTab ? 'external' : 'prefetch'} target={linkData.openInNewTab ? '_blank' : ''}>
     <slot>{link.text}</slot>
   </a>
 {:else if link.link[0]._type === "linkExternal"}

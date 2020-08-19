@@ -5,9 +5,9 @@ const { projectId, dataset } = api
 const client = sanityClient({
   projectId,
   dataset,
-  useCdn: true
+  // useCdn: true
 
-  // useCdn: false,
+  useCdn: false,
   // withCredentials: true, // Add this line
 })
 

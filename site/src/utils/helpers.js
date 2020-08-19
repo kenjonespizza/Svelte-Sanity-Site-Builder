@@ -32,14 +32,3 @@ export function getPageInfoFromRef (ref, allPageData) { // Use the link _ref to 
   }
   return false
 }
-
-export function getTheme() {
-  let theme = 'light';
-	try {
-    theme = localStorage.theme;
-	} catch (e) {
-		// ignore — could be SSR, or e.g. Firefox with restrictive permissions
-  }
-
-  return theme
-}
