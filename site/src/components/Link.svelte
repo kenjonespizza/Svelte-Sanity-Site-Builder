@@ -46,15 +46,15 @@
 </script>
 
 {#if ref}
-  <a class={classes} href={`/${linkData.pageInfo.slug.current}`} rel={linkData.openInNewTab ? 'noopener noreferrer' : 'prefetch'} target={linkData.openInNewTab ? '_blank' : ''}>
+  <a class={classes} href={`/${linkData.pageInfo.slug.current}`}>
     <slot>{link.text}</slot>
   </a>
 {:else if link.link[0]._type === "linkInternal"}
-  <a class={classes} href={`/${linkData.pageInfo.slug.current}`} rel={linkData.openInNewTab ? 'external' : 'prefetch'} target={linkData.openInNewTab ? '_blank' : ''}>
+  <a class={classes} href={`/${linkData.pageInfo.slug.current}`} rel={link.openInNewTab ? 'external' : 'prefetch'} target={link.openInNewTab ? '_blank' : ''}>
     <slot>{link.text}</slot>
   </a>
 {:else if link.link[0]._type === "linkExternal"}
-  <a class={classes} href={linkData.link[0].url} rel={linkData.openInNewTab ? 'noopener noreferrer' : 'external'} target={linkData.openInNewTab ? '_blank' : ''}>
+  <a class={classes} href={linkData.link[0].url} rel={link.openInNewTab ? 'noopener noreferrer' : 'external'} target={link.openInNewTab ? '_blank' : ''}>
     <slot>{link.text}</slot>
   </a>
 {/if}

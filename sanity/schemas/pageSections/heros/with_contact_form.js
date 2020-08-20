@@ -1,7 +1,7 @@
-const sectionName = `Hero: With Angled Image On Right`
+const sectionName = `Hero: With Contact Form`
 
 export default {
-  name: 'with_angled_image_on_right_hero',
+  name: 'with_contact_form',
   type: 'object',
   title: sectionName,
   fieldsets: [
@@ -21,6 +21,7 @@ export default {
       name: 'headingType',
       title: 'Heading Type',
       type: 'string',
+      description: 'Default: H2',
       options: {
         list: [
           {value: 'h1', title: 'H1'},
@@ -46,24 +47,35 @@ export default {
       ]
     },
     {
-      name: 'image',
-      title: 'Image',
-      type: 'basicImage',
-    },
+      title: "Contact Form Fields",
+      name: "formFields",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        list: [
+          { title: "Name", value: "name" },
+          { title: "Email Address", value: "email" },
+          { title: "Phone", value: "phone" },
+          { title: "Message", value: "message" },
+        ],
+        layout: "radio",
+        direction: "horizontal"
+      }
+    }
   ],
   preview: {
     select: {
       heading: 'heading',
       disabled: 'disabled',
-      image: 'image.image',
     },
-    prepare({ heading, disabled, image }) {
+    prepare({ heading, disabled }) {
+      console.log('heading:', heading)
       return {
-        title: `${disabled ? '⚠️ DISABLED' : (heading || 'No Heading')}`,
+        title: `${disabled ? '⚠️ DISABLED' : (heading || "No Heading")}`,
         subtitle: sectionName,
-        media: image,
       };
     },
   },
 };
+
 

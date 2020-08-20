@@ -15,7 +15,7 @@
 	// initialTheme.update(theme)
 
 	export async function preload(page, session) {
-		const globalDataFetch = await client.fetch(`*[][0]{'siteSettings':*[_type == "siteSettings"][0]{...},'menuSettings':*[_type == "menuSettings"][0]{...},'themeSettings':*[_type == "themeSettings"][0]{...},'allPageData': *[defined(pageInfo.slug.current)]{...}}`)
+		const globalDataFetch = await client.fetch(`*[][0]{'siteSettings':*[_type == "siteSettings"][0]{...},'menuSettings':*[_type == "menuSettings"][0]{...},'themeSettings':*[_type == "themeSettings"][0]{...},'allPageData': *[defined(pageInfo.slug.current)]{_id,pageInfo}}`)
 		// return { siteSettings: siteSettingsResponse || [], menuSettings: menuSettingsResponse || [] }
 		const {menuSettings: menuSettingsArr, siteSettings: siteSettingsArr, themeSettings: themeSettingsArr, allPageData: allPageDataArr} = globalDataFetch
 		const menuSettings = menuSettingsArr
@@ -32,15 +32,15 @@
 		};
 
 		// Make array of colors.  These are skewed because 600 is the main color
-		const lightPrimaryLight = chroma.scale(['white', {...brandColor.light.primary.rgb}]).padding([0.2, 0]).colors(7)
+		const lightPrimaryLight = chroma.scale(['white', {...brandColor.light.primary.rgb}]).padding([0.1, 0]).colors(7)
 		lightPrimaryLight.pop()
-		const lightPrimaryDark = chroma.scale([{...brandColor.light.primary.rgb}, 'black']).padding([0, 0.2]).colors(5)
+		const lightPrimaryDark = chroma.scale([{...brandColor.light.primary.rgb}, 'black']).padding([0, 0.1]).colors(5)
 		const lightPrimary = [...lightPrimaryLight, ...lightPrimaryDark]
 
 		// Make array of colors.  These are skewed because 600 is the main color
-		const darkPrimaryLight = chroma.scale(['white', {...brandColor.dark.primary.rgb}]).padding([0.2, 0]).colors(7)
+		const darkPrimaryLight = chroma.scale(['black', {...brandColor.dark.primary.rgb}]).padding([0.1, 0]).colors(7)
 		darkPrimaryLight.pop()
-		const darkPrimaryDark = chroma.scale([{...brandColor.dark.primary.rgb}, 'black']).padding([0, 0.2]).colors(5)
+		const darkPrimaryDark = chroma.scale([{...brandColor.dark.primary.rgb}, 'white']).padding([0, 0.1]).colors(5)
 		const darkPrimary = [...darkPrimaryLight, ...darkPrimaryDark]
 
 		// See if white or black has a higher contrast on top of the primary color.  Return white or black.
@@ -216,6 +216,8 @@
 			stylesheet.innerHTML = `
 				html.light { ${stringLight} }
 				html.dark { ${stringDark} }
+				html.light .inverted { ${stringDark} }
+				html.dark .inverted { ${stringLight} }
 			`
 		}
 	});
@@ -290,6 +292,8 @@
 				stylesheet.innerHTML = `
 					html.light { ${stringLight} }
 					html.dark { ${stringDark} }
+					html.light .inverted { ${stringDark} }
+					html.dark .inverted { ${stringLight} }
 				`
       }
     })()

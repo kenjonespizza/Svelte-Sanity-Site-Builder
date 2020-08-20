@@ -1,4 +1,3 @@
-import {blockPreview} from '../../../src/utils/helpers'
 const sectionName = `Hero: Split Image & Text`
 
 export default {
@@ -38,11 +37,7 @@ export default {
       title: 'Content',
       type: 'minimalPortableText',
     },
-    {
-      name: 'image',
-      title: 'Image',
-      type: 'basicImage',
-    },
+    
     {
       name: 'buttons',
       title: 'Button(s)',
@@ -50,6 +45,11 @@ export default {
       of: [
         {type: 'button'}
       ]
+    },
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'basicImage',
     },
   ],
   preview: {

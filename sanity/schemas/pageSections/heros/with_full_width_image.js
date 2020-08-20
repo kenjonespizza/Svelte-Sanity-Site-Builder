@@ -1,7 +1,7 @@
-const sectionName = `Hero: With Angled Image On Right`
+const sectionName = `Hero: With Full Width Image`
 
 export default {
-  name: 'with_angled_image_on_right_hero',
+  name: 'with_full_width_image',
   type: 'object',
   title: sectionName,
   fieldsets: [
@@ -33,8 +33,8 @@ export default {
       fieldset: 'heading',
     },
     {
-      name: 'content',
-      title: 'Content',
+      name: 'contentAboveImage',
+      title: 'Content Above image',
       type: 'minimalPortableText',
     },
     {
@@ -50,6 +50,11 @@ export default {
       title: 'Image',
       type: 'basicImage',
     },
+    {
+      name: 'contentBelowImage',
+      title: 'Content Below image',
+      type: 'minimalPortableText',
+    },
   ],
   preview: {
     select: {
@@ -59,7 +64,7 @@ export default {
     },
     prepare({ heading, disabled, image }) {
       return {
-        title: `${disabled ? '⚠️ DISABLED' : (heading || 'No Heading')}`,
+        title: `${disabled ? '⚠️ DISABLED' : (heading || "No Heading")}`,
         subtitle: sectionName,
         media: image,
       };

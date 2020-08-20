@@ -1,4 +1,3 @@
-import {blockPreview} from '../../../src/utils/helpers'
 const sectionName = `Hero: Simple Centered`
 
 export default {

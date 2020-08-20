@@ -23,8 +23,9 @@ export default {
         // Heros
         { type: 'simple_centered_hero' },
         { type: 'with_angled_image_on_right_hero' },
-        { type: 'with_sign_up_and_media_content_hero' },
+        { type: 'with_contact_form' },
         { type: 'split_image_text_hero' },
+        { type: 'with_full_width_image' },
         // Cta
         { type: 'simple_centered_cta' },
         { type: 'simple_justified_cta' },
