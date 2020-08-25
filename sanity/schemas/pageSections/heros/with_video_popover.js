@@ -31,9 +31,16 @@ export default {
       ]
     },
     {
-      name: 'videoURL',
+      name: 'image',
+      title: 'Video Splash Image',
+      type: 'basicImage',
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'video',
       title: 'Video',
       type: 'youtube',
+      validation: Rule => Rule.required()
     },
   ],
   preview: {

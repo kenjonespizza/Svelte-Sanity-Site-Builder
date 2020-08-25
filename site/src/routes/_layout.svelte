@@ -129,7 +129,7 @@
 <script>
 	import { setContext } from 'svelte';
 	import { onMount } from 'svelte'
-	// import {theme as themeStore} from '../store';
+	import { disableScrolling } from '../stores';
 	import {shade, tint} from 'polished'
 	import chroma from 'chroma-js'
 	// import cssVars from 'svelte-css-vars';
@@ -225,6 +225,16 @@
 </script>
 
 <svelte:head>
+	{#if $disableScrolling}
+    <style>
+      body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+    </style>
+  {/if}
+
   <style id="unique-stylesheet-id"> </style>
   <script>
 		// read the stored theme if it exists, 
