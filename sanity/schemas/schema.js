@@ -10,6 +10,13 @@ import siteSettings from './documents/siteSettings/index';
 import themeSettings from './documents/siteSettings/themeSettings';
 import menuSettings from './documents/siteSettings/menuSettings';
 
+// Import Blog Documents
+import author from './blog/documents/author';
+import category from './blog/documents/category';
+import post from './blog/documents/post';
+import tag from './blog/documents/tag';
+import blogSettings from './blog/documents/blogSettings';
+
 // Import Objects
 import basicImage from './objects/basicImage';
 import basicVideo from './objects/basicVideo';
@@ -23,10 +30,15 @@ import headingBlock from './objects/headingBlock';
 import link from './objects/link'
 import linkInternal from './objects/linkInternal'
 import linkExternal from './objects/linkExternal'
-import youtube from './objects/youtube';
-import headingPortableText from './objects/portableText/headingPortableText';
 import minimalPortableText from './objects/portableText/minimalPortableText';
 import portableText from './objects/portableText/portableText';
+import youtube from './objects/youtube';
+import socialMediaHandles from './objects/socialMediaHandles';
+
+// Import Blog Objects
+import authorReference from './blog/objects/authorReference';
+import blogPageInfo from './blog/objects/blogPageInfo';
+import authorPageInfo from './blog/objects/authorPageInfo';
 
 // Import Page Sections
 // import { heroSimpleCentered } from './pageSections/heros';
@@ -53,12 +65,18 @@ export default createSchema({
       themeSettings,
       menuSettings,
 
+      // Blog Documents
+      author,
+      category,
+      post,
+      tag,
+      blogSettings,
+
       // Objects
       basicImage,
       basicVideo,
       button,
       pageInfo,
-      headingPortableText,
       minimalPortableText,
       portableText,
       titleAndDescription,
@@ -70,6 +88,12 @@ export default createSchema({
       linkExternal,
       cta,
       youtube,
+      socialMediaHandles,
+
+      // Blog Objects
+      authorReference,
+      blogPageInfo,
+      authorPageInfo,
     ])
     .concat(allPageSections),
 });

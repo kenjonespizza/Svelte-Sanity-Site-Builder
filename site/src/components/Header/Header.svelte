@@ -12,8 +12,6 @@
   export let menuSettings = []
 	export let siteSettings = []
 	export let themeSettings = []
-	
-  const navItems = menuSettings.headerNavigation;
   
   function toggleMobileNav() {
     isMobileNavOpen.update(() => !$isMobileNavOpen)
@@ -29,15 +27,15 @@
         <Link classes="flex" ref={siteSettings.frontpage._ref}>
           <!-- Logo On Light -->
           {#if themeSettings.logoOnLight || themeSettings.logoOnDark}
-            <img class="hiddenOnDark w-auto" style="height: {menuSettings.logoHeight}px" src={urlFor(themeSettings.logoOnLight || themeSettings.logoOnDark).quality(100).height(menuSettings.logoHeight * 2)} alt={siteSettings.siteName}>
+            <img class="hiddenOnDark w-auto" style="height: {menuSettings && menuSettings.logoHeight || 40}px" src={urlFor(themeSettings.logoOnLight || themeSettings.logoOnDark).quality(100).height(menuSettings && menuSettings.logoHeight * 2 || 80)} alt={siteSettings.siteName}>
           {/if}
           <!-- Logo On Dark -->
           {#if themeSettings.logoOnLight || themeSettings.logoOnDark}
-            <img class="hiddenOnLight w-auto" style="height: {menuSettings.logoHeight}px" src={urlFor(themeSettings.logoOnDark || themeSettings.logoOnLight).quality(100).height(menuSettings.logoHeight * 2)} alt={siteSettings.siteName}>
+            <img class="hiddenOnLight w-auto" style="height: {menuSettings && menuSettings.logoHeight || 40}px" src={urlFor(themeSettings.logoOnDark || themeSettings.logoOnLight).quality(100).height(menuSettings && menuSettings.logoHeight * 2 || 80)} alt={siteSettings.siteName}>
           {/if}
           <!-- Show text as logo if no light or dark logo is uploaded -->
           {#if siteSettings.siteName && !(themeSettings.logoOnLight && themeSettings.logoOnDark)}
-            <span class="font-bold text-2xl flex items-center" style="minHeight: {menuSettings.logoHeight}">{siteSettings.siteName}</span>
+            <span class="font-bold text-2xl flex items-center" style="minHeight: {menuSettings && menuSettings.logoHeight || 40}">{siteSettings.siteName}</span>
           {/if}
         </Link>
       </div>

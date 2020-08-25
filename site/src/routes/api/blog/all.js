@@ -6,7 +6,7 @@ import client from '../../../sanityClient'
  */
 export async function get (req, res) {
   try {
-    const pages = await client.fetch(`*[defined(pageInfo.slug.current)]`)
+    const pages = await client.fetch(`*[_type = "post" defined(pageInfo.slug.current)]`)
     res.end(JSON.stringify({ pages }));
   } catch (err) {
     console.log('err:', err.message)

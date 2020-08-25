@@ -302,7 +302,7 @@
 
 <!-- Nav Placeholder -->
 <div class="py-6">
-	<div style="height: {menuSettings.logoHeight}px"></div>
+	<div style="height: {menuSettings && menuSettings.logoHeight || 80}px"></div>
 </div>
 <Header {segment} {menuSettings} {siteSettings} {themeSettings} />
 <main>
