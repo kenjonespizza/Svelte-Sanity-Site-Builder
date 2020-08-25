@@ -12,15 +12,18 @@ import menuSettings from './documents/siteSettings/menuSettings';
 
 // Import Objects
 import basicImage from './objects/basicImage';
+import basicVideo from './objects/basicVideo';
 import button from './objects/button';
 import pageInfo from './objects/pageInfo';
 import titleAndDescription from './objects/titleAndDescription'
 import dropdownMenu from './objects/dropdownMenu'
-import figure from './objects/figure';
 import cta from './objects/cta';
+import figure from './objects/figure';
+import headingBlock from './objects/headingBlock';
 import link from './objects/link'
 import linkInternal from './objects/linkInternal'
 import linkExternal from './objects/linkExternal'
+import youtube from './objects/youtube';
 import headingPortableText from './objects/portableText/headingPortableText';
 import minimalPortableText from './objects/portableText/minimalPortableText';
 import portableText from './objects/portableText/portableText';
@@ -52,18 +55,21 @@ export default createSchema({
 
       // Objects
       basicImage,
+      basicVideo,
       button,
       pageInfo,
       headingPortableText,
       minimalPortableText,
       portableText,
       titleAndDescription,
-      figure,
       dropdownMenu,
+      figure,
+      headingBlock,
       link,
       linkInternal,
       linkExternal,
       cta,
+      youtube,
     ])
     .concat(allPageSections),
 });

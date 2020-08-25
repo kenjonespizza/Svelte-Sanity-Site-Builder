@@ -1,6 +1,6 @@
 export default {
   name: 'basicImage',
-  title: 'BasicImage',
+  title: 'Image',
   type: 'object',
   fields: [
     {
@@ -9,7 +9,7 @@ export default {
       type: 'image',
       options: {
         hotspot: true, // <-- Defaults to false
-        metadata: ['exif', 'location', 'lqip', 'palette']
+        // metadata: ['exif', 'location', 'lqip', 'palette']
       },
       fields: [
         // {

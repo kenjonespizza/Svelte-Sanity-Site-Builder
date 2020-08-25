@@ -26,6 +26,7 @@ export default {
         { type: 'with_contact_form' },
         { type: 'split_image_text_hero' },
         { type: 'with_full_width_image' },
+        { type: 'with_video_popover' },
         // Cta
         { type: 'simple_centered_cta' },
         { type: 'simple_justified_cta' },

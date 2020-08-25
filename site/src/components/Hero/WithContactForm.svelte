@@ -1,11 +1,22 @@
-<script context="module">
+<script>
   import BlockContent from '../BlockContent.svelte'
   import Button from '../Button.svelte'
+  import Link from '../Link.svelte'
   import TagRenderer from '../TagRenderer.svelte'
   import {urlFor} from '../../utils/helpers'
-</script>  
-<script>
+
   export let data
+  console.log('data:', data)
+  
+  let formFields = []
+  let hasFromFields
+  
+  if (data.formFields && typeof data.formFields === 'object' && data.formFields.length > 0) {
+    hasFromFields = true
+    formFields = data.formFields
+  }
+  console.log('formFields:', formFields)
+  
 </script>
 
 <div class="relative bg-white overflow-hidden">
@@ -24,23 +35,32 @@
     <main class="mt-8 sm:mt-16 md:mt-20 lg:mt-24">
       <div class="mx-auto max-w-screen-xl">
         <div class="lg:grid lg:grid-cols-12 lg:gap-8">
-          <div class="px-4 sm:px-6 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">
+          <div class="px-4 text-center sm:px-6 md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">
             <div>
-              <h2 class="mt-4 text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:mt-5 sm:leading-none sm:text-6xl lg:mt-6 lg:text-5xl xl:text-6xl">
-                Data to enrich your
-                <br class="hidden md:inline">
-                <span class="text-indigo-400">online business</span>
-              </h2>
-              <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua ad ad non deserunt sunt.
-              </p>
+
+              {#if data.headingBlock && data.headingBlock.subHeading}
+                <div class="text-sm mb-2 font-semibold uppercase tracking-wide text-gray-500 sm:text-base lg:text-sm xl:text-base">
+                  {data.headingBlock.subHeading}
+                </div>
+              {/if}
+              
+              {#if data.headingBlock && data.headingBlock.heading}
+                <TagRenderer tag={data.headingType || 'h2'} classes="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
+                  {data.heading}
+                </TagRenderer>
+              {/if}
+
+              <BlockContent content={data.content} classes="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl prose" />
+
             </div>
           </div>
+          {#if hasFromFields}
           <div class="mt-12 sm:mt-16 lg:mt-0 lg:col-span-6">
-            <div class="bg-white border sm:max-w-md sm:w-full shadow-xl sm:mx-auto sm:rounded-lg sm:overflow-hidden">
+            <div class="bg-white border mx-6 rounded-lg shadow-xl overflow-hidden sm:max-w-md sm:mx-auto">
               <div class="px-4 py-8 sm:px-10">
+                {#if data.showSocialMedia !== false}
                 <div>
-                  <p class="text-sm uppercase text-center leading-5 font-medium text-gray-700">
+                  <p class="text-sm uppercase  leading-5 font-medium text-gray-700">
                     Find Us On:
                   </p>
 
@@ -77,7 +97,7 @@
                   </div>
                 </div>
 
-                <div class="mt-6 relative">
+                <div class="my-6 relative">
                   <div class="absolute inset-0 flex items-center">
                     <div class="w-full border-t border-gray-300"></div>
                   </div>
@@ -87,51 +107,78 @@
                     </span>
                   </div>
                 </div>
+                {/if}
+                
+                <p class="text-sm uppercase  leading-5 font-medium text-gray-700">
+                    Send us a message:
+                  </p>
 
-                <div class="mt-6">
+                <div class="mt-2">
                   <form action="/" method="POST" class="space-y-6">
+
                     <div>
                       <label for="name" class="sr-only">
                         Full name
                       </label>
                       <div class="rounded-md shadow-sm">
-                        <input id="name" placeholder="Full name" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                        <input type="text" id="name" placeholder="Full name" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                       </div>
                     </div>
+
+                    {#if formFields.includes('email')}
+                    <div>
+                      <label for="email" class="sr-only">
+                        Email Address
+                      </label>
+                      <div class="rounded-md shadow-sm">
+                        <input id="email" type="email" placeholder="Email Address" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                      </div>
+                    </div>
+                    {/if}
+
+                    {#if formFields.includes('phone')}
+                    <div>
+                      <label for="mobile-or-email" class="sr-only">
+                        Mobile number
+                      </label>
+                      <div class="rounded-md shadow-sm">
+                        <input type="tel" id="mobile-or-email" placeholder="Mobile number" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                      </div>
+                    </div>
+                    {/if}
 
                     <div>
                       <label for="mobile-or-email" class="sr-only">
-                        Mobile number or email
+                        Message
                       </label>
                       <div class="rounded-md shadow-sm">
-                        <input id="mobile-or-email" placeholder="Mobile number or email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                      </div>
-                    </div>
-
-                    <div>
-                      <label for="password" class="sr-only">
-                        Password
-                      </label>
-                      <div class="rounded-md shadow-sm">
-                        <input id="password" type="password" placeholder="Password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                        <textarea rows=3 id="mobile-or-email" placeholder="Enter Message Here" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
                       </div>
                     </div>
 
                     <div>
                       <span class="block w-full rounded-md shadow-sm">
                         <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-                          Create your account
+                          {data.submitButtonText || 'Submit'}
                         </button>
                       </span>
                     </div>
                   </form>
                 </div>
               </div>
+              <!-- https://www.pandadoc.com/website-standard-terms-and-conditions-template/ -->
               <div class="px-4 py-6 bg-gray-50 border-t-2 border-gray-100 sm:px-10">
-                <p class="text-xs leading-5 text-gray-500">By signing up, you agree to our <a href="/" class="font-medium text-gray-900 hover:underline">Terms</a>, <a href="/" class="font-medium text-gray-900 hover:underline">Data Policy</a> and <a href="/" class="font-medium text-gray-900 hover:underline">Cookies Policy</a>.</p>
+                <p class="text-xs leading-5 text-gray-500">By submitting this form, you agree to our 
+                  {#if data && data.termsPage && data.termsPage.link && data.termsPage.link._ref}
+                    <Link ref={data.termsPage.link._ref} classes="font-medium text-gray-900 underline hover:text-primary">Terms & Services</Link>
+                  {:else}
+                    <span class="font-medium text-gray-900">Terms & Services</span>
+                  {/if}
+                .</p>
               </div>
             </div>
           </div>
+          {/if}
         </div>
       </div>
     </main>

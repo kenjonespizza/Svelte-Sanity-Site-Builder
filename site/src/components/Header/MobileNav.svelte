@@ -75,7 +75,7 @@
           </div>
         </div>
         <div>
-          <nav class="flex flex-col space-y-2">
+          <nav role="navigation" class="flex flex-col space-y-2">
             {#each navItems as item}
               {#if item._type === 'link'}
                 <div on:click={toggleMobileNav}>

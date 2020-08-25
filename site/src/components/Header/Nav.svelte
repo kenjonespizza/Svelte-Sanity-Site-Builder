@@ -12,7 +12,7 @@
 
 </script>
 
-<nav class="hidden md:flex space-x-8 items-baseline">
+<nav role="navigation" class="hidden md:flex space-x-8 items-baseline">
   {#each navItems as item}
     {#if item._type === 'link'}
       <Link

@@ -4,6 +4,7 @@ import SimpleCenteredHero from './Hero/SimpleCenteredHero.svelte'
 import WithAngledImageOnRightHero from './Hero/WithAngledImageOnRightHero.svelte'
 import WithFullWidthImage from './Hero/WithFullWidthImage.svelte'
 import WithContactForm from './Hero/WithContactForm.svelte'
+import withVideoPopover from './Hero/withVideoPopover.svelte'
 
 import BlockNotFound from './BlockNotFound.svelte'
 
@@ -13,6 +14,7 @@ const Components = {
   with_angled_image_on_right_hero: WithAngledImageOnRightHero,
   with_full_width_image: WithFullWidthImage,
   with_contact_form: WithContactForm,
+  with_video_popover: withVideoPopover,
 }
 
 // TODO: Automate ^... Maybe using globbing?

@@ -1,10 +1,15 @@
-const sectionName = `Hero: Simple Centered`
+const sectionName = `Hero: With Video Pop-Over`
 
 export default {
-  name: 'simple_centered_hero',
+  name: 'with_video_popover',
   type: 'object',
   title: sectionName,
-  fieldsets: [],
+  fieldsets: [
+    {
+      name: 'heading', 
+      title: 'Heading',
+    }
+  ],
   fields: [
     {
       name: 'headingBlock',
@@ -16,6 +21,7 @@ export default {
       title: 'Content',
       type: 'minimalPortableText',
     },
+    
     {
       name: 'buttons',
       title: 'Button(s)',
@@ -24,17 +30,25 @@ export default {
         {type: 'button'}
       ]
     },
+    {
+      name: 'videoURL',
+      title: 'Video',
+      type: 'youtube',
+    },
   ],
   preview: {
     select: {
       heading: 'headingBlock.heading',
       disabled: 'disabled',
+      image: 'image.image',
     },
-    prepare({ heading, disabled }) {
+    prepare({ heading, disabled, image }) {
       return {
         title: `${disabled ? '⚠️ DISABLED' : (heading || "No Heading")}`,
         subtitle: sectionName,
+        media: image,
       };
     },
   },
 };
+

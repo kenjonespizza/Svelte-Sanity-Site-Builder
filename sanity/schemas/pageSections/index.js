@@ -8,6 +8,7 @@ export { default as with_angled_image_on_right_hero } from './heros/with_angled_
 export { default as simple_centered_hero } from './heros/simple_centered_hero';
 export { default as split_image_text_hero } from './heros/split_image_text_hero';
 export { default as with_full_width_image } from './heros/with_full_width_image';
+export { default as with_video_popover } from './heros/with_video_popover';
 // Cta
 export { default as simple_centered_cta } from './cta/simple_centered_cta';
 export { default as simple_justified_cta } from './cta/simple_justified_cta';

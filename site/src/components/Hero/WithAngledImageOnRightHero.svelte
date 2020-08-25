@@ -17,9 +17,18 @@
 
       <main class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 ">
         <div class="sm:text-center lg:text-left">
-          <TagRenderer tag={data.headingType || 'h2'} classes="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
-            {data.heading}
-          </TagRenderer>
+
+          {#if data.headingBlock && data.headingBlock.subHeading}
+            <div class="text-sm mb-2 font-semibold uppercase tracking-wide text-gray-500 sm:text-base lg:text-sm xl:text-base">
+              {data.headingBlock.subHeading}
+            </div>
+          {/if}
+
+          {#if data.headingBlock && data.headingBlock.heading}
+            <TagRenderer tag={data.headingBlock.headingType || 'h2'} classes="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
+              {data.headingBlock.heading}
+            </TagRenderer>
+          {/if}
 
           <BlockContent content={data.content} classes="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 prose" />
           

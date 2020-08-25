@@ -11,13 +11,6 @@ export function urlFor(source) {
   return builder.image(source)
 }
 
-export async function resolveLink(link) {
-
-  const res = await sanityClient.fetch(`*[_type == "page" && _id == '${link.link[0].link._ref}']{...}`)
-    return res;
-
-}
-
 export function getPageInfoFromRef (ref, allPageData) { // Use the link _ref to return just the specific pageInfo
   if (allPageData && allPageData.length > 0) {
     const page = allPageData.filter(page => {
