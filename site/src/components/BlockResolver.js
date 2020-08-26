@@ -2,19 +2,34 @@
 import SplitImageTextHero from './Hero/SplitImageTextHero.svelte'
 import SimpleCenteredHero from './Hero/SimpleCenteredHero.svelte'
 import WithAngledImageOnRightHero from './Hero/WithAngledImageOnRightHero.svelte'
-import WithFullWidthImage from './Hero/WithFullWidthImage.svelte'
-import WithContactForm from './Hero/WithContactForm.svelte'
-import withVideoPopover from './Hero/withVideoPopover.svelte'
+import WithFullWidthImageHero from './Hero/WithFullWidthImageHero.svelte'
+import WithContactFormHero from './Hero/WithContactFormHero.svelte'
+import withVideoPopoverHero from './Hero/withVideoPopoverHero.svelte'
+// CTAs
+import SimpleCenteredCta from './Cta/SimpleCenteredCta.svelte'
+import SimpleJustifiedCta from './Cta/SimpleJustifiedCta.svelte'
+import SimpleStackedCta from './Cta/SimpleStackedCta.svelte'
+import SplitWithImageCta from './Cta/SplitWithImageCta.svelte'
+// Testimonials
+import SideBySideTestimonial from './Testimonial/SideBySideTestimonial.svelte'
 
 import BlockNotFound from './BlockNotFound.svelte'
 
 const Components = {
+  // Heros
   split_image_text_hero: SplitImageTextHero,
   simple_centered_hero: SimpleCenteredHero,
   with_angled_image_on_right_hero: WithAngledImageOnRightHero,
-  with_full_width_image: WithFullWidthImage,
-  with_contact_form: WithContactForm,
-  with_video_popover: withVideoPopover,
+  with_full_width_image_hero: WithFullWidthImageHero,
+  with_contact_form_hero: WithContactFormHero,
+  with_video_popover_hero: withVideoPopoverHero,
+  // CTAs
+  simple_centered_cta: SimpleCenteredCta,
+  simple_justified_cta: SimpleJustifiedCta,
+  simple_stacked_cta: SimpleStackedCta,
+  split_with_image_cta: SplitWithImageCta,
+  // Testimonials
+  side_by_side_testimonial: SideBySideTestimonial,
 }
 
 // TODO: Automate ^... Maybe using globbing?

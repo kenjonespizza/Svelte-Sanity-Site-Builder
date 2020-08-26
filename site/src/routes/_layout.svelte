@@ -222,7 +222,17 @@
 		}
 	});
 
+	function setPhoNav(e) {
+		const navBar = document.querySelector('.navBar')
+		navBar.offsetHeight
+		const phoNav = document.querySelector('.phoNav')
+
+		phoNav.style.height = `${navBar.offsetHeight}px`
+	}
+
 </script>
+
+<svelte:window on:load={setPhoNav} />
 
 <svelte:head>
 	{#if $disableScrolling}
@@ -311,9 +321,6 @@
 </svelte:head>
 
 <!-- Nav Placeholder -->
-<div class="py-6">
-	<div style="height: {menuSettings.logoHeight}px"></div>
-</div>
 <Header {segment} {menuSettings} {siteSettings} {themeSettings} />
 <main>
 	<slot></slot>

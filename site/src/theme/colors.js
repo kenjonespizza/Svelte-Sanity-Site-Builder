@@ -1,7 +1,7 @@
 export default {
   light: {
-    black: '#12141A',
-    white: '#F9FBFF',
+    black: '#000000',
+    white: '#ffffff',
     gray: {
       '950': '#12141A',
       '900': '#161e2e',
@@ -17,8 +17,8 @@ export default {
     }
   },
   dark: {
-    white: '#12141A',
-    black: '#F9FBFF',
+    white: '#000000',
+    black: '#ffffff',
     gray: {
       '50': '#12141A',
       '100': '#161e2e',

@@ -12,6 +12,7 @@ export { default as with_video_popover } from './heros/with_video_popover';
 // Cta
 export { default as simple_centered_cta } from './cta/simple_centered_cta';
 export { default as simple_justified_cta } from './cta/simple_justified_cta';
+export { default as simple_stacked_cta } from './cta/simple_stacked_cta';
 export { default as split_with_image_cta } from './cta/split_with_image_cta';
 // Stats
 export { default as split_with_image_stats } from './stats/split_with_image_stats';
@@ -30,9 +31,10 @@ export { default as simple_three_column_feature } from './feature/simple_three_c
 export { default as alternative_side_by_side_with_images_feature } from './feature/alternative_side_by_side_with_images_feature';
 export { default as centered_2x2_grid_feature } from './feature/centered_2x2_grid_feature';
 // Testimonial
-export { default as side_by_side_on_brand_testimonial } from './testimonial/side_by_side_on_brand_testimonial';
+export { default as side_by_side_testimonial } from './testimonial/side_by_side_testimonial';
 export { default as simple_centered_testimonial } from './testimonial/simple_centered_testimonial';
 export { default as with_large_avatar_testimonial } from './testimonial/with_large_avatar_testimonial';
+export { default as testimonial } from './testimonial/testimonial';
 // Contact
 export { default as centered_contact } from './contact/centered_contact';
 export { default as side_by_side_grid_contact } from './contact/side_by_side_grid_contact';

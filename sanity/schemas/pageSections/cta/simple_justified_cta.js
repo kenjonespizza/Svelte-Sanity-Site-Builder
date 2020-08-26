@@ -1,41 +1,51 @@
 import { FcSpeaker } from 'react-icons/fc';
 
+const sectionName = `Call To Action: Simple Justified`
+
 export default {
   name: 'simple_justified_cta',
   type: 'object',
-  title: 'Simple justified - CTA',
+  title: sectionName,
   icon: FcSpeaker,
   fields: [
     {
-      name: 'title',
-      title: 'title',
-      type: 'string',
+      name: 'headingBlock',
+      title: 'Heading & Sub-Heading',
+      type: 'headingBlock',
     },
     {
-      name: 'subTitle',
-      title: 'Sub Title',
-      type: 'string',
-    },
-    {
-      name: 'ctaList',
-      title: 'Add a cta',
+      name: 'buttons',
+      title: 'Button(s)',
       type: 'array',
       of: [
-        {
-          name: 'cta',
-          type: 'cta',
-        },
-      ],
+        {type: 'button'}
+      ]
     },
+    {
+      name: 'backgroundColor',
+      title: 'Background Color?',
+      type: 'string',
+      description: 'Default: Normal',
+      options: {
+        list: [
+          {value: 'normal', title: "Normal"},
+          {value: 'inverted', title: "Inverted"},
+          {value: 'primary', title: "Primary Color"},
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      }
+    }
   ],
   preview: {
     select: {
-      title: 'title',
+      heading: 'headingBlock.heading',
       disabled: 'disabled',
     },
-    prepare({ title, disabled }) {
+    prepare({ heading, disabled }) {
       return {
-        title: `Simple justified - CTA: ${disabled ? 'DISABLED' : title}`,
+        title: `${disabled ? '⚠️ DISABLED' : (heading || "No Heading")}`,
+        subtitle: sectionName,
       };
     },
   },

@@ -29,9 +29,11 @@
         <BlockContent content={data.content} classes="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl prose" />
 
         <div class="mt-10 flex-row space-y-3 sm:flex sm:space-x-3 sm:space-y-0 sm:justify-center lg:justify-start">
-          {#each data.buttons as button}
-          <Button {button} />
-          {/each}
+          {#if data.buttons && data.buttons.length > 0}
+            {#each data.buttons as button}
+              <Button {button} />
+            {/each}
+          {/if}
         </div>
       </div>
 

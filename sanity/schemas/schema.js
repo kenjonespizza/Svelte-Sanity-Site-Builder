@@ -5,28 +5,28 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 // Import Documents
+import menuSettings from './documents/siteSettings/menuSettings';
 import page from './documents/page';
 import siteSettings from './documents/siteSettings/index';
 import themeSettings from './documents/siteSettings/themeSettings';
-import menuSettings from './documents/siteSettings/menuSettings';
 
 // Import Objects
 import basicImage from './objects/basicImage';
 import basicVideo from './objects/basicVideo';
 import button from './objects/button';
-import pageInfo from './objects/pageInfo';
-import titleAndDescription from './objects/titleAndDescription'
-import dropdownMenu from './objects/dropdownMenu'
 import cta from './objects/cta';
+import dropdownMenu from './objects/dropdownMenu'
 import figure from './objects/figure';
 import headingBlock from './objects/headingBlock';
-import link from './objects/link'
-import linkInternal from './objects/linkInternal'
-import linkExternal from './objects/linkExternal'
-import youtube from './objects/youtube';
 import headingPortableText from './objects/portableText/headingPortableText';
+import link from './objects/link'
+import linkExternal from './objects/linkExternal'
+import linkInternal from './objects/linkInternal'
 import minimalPortableText from './objects/portableText/minimalPortableText';
+import titleAndDescription from './objects/titleAndDescription'
+import pageInfo from './objects/pageInfo';
 import portableText from './objects/portableText/portableText';
+import youtube from './objects/youtube';
 
 // Import Page Sections
 // import { heroSimpleCentered } from './pageSections/heros';
@@ -48,27 +48,27 @@ export default createSchema({
   types: schemaTypes
     .concat([
       // Documents
+      menuSettings,
       page,
       siteSettings,
       themeSettings,
-      menuSettings,
 
       // Objects
       basicImage,
       basicVideo,
       button,
-      pageInfo,
-      headingPortableText,
-      minimalPortableText,
-      portableText,
-      titleAndDescription,
+      cta,
       dropdownMenu,
+      headingPortableText,
       figure,
       headingBlock,
       link,
       linkInternal,
       linkExternal,
-      cta,
+      minimalPortableText,
+      pageInfo,
+      portableText,
+      titleAndDescription,
       youtube,
     ])
     .concat(allPageSections),

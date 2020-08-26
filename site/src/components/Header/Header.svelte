@@ -22,6 +22,9 @@
 </script>
 
 <!-- This example requires Tailwind CSS v1.4.0+ -->
+<div class="py-6 phoNav" style="height: 108px;">
+	<div style="height: {menuSettings.logoHeight}px"></div>
+</div>
 <div class="fixed top-0 z-20 right-0 bg-white w-full navBar">
   <div class="mx-auto px-4 border-b-2 border-gray-100 sm:px-8">
     <div class="flex justify-between items-center py-6 md:space-x-10">

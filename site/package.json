@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@rollup/plugin-json": "^4.1.0",
-    "@sanity/client": "^1.149.18",
+    "@sanity/client": "^1.150.1",
     "compression": "^1.7.1",
     "polka": "next",
     "postcss-cli": "^7.1.1",
