@@ -34,7 +34,6 @@ export { default as centered_2x2_grid_feature } from './feature/centered_2x2_gri
 export { default as side_by_side_testimonial } from './testimonial/side_by_side_testimonial';
 export { default as simple_centered_testimonial } from './testimonial/simple_centered_testimonial';
 export { default as with_large_avatar_testimonial } from './testimonial/with_large_avatar_testimonial';
-export { default as testimonial } from './testimonial/testimonial';
 // Contact
 export { default as centered_contact } from './contact/centered_contact';
 export { default as side_by_side_grid_contact } from './contact/side_by_side_grid_contact';

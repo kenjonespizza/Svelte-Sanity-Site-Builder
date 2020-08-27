@@ -12,7 +12,23 @@ export default {
       type: 'array',
       of: [
         {type: 'testimonial'}
-      ]
+      ],
+      validation: Rule => Rule.min(2).error('At least 2 items are required.'),
+    },
+    {
+      name: 'backgroundColor',
+      title: 'Background Color?',
+      type: 'string',
+      description: 'Default: Normal',
+      options: {
+        list: [
+          {value: 'normal', title: "Normal"},
+          {value: 'inverted', title: "Inverted"},
+          {value: 'primary', title: "Primary Color"},
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      }
     },
   ],
   preview: {
