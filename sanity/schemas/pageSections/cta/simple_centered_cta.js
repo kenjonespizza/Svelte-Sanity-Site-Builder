@@ -35,7 +35,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       }
-    }
+    },
   ],
   preview: {
     select: {

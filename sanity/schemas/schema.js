@@ -24,6 +24,7 @@ import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
 import minimalPortableText from './objects/portableText/minimalPortableText';
 import titleAndDescription from './objects/titleAndDescription'
+import testimonial from './pageSections/testimonial/testimonial'
 import pageInfo from './objects/pageInfo';
 import portableText from './objects/portableText/portableText';
 import youtube from './objects/youtube';
@@ -69,6 +70,7 @@ export default createSchema({
       pageInfo,
       portableText,
       titleAndDescription,
+      testimonial,
       youtube,
     ])
     .concat(allPageSections),

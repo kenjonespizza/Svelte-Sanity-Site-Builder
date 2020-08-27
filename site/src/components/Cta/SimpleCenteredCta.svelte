@@ -9,7 +9,6 @@
   let bgColorClass
   let subHeadingClass
   let headingClass
-  let buttonClass
 
   if (data.backgroundColor === 'inverted') {
     wrapperClass = 'inverted'

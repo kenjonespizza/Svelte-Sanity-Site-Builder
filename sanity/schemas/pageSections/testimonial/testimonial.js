@@ -28,15 +28,15 @@ export default {
       title: 'Author Company',
       type: 'string',
     },
-    {
-      name: 'companyLogoOnLight',
-      title: 'Company Logo On Light Theme',
-      type: 'image',
-    },
-    {
-      name: 'companyLogoOnDark',
-      title: 'Company Logo On Dark Theme',
-      type: 'image',
-    },
+    // {
+    //   name: 'companyLogoOnLight',
+    //   title: 'Company Logo On Light Theme',
+    //   type: 'image',
+    // },
+    // {
+    //   name: 'companyLogoOnDark',
+    //   title: 'Company Logo On Dark Theme',
+    //   type: 'image',
+    // },
   ]
 }

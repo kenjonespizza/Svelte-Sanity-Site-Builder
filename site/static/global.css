@@ -33,3 +33,11 @@ html.dark .hiddenOnDark {
 	width:100%;
 	position:absolute;
 }
+.carousel {
+	padding: 0 2rem;
+}
+@media (min-width: 640px) {
+	.carousel {
+		padding: 0 5rem;
+	}
+}

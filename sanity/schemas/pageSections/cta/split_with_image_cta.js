@@ -16,7 +16,6 @@ export default {
       title: 'Content',
       type: 'minimalPortableText',
     },
-    
     {
       name: 'buttons',
       title: 'Button(s)',
@@ -44,7 +43,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       }
-    }
+    },
   ],
   preview: {
     select: {

@@ -47,11 +47,13 @@
 		const contrastLightWhiteOnPrimary = chroma.contrast(defaultColor['light'].white, {...brandColor.light.primary.rgb});
 		const contrastLightBlackOnPrimary = chroma.contrast(defaultColor['light'].black, {...brandColor.light.primary.rgb});
 		const lightTextOnPrimary = contrastLightWhiteOnPrimary > contrastLightBlackOnPrimary ? defaultColor['light'].white : defaultColor['light'].black
+		const lightTextOnPrimaryOpposite = contrastLightWhiteOnPrimary > contrastLightBlackOnPrimary ? defaultColor['light'].black : defaultColor['light'].white
 		
 		// See if white or black has a higher contrast on top of the primary color.  Return white or black.
 		const contrastDarkWhiteOnPrimary = chroma.contrast(defaultColor['dark'].black, {...brandColor.dark.primary.rgb});
 		const contrastDarkBlackOnPrimary = chroma.contrast(defaultColor['dark'].white, {...brandColor.dark.primary.rgb});
 		const darkTextOnPrimary = contrastDarkWhiteOnPrimary > contrastDarkBlackOnPrimary ? defaultColor['dark'].black : defaultColor['dark'].white
+		const darkTextOnPrimaryOpposite = contrastDarkWhiteOnPrimary > contrastDarkBlackOnPrimary ? defaultColor['dark'].white : defaultColor['dark'].black
 		// console.log('contrastDarkBlackOnPrimary:', contrastDarkBlackOnPrimary)
 		// console.log('contrastDarkWhiteOnPrimary:', contrastDarkWhiteOnPrimary)
 
@@ -71,6 +73,7 @@
 					900: lightPrimary[9],
 					950: lightPrimary[10],
 					text: lightTextOnPrimary,
+					textOpposite: lightTextOnPrimaryOpposite,
 				},
 				black: defaultColor['light'].black,
 				white: defaultColor['light'].white,
@@ -102,6 +105,7 @@
 					900: darkPrimary[9],
 					950: darkPrimary[10],
 					text: darkTextOnPrimary,
+					textOpposite: darkTextOnPrimaryOpposite,
 				},
 				black: defaultColor['dark'].black,
 				white: defaultColor['dark'].white,
@@ -171,6 +175,7 @@
 			stringLight += `--primary-900: ${color.light.primary[900]};`;
 			stringLight += `--primary-950: ${color.light.primary[950]};`;
 			stringLight += `--textOnPrimary: ${color.light.primary.text};`;
+			stringLight += `--textOnPrimaryOpposite: ${color.light.primary.textOpposite};`;
 			stringLight += `--black: ${color.light.black};`;
 			stringLight += `--white: ${color.light.white};`;
 			stringLight += `--gray-950: ${color.light.gray[950]};`;
@@ -198,6 +203,7 @@
 			stringDark += `--primary-900: ${color.dark.primary[900]};`;
 			stringDark += `--primary-950: ${color.dark.primary[950]};`;
 			stringDark += `--textOnPrimary: ${color.dark.primary.text};`;
+			stringDark += `--textOnPrimaryOpposite: ${color.dark.primary.textOpposite};`;
 			stringDark += `--black: ${color.dark.black};`;
 			stringDark += `--white: ${color.dark.white};`;
 			stringDark += `--gray-950: ${color.dark.gray[950]};`;
@@ -267,6 +273,7 @@
 				stringLight += `--primary-900: ${color.light.primary[900]};`;
 				stringLight += `--primary-950: ${color.light.primary[950]};`;
 				stringLight += `--textOnPrimary: ${color.light.primary.text};`;
+				stringLight += `--textOnPrimaryOpposite: ${color.light.primary.textOpposite};`;
 				stringLight += `--black: ${color.light.black};`;
 				stringLight += `--white: ${color.light.white};`;
 				stringLight += `--gray-950: ${color.light.gray[950]};`;
@@ -294,6 +301,7 @@
 				stringDark += `--primary-900: ${color.dark.primary[900]};`;
 				stringDark += `--primary-950: ${color.dark.primary[950]};`;
 				stringDark += `--textOnPrimary: ${color.dark.primary.text};`;
+				stringDark += `--textOnPrimaryOpposite: ${color.dark.primary.textOpposite};`;
 				stringDark += `--black: ${color.dark.black};`;
 				stringDark += `--white: ${color.dark.white};`;
 				stringDark += `--gray-950: ${color.dark.gray[950]};`;
@@ -321,6 +329,6 @@
 
 <!-- Nav Placeholder -->
 <Header {segment} {menuSettings} {siteSettings} {themeSettings} />
-<main>
+<main role="main">
 	<slot></slot>
 </main>
