@@ -9471,6 +9471,10 @@ video {
   background-color: var(--textOnPrimary);
 }
 
+.bg-none {
+  background-image: none;
+}
+
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--gradient-color-stops));
 }
@@ -48184,6 +48188,10 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .sm\:bg-none {
+    background-image: none;
+  }
+
   .sm\:bg-gradient-to-t {
     background-image: linear-gradient(to top, var(--gradient-color-stops));
   }
@@ -86865,6 +86873,10 @@ video {
 
   .md\:active\:bg-textOnPrimary:active {
     background-color: var(--textOnPrimary);
+  }
+
+  .md\:bg-none {
+    background-image: none;
   }
 
   .md\:bg-gradient-to-t {
@@ -125550,6 +125562,10 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .lg\:bg-none {
+    background-image: none;
+  }
+
   .lg\:bg-gradient-to-t {
     background-image: linear-gradient(to top, var(--gradient-color-stops));
   }
@@ -164231,6 +164247,10 @@ video {
 
   .xl\:active\:bg-textOnPrimary:active {
     background-color: var(--textOnPrimary);
+  }
+
+  .xl\:bg-none {
+    background-image: none;
   }
 
   .xl\:bg-gradient-to-t {

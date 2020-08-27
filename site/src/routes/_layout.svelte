@@ -130,7 +130,6 @@
 	import { setContext } from 'svelte';
 	import { onMount } from 'svelte'
 	import { disableScrolling } from '../stores';
-	import {shade, tint} from 'polished'
 	import chroma from 'chroma-js'
 	// import cssVars from 'svelte-css-vars';
 	import Header from '../components/Header/Header.svelte';
