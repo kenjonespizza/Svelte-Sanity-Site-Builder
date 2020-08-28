@@ -1,7 +1,10 @@
+import { RiUserLine } from 'react-icons/ri'
+
 export default {
   name: 'author',
   type: 'document',
   title: 'Author',
+  icon: RiUserLine,
   fields: [
     {
       name: 'pageInfo',
@@ -10,7 +13,7 @@ export default {
     },
     {
       name: 'image',
-      type: 'figure',
+      type: 'imageNoAlt',
       title: 'Image',
     },
     {

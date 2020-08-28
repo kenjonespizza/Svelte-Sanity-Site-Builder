@@ -1,5 +1,7 @@
 import { FcSpeaker } from 'react-icons/fc';
 
+const sectionName = `Call To Action: Simple Centered`
+
 export default {
   name: 'simple_centered_cta',
   type: 'object',
@@ -7,36 +9,28 @@ export default {
   icon: FcSpeaker,
   fields: [
     {
-      name: 'title',
-      title: 'title',
-      type: 'string',
+      name: 'headingBlock',
+      title: 'Heading & Sub-Heading',
+      type: 'headingBlock',
     },
     {
-      name: 'subTitle',
-      title: 'Sub Title',
-      type: 'string',
-    },
-    {
-      name: 'ctaList',
-      title: 'Add a cta',
+      name: 'buttons',
+      title: 'Button(s)',
       type: 'array',
       of: [
-        {
-          name: 'cta',
-          type: 'cta',
-        },
-      ],
+        {type: 'button'}
+      ]
     },
   ],
   preview: {
     select: {
-      title: 'title',
+      heading: 'headingBlock.heading',
       disabled: 'disabled',
     },
-    prepare({ title, disabled }) {
+    prepare({ heading, disabled }) {
       return {
-        media: FcSpeaker,
-        title: `Simple centered - CTA: ${disabled ? 'DISABLED' : title}`,
+        title: `${disabled ? '⚠️ DISABLED' : (heading || "No Heading")}`,
+        subtitle: sectionName,
       };
     },
   },

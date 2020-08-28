@@ -2,9 +2,9 @@
 import SplitImageTextHero from './Hero/SplitImageTextHero.svelte'
 import SimpleCenteredHero from './Hero/SimpleCenteredHero.svelte'
 import WithAngledImageOnRightHero from './Hero/WithAngledImageOnRightHero.svelte'
-import WithFullWidthImage from './Hero/WithFullWidthImage.svelte'
-import WithContactForm from './Hero/WithContactForm.svelte'
-import withVideoPopover from './Hero/withVideoPopover.svelte'
+import WithFullWidthImage from './Hero/WithFullWidthImageHero.svelte'
+import WithContactForm from './Hero/WithContactFormHero.svelte'
+import withVideoPopover from './Hero/withVideoPopoverHero.svelte'
 
 import BlockNotFound from './BlockNotFound.svelte'
 

@@ -5,9 +5,6 @@ export default {
   title: 'Blog info & settings',
   type: 'document',
   icon: IoIosDocument,
-  initialValue: {
-    slug: 'bling',
-  },
   fields: [
     {
       name: 'pageInfo',

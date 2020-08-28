@@ -3,6 +3,7 @@
     try {
       const res = await this.fetch('api/blog/all');
       const { posts } = await res.json()
+      console.log('posts:', posts)
       return { posts };
     } catch (err) {
       this.error(500, err);
@@ -12,6 +13,7 @@
 
 
 <script>
+  import Link from '../../components/Link.svelte'
   export let posts;
 </script>
 
@@ -31,6 +33,6 @@
 				tell Sapper to load the data for the post as soon as
 				the user hovers over the link or taps it, instead of
 				waiting for the 'click' event -->
-		<li><a rel='prefetch' href='/{post.postInfo.slug.current}'>{post.postInfo.name}</a></li>
+		<li><Link ref={post._id}>{post.pageInfo.name}</Link></li>
 	{/each}
 </ul>

@@ -27,6 +27,7 @@ import dropdownMenu from './objects/dropdownMenu'
 import cta from './objects/cta';
 import figure from './objects/figure';
 import headingBlock from './objects/headingBlock';
+import imageNoAlt from './objects/imageNoAlt';
 import link from './objects/link'
 import linkInternal from './objects/linkInternal'
 import linkExternal from './objects/linkExternal'
@@ -79,6 +80,7 @@ export default createSchema({
       pageInfo,
       minimalPortableText,
       portableText,
+      imageNoAlt,
       titleAndDescription,
       dropdownMenu,
       figure,

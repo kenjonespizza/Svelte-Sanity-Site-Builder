@@ -1,7 +1,10 @@
+import { RiDraftLine } from 'react-icons/ri'
+
 export default {
   name: 'post',
   type: 'document',
   title: 'Blog Post',
+  icon: RiDraftLine,
   fields: [
     {
       name: 'pageInfo',
@@ -9,19 +12,19 @@ export default {
       type: 'blogPageInfo',
     },
     {
-      name: 'subTitle',
-      title: 'Sub Title',
-      type: 'string',
+      name: 'shortText',
+      title: 'Short Description Under Title',
+      type: 'minimalPortableText',
     },
     {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',
-      description: 'This can be used to schedule post for publishing',
+      description: 'Choosing a future date will not make the post automatically show on that date.',
     },
     {
       name: 'image',
-      type: 'figure',
+      type: 'basicImage',
       title: 'Main image',
     },
     {
@@ -42,17 +45,24 @@ export default {
       description: 'Please inter an integer.',
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      description: 'This must be created before it can be referenced',
-      to: [{ type: 'author' }],
+      name: 'authors',
+      title: 'Author(s)',
+      type: 'array',
+      description: 'Authors must be created before they can be referenced',
+      of: [
+        {
+          type: 'reference',
+          to:
+            { type: 'author' },
+        },
+      ],
+      validation: Rule => Rule.min(1).unique(),
     },
     {
       name: 'categories',
       type: 'array',
       title: 'Categories',
-      description: 'This must be created before it can be referenced',
+      description: 'Categories must be created before they can be referenced',
       of: [
         {
           type: 'reference',

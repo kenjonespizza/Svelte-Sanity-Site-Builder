@@ -27,6 +27,7 @@ export default {
       name: 'name',
       title: 'Full Name',
       type: 'string',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'slug',
@@ -37,6 +38,7 @@ export default {
         source: (author) => author.pageInfo && `${author.pageInfo.name}`,
         slugify: slugifier,
       },
+      validation: Rule => Rule.required()
     },
     // {
     //   name: 'childOf',

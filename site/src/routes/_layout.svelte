@@ -15,7 +15,7 @@
 	// initialTheme.update(theme)
 
 	export async function preload(page, session) {
-		const globalDataFetch = await client.fetch(`*[][0]{'siteSettings':*[_type == "siteSettings"][0]{...},'menuSettings':*[_type == "menuSettings"][0]{...},'themeSettings':*[_type == "themeSettings"][0]{...},'allPageData': *[defined(pageInfo.slug.current)]{_id,pageInfo}}`)
+		const globalDataFetch = await client.fetch(`*[][0]{'siteSettings':*[_type == "siteSettings"][0]{...},'menuSettings':*[_type == "menuSettings"][0]{...},'themeSettings':*[_type == "themeSettings"][0]{...},'allPageData': *[defined(pageInfo.slug.current)]{_id,pageInfo,_type}}`)
 		// return { siteSettings: siteSettingsResponse || [], menuSettings: menuSettingsResponse || [] }
 		const {menuSettings: menuSettingsArr, siteSettings: siteSettingsArr, themeSettings: themeSettingsArr, allPageData: allPageDataArr} = globalDataFetch
 		const menuSettings = menuSettingsArr
@@ -302,7 +302,8 @@
 
 <!-- Nav Placeholder -->
 <div class="py-6">
-	<div style="height: {menuSettings && menuSettings.logoHeight || 80}px"></div>
+	<!-- TODO: Maybe make this all smart like -->
+	<div style="height: {menuSettings && menuSettings.logoHeight || 37}px"></div>
 </div>
 <Header {segment} {menuSettings} {siteSettings} {themeSettings} />
 <main>
