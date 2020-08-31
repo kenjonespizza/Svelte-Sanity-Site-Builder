@@ -8,7 +8,7 @@
 	export let menuSettings = []
 	// export let siteSettings = []
 	
-  const navItems = menuSettings.headerNavigation;
+  const navItems = menuSettings.headerNavigation || [];
 
 </script>
 

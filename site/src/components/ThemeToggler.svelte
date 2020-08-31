@@ -23,7 +23,7 @@
 
 </script>
 
-<button on:click={toggle} class="text-gray-500">
+<button on:click={toggle} class="text-gray-500 focus:outline-none">
 	<svg
 		width="20"
 		height="20"

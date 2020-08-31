@@ -19,7 +19,7 @@ export default {
     // {
     //   name: 'link',
     //   title: 'Link',
-    //   type: 'linkForRichText',
+    //   type: 'linkForportableText',
     //   description: 'Optional',
     //   // options: {
     //   //   isHighlighted: true,

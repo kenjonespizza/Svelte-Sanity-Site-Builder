@@ -1,10 +1,10 @@
-import { FcDocument } from 'react-icons/fc';
+import { RiPagesLine } from 'react-icons/ri';
 
 export default {
   name: 'page',
   title: 'Page',
   type: 'document',
-  icon: FcDocument,
+  icon: RiPagesLine,
   fields: [
     {
       name: 'pageInfo',

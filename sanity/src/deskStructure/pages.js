@@ -1,10 +1,7 @@
 import S from '@sanity/desk-tool/structure-builder';
 
-import {
-  IoIosDocument,
-} from 'react-icons/io';
-
 import { FcDocument, FcEditImage, FcGlobe, FcShare } from 'react-icons/fc';
+import { RiPagesLine } from 'react-icons/ri';
 
 
 // Web preview
@@ -19,7 +16,7 @@ const previewURL =
 
 export default S.listItem()
   .title('Pages')
-  .icon(FcDocument)
+  .icon(RiPagesLine)
   .schemaType('page')
   .child(
     S.documentTypeList('page')

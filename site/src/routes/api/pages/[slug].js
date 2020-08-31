@@ -10,14 +10,8 @@ export async function get (req, res) {
     }`;
     
     const pageQuery = pageFilter + pageProjection;
-    // console.log('pageQuery:', pageQuery)
     const pageData = await client.fetch(pageQuery, { slug })
-    // console.log('pageData:', pageData)
     
-    // const linkFilter = '*[defined(pageInfo.slug.current)]';
-    // const linkProjection = `{_id, pageInfo}`;
-    // const linkQuery = linkFilter + linkProjection;
-    // const allPageData = await client.fetch(linkQuery)
 
     res.end(JSON.stringify({ pageData }));
   } catch (err) {

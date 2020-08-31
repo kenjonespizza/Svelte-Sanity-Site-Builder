@@ -10,6 +10,13 @@ import page from './documents/page';
 import siteSettings from './documents/siteSettings/index';
 import themeSettings from './documents/siteSettings/themeSettings';
 
+// Import Blog Documents
+import author from './blog/documents/author';
+import category from './blog/documents/category';
+import post from './blog/documents/post';
+import tag from './blog/documents/tag';
+import blogSettings from './blog/documents/blogSettings';
+
 // Import Objects
 import basicImage from './objects/basicImage';
 import basicVideo from './objects/basicVideo';
@@ -18,8 +25,9 @@ import cta from './objects/cta';
 import dropdownMenu from './objects/dropdownMenu'
 import figure from './objects/figure';
 import headingBlock from './objects/headingBlock';
-import headingPortableText from './objects/portableText/headingPortableText';
+import imageNoAlt from './objects/imageNoAlt';
 import link from './objects/link'
+import linkPortableText from './objects/linkPortableText'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
 import minimalPortableText from './objects/portableText/minimalPortableText';
@@ -28,6 +36,12 @@ import testimonial from './pageSections/testimonial/testimonial'
 import pageInfo from './objects/pageInfo';
 import portableText from './objects/portableText/portableText';
 import youtube from './objects/youtube';
+import socialMediaHandles from './objects/socialMediaHandles';
+
+// Import Blog Objects
+import authorReference from './blog/objects/authorReference';
+import blogPageInfo from './blog/objects/blogPageInfo';
+import authorPageInfo from './blog/objects/authorPageInfo';
 
 // Import Page Sections
 // import { heroSimpleCentered } from './pageSections/heros';
@@ -54,16 +68,24 @@ export default createSchema({
       siteSettings,
       themeSettings,
 
+      // Blog Documents
+      author,
+      category,
+      post,
+      tag,
+      blogSettings,
+
       // Objects
       basicImage,
       basicVideo,
       button,
+      imageNoAlt,
       cta,
       dropdownMenu,
-      headingPortableText,
       figure,
       headingBlock,
       link,
+      linkPortableText,
       linkInternal,
       linkExternal,
       minimalPortableText,
@@ -72,6 +94,12 @@ export default createSchema({
       titleAndDescription,
       testimonial,
       youtube,
+      socialMediaHandles,
+
+      // Blog Objects
+      authorReference,
+      blogPageInfo,
+      authorPageInfo,
     ])
     .concat(allPageSections),
 });

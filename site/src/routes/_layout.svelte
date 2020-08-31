@@ -15,7 +15,7 @@
 	// initialTheme.update(theme)
 
 	export async function preload(page, session) {
-		const globalDataFetch = await client.fetch(`*[][0]{'siteSettings':*[_type == "siteSettings"][0]{...},'menuSettings':*[_type == "menuSettings"][0]{...},'themeSettings':*[_type == "themeSettings"][0]{...},'allPageData': *[defined(pageInfo.slug.current)]{_id,pageInfo}}`)
+		const globalDataFetch = await client.fetch(`*[][0]{'siteSettings':*[_type == "siteSettings"][0]{...},'menuSettings':*[_type == "menuSettings"][0]{...},'themeSettings':*[_type == "themeSettings"][0]{...},'allPageData': *[defined(pageInfo.slug.current)]{_id,pageInfo,_type}}`)
 		// return { siteSettings: siteSettingsResponse || [], menuSettings: menuSettingsResponse || [] }
 		const {menuSettings: menuSettingsArr, siteSettings: siteSettingsArr, themeSettings: themeSettingsArr, allPageData: allPageDataArr} = globalDataFetch
 		const menuSettings = menuSettingsArr
@@ -148,7 +148,6 @@
 	
   setContext('allPageData', allPageData);
 
-	
   onMount(() => {
 		// let theme = 'light'
 		if(typeof document !== 'undefined') {

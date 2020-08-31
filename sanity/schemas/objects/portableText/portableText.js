@@ -43,7 +43,7 @@ export default {
               {
                 title: 'Link',
                 name: 'link',
-                type: 'link'
+                type: 'linkPortableText'
               }
             ]
           }
