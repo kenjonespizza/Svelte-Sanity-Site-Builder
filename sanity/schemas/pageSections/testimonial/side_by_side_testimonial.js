@@ -13,7 +13,7 @@ export default {
       of: [
         {type: 'testimonial'}
       ],
-      validation: Rule => Rule.min(2).error('At least 2 items are required.'),
+      validation: Rule => Rule.required().min(2).error('At least 2 items are required.'),
     },
     {
       name: 'backgroundColor',

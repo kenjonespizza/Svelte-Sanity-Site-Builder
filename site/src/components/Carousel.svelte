@@ -46,3 +46,19 @@
   </div>
 
 </Carousel>
+
+<style>
+  :global(.carousel) {
+    padding: 0 2rem;
+  }
+
+  :global(.carousel .slides > div) {
+    display: flex; /* This is needed to make the slides 100% height so that each slide can be centered vertically */
+  }
+
+  @media (min-width: 640px) {
+    :global(.carousel) {
+      padding: 0 5rem;
+    }
+  }
+</style>

@@ -12,6 +12,7 @@ import SimpleStackedCta from './Cta/SimpleStackedCta.svelte'
 import SplitWithImageCta from './Cta/SplitWithImageCta.svelte'
 // Testimonials
 import SideBySideTestimonial from './Testimonial/SideBySideTestimonial.svelte'
+import SimpleCenteredTestimonial from './Testimonial/SimpleCenteredTestimonial.svelte'
 
 import BlockNotFound from './BlockNotFound.svelte'
 
@@ -30,6 +31,7 @@ const Components = {
   split_with_image_cta: SplitWithImageCta,
   // Testimonials
   side_by_side_testimonial: SideBySideTestimonial,
+  simple_centered_testimonial: SimpleCenteredTestimonial,
 }
 
 // TODO: Automate ^... Maybe using globbing?

@@ -1,9 +1,20 @@
 <script>
+  import { afterUpdate } from 'svelte';
   import Link from '../Link.svelte'
 
   let isOpen = false
+  let addAfterStateChange = ''
 
   function toggle() {isOpen = !isOpen}
+
+  // afterUpdate(() => {
+  //   console.log('the component just updated');
+  //   if (isOpen) {
+  //     addAfterStateChange = 'block'
+  //   } else {
+  //     addAfterStateChange = 'hidden'
+  //   }
+	// });
 
   export let data;
 </script>
@@ -32,8 +43,8 @@
 
   <div
     class={`${
-      isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'
-    } absolute -ml-4 mt-3 transform px-2 w-screen sm:px-0 lg:ml-0 md:w-auto md:whitespace-no-wrap lg:left-1/2 lg:-translate-x-1/2`}
+      isOpen ? `opacity-100 translate-y-0 pointer-events-auto ${addAfterStateChange}` : `opacity-0 translate-y-1 pointer-events-none ${addAfterStateChange}`
+    } absolute -ml-4 mt-3 transform px-2 w-screen transition ease-in-out duration-200 sm:px-0 lg:ml-0 md:w-auto md:whitespace-no-wrap lg:left-1/2 lg:-translate-x-1/2`}
   >
     <div class="rounded-lg shadow-lg">
       <div class="rounded-lg shadow-xs overflow-hidden">
@@ -42,9 +53,7 @@
             <div on:click={toggle}>
               <Link
                 link={item}
-                classes={`${
-                  isOpen ? 'ease-in duration-150' : 'ease-out duration-200'
-                } space-y-1 text-base leading-6 font-medium text-gray-500 transition -m-3 p-3 flex items-start space-x-4 rounded-lg hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900`}
+                classes={`space-y-1 text-base leading-6 font-medium text-gray-500 transition -m-3 p-3 flex items-start space-x-4 rounded-lg ease-in-out duration-200 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900`}
               >
                 {item.text}
               </Link>
