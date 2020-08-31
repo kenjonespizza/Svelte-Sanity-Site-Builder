@@ -1,37 +1,12 @@
-<script context="module">
-  import BlockContentPkg from "@movingbrands/svelte-portable-text";
-
-  export const customSerializers = {
-    // types: {
-    //   image: props => {
-    //     return {
-    //       component: Image,
-    //       childNodes: props.children,
-    //       props: {
-    //         url: props.node.url
-    //       }
-    //     };
-    //   }
-    // },
-    // marks: {
-    //   link: props => {
-    //     return {
-    //       component: Link,
-    //       childNodes: props.children,
-    //       props: props.mark
-    //     };
-    //   }
-    // }
-  };
-  
-  // import Image from "./Image";
-  // import Link from "./Link";
-</script>
 <script>
+  import BlockContentPkg from "@movingbrands/svelte-portable-text";
+  import {serializers} from './serializers'
+  import Link from "./Link.svelte";
+
   export let content;
   export let classes;
 </script>
 
 <div class={classes}>
-  <BlockContentPkg blocks={content} serializers={customSerializers} />
+  <BlockContentPkg blocks={content} {serializers} />
 </div>

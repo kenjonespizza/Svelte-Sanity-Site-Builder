@@ -3,7 +3,6 @@
     try {
       const res = await this.fetch('api/blog/all');
       const { posts } = await res.json()
-      console.log('posts:', posts)
       return { posts };
     } catch (err) {
       this.error(500, err);

@@ -39,6 +39,7 @@
       <div class="rounded-lg shadow-xs overflow-hidden">
         <div class="z-20 relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
           {#each data.pages as item}
+            <div on:click={toggle}>
               <Link
                 link={item}
                 classes={`${
@@ -47,6 +48,7 @@
               >
                 {item.text}
               </Link>
+            </div>
           {/each}
         </div>
       </div>

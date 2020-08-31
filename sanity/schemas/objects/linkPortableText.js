@@ -1,5 +1,5 @@
 export default {
-  name: 'link',
+  name: 'linkPortableText',
   title: 'Link',
   type: 'object',
   fieldsets: [  
@@ -13,11 +13,6 @@ export default {
     }
   ],
   fields: [
-    {
-      name: 'text',
-      title: 'Text',
-      type: 'string',
-    },
     {
       name: 'link',
       title: 'Select a link type',

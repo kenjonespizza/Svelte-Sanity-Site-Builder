@@ -1,46 +1,63 @@
-import { FcSpeaker } from 'react-icons/fc';
+const sectionName = `Hero: Split With Image`
 
 export default {
   name: 'split_with_image_cta',
   type: 'object',
-  title: 'Split with image - CTA',
-  icon: FcSpeaker,
+  title: sectionName,
+  fieldsets: [],
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: 'headingBlock',
+      title: 'Heading & Sub-Heading',
+      type: 'headingBlock',
     },
     {
-      name: 'subTitle',
-      title: 'Sub title',
-      type: 'string',
+      name: 'content',
+      title: 'Content',
+      type: 'minimalPortableText',
     },
     {
-      name: 'text',
-      title: 'text',
-      type: 'text',
-    },
-    {
-      name: 'cta',
-      title: 'Button',
-      type: 'cta',
+      name: 'buttons',
+      title: 'Button(s)',
+      type: 'array',
+      of: [
+        {type: 'button'}
+      ]
     },
     {
       name: 'image',
-      title: 'image',
-      type: 'image',
+      title: 'Image',
+      type: 'basicImage',
+    },
+    {
+      name: 'backgroundColor',
+      title: 'Background Color?',
+      type: 'string',
+      description: 'Default: Normal',
+      options: {
+        list: [
+          {value: 'normal', title: "Normal"},
+          {value: 'inverted', title: "Inverted"},
+          {value: 'primary', title: "Primary Color"},
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      }
     },
   ],
   preview: {
     select: {
-      title: 'title',
+      heading: 'headingBlock.heading',
       disabled: 'disabled',
+      image: 'image.image',
     },
-    prepare({ title, disabled }) {
+    prepare({ heading, disabled, image }) {
       return {
-        title: `Split with image - CTA: ${disabled ? 'DISABLED' : title}`,
+        title: `${disabled ? '⚠️ DISABLED' : (heading || "No Heading")}`,
+        subtitle: sectionName,
+        media: image,
       };
     },
   },
 };
+

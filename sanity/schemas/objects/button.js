@@ -20,12 +20,16 @@ export default {
             value: 'primary',
           },
           {
-            title: 'Basic',
-            value: 'basic',
+            title: 'Inverted',
+            value: 'inverted',
           },
           {
             title: 'Faint',
             value: 'faint',
+          },
+          {
+            title: 'Basic',
+            value: 'basic',
           },
         ],
         layout: 'radio',

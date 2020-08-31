@@ -23,7 +23,8 @@ export default {
           {value: 'h1', title: 'H1'},
           {value: 'h2', title: 'H2'},
           {value: 'h3', title: 'H3'},
-          {value: 'h4', title: 'H4'}
+          {value: 'h4', title: 'H4'},
+          {value: 'span', title: 'Text Span'}
         ],
       },
       description: "This won't affect the look of the text, just the perceived importance.  Tip: Each page should only have one H1 tag.",

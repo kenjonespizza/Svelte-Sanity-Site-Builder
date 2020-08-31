@@ -30,6 +30,7 @@ export default {
         // Cta
         { type: 'simple_centered_cta' },
         { type: 'simple_justified_cta' },
+        { type: 'simple_stacked_cta' },
         { type: 'split_with_image_cta' },
         // Stats
         { type: 'split_with_image_stats' },
@@ -48,7 +49,7 @@ export default {
         { type: 'alternative_side_by_side_with_images_feature' },
         { type: 'centered_2x2_grid_feature' },
         // Testimonial
-        { type: 'side_by_side_on_brand_testimonial' },
+        { type: 'side_by_side_testimonial' },
         { type: 'simple_centered_testimonial' },
         { type: 'with_large_avatar_testimonial' },
         // Contact

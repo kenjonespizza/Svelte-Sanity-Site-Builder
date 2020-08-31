@@ -1,9 +1,9 @@
 import { FcSpeaker } from 'react-icons/fc';
 
-const sectionName = `Call To Action: Simple Justified`
+const sectionName = `Call To Action: Simple Stacked`
 
 export default {
-  name: 'simple_justified_cta',
+  name: 'simple_stacked_cta',
   type: 'object',
   title: sectionName,
   icon: FcSpeaker,

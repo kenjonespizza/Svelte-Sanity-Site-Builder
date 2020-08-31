@@ -7,12 +7,6 @@ export default {
   icon: IoIosDocument,
   fields: [
     {
-      name: 'pageInfo',
-      title: 'Blog Info',
-      type: 'blogPageInfo',
-      hidden: true,
-    },
-    {
       name: 'content',
       title: 'Blog page content',
       type: 'portableText',

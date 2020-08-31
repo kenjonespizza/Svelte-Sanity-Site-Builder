@@ -24,15 +24,23 @@
 
   export let classes;
   export let link;
+  // console.log('link:', link)
   export let ref;
   export let subDirectory = null;
   export let title;
+  export let text = '';
+  // console.log('text:', text)
+  // export let portableText
+  // console.log('portableText:', portableText)
 
   let linkData;
+
+  // console.log($$props)
 
   // Build linkData to grab & normalize the data
   if ((link && link.link[0]._type === "linkInternal") || ref) {
     const allPageData = getContext('allPageData'); // Grab all pages link info
+    // console.log('allPageData:', allPageData)
     if (ref) {
       linkData = getPageInfoFromRef(ref, allPageData) // Retrun the page info
     } else {
@@ -51,14 +59,14 @@
 
 {#if ref}
   <a class={classes} href={`/${normalizedSubdirectory}${linkData.pageInfo.slug.current}`} title={title || ""} rel='prefetch'>
-    <slot>{link.text}</slot>
+    <slot>{text !== '' ? text : link.text}</slot>
   </a>
 {:else if link.link[0]._type === "linkInternal"}
-  <a class={classes} href={`/${subDirectory ? `${subDirectory}/` : ''}${linkData.pageInfo.slug.current}`} rel={link.openInNewTab ? 'external' : 'prefetch'} target={link.openInNewTab ? '_blank' : ''} title={title || ""}>
-    <slot>{link.text}</slot>
+  <a class={classes} href={`/${normalizedSubdirectory}${linkData.pageInfo.slug.current}`} rel={link.openInNewTab ? 'external' : 'prefetch'} target={link.openInNewTab ? '_blank' : ''} title={title || ""}>
+    <slot>{text !== '' ? text : link.text}</slot>
   </a>
 {:else if link.link[0]._type === "linkExternal"}
   <a class={classes} href={linkData.link[0].url} rel={link.openInNewTab ? 'noopener noreferrer' : 'external'} target={link.openInNewTab ? '_blank' : ''} title={title || ""}>
-    <slot>{link.text}</slot>
+    <slot>{text !== '' ? text : link.text}</slot>
   </a>
 {/if}

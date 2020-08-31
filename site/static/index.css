@@ -5525,6 +5525,10 @@ video {
   border-color: var(--textOnPrimary);
 }
 
+.divide-textOnPrimaryOpposite > :not(template) ~ :not(template) {
+  border-color: var(--textOnPrimaryOpposite);
+}
+
 .divide-solid > :not(template) ~ :not(template) {
   border-style: solid;
 }
@@ -6283,6 +6287,10 @@ video {
   background-color: var(--textOnPrimary);
 }
 
+.bg-textOnPrimaryOpposite {
+  background-color: var(--textOnPrimaryOpposite);
+}
+
 .group:hover .group-hover\:bg-transparent {
   background-color: transparent;
 }
@@ -6921,6 +6929,10 @@ video {
 
 .group:hover .group-hover\:bg-textOnPrimary {
   background-color: var(--textOnPrimary);
+}
+
+.group:hover .group-hover\:bg-textOnPrimaryOpposite {
+  background-color: var(--textOnPrimaryOpposite);
 }
 
 .group:focus .group-focus\:bg-transparent {
@@ -7563,6 +7575,10 @@ video {
   background-color: var(--textOnPrimary);
 }
 
+.group:focus .group-focus\:bg-textOnPrimaryOpposite {
+  background-color: var(--textOnPrimaryOpposite);
+}
+
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }
@@ -8201,6 +8217,10 @@ video {
 
 .hover\:bg-textOnPrimary:hover {
   background-color: var(--textOnPrimary);
+}
+
+.hover\:bg-textOnPrimaryOpposite:hover {
+  background-color: var(--textOnPrimaryOpposite);
 }
 
 .focus\:bg-transparent:focus {
@@ -8843,6 +8863,10 @@ video {
   background-color: var(--textOnPrimary);
 }
 
+.focus\:bg-textOnPrimaryOpposite:focus {
+  background-color: var(--textOnPrimaryOpposite);
+}
+
 .active\:bg-transparent:active {
   background-color: transparent;
 }
@@ -9483,6 +9507,14 @@ video {
   background-color: var(--textOnPrimary);
 }
 
+.active\:bg-textOnPrimaryOpposite:active {
+  background-color: var(--textOnPrimaryOpposite);
+}
+
+.bg-none {
+  background-image: none;
+}
+
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--gradient-color-stops));
 }
@@ -10090,6 +10122,11 @@ video {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
+.from-textOnPrimaryOpposite {
+  --gradient-from-color: var(--textOnPrimaryOpposite);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
 .via-transparent {
   --gradient-via-color: transparent;
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -10665,6 +10702,11 @@ video {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
+.via-textOnPrimaryOpposite {
+  --gradient-via-color: var(--textOnPrimaryOpposite);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
 .to-transparent {
   --gradient-to-color: transparent;
 }
@@ -11123,6 +11165,10 @@ video {
 
 .to-textOnPrimary {
   --gradient-to-color: var(--textOnPrimary);
+}
+
+.to-textOnPrimaryOpposite {
+  --gradient-to-color: var(--textOnPrimaryOpposite);
 }
 
 .hover\:from-transparent:hover {
@@ -11697,6 +11743,11 @@ video {
 
 .hover\:from-textOnPrimary:hover {
   --gradient-from-color: var(--textOnPrimary);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
+.hover\:from-textOnPrimaryOpposite:hover {
+  --gradient-from-color: var(--textOnPrimaryOpposite);
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
@@ -12275,6 +12326,11 @@ video {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
+.hover\:via-textOnPrimaryOpposite:hover {
+  --gradient-via-color: var(--textOnPrimaryOpposite);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
 .hover\:to-transparent:hover {
   --gradient-to-color: transparent;
 }
@@ -12733,6 +12789,10 @@ video {
 
 .hover\:to-textOnPrimary:hover {
   --gradient-to-color: var(--textOnPrimary);
+}
+
+.hover\:to-textOnPrimaryOpposite:hover {
+  --gradient-to-color: var(--textOnPrimaryOpposite);
 }
 
 .focus\:from-transparent:focus {
@@ -13307,6 +13367,11 @@ video {
 
 .focus\:from-textOnPrimary:focus {
   --gradient-from-color: var(--textOnPrimary);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
+.focus\:from-textOnPrimaryOpposite:focus {
+  --gradient-from-color: var(--textOnPrimaryOpposite);
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
@@ -13885,6 +13950,11 @@ video {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
 }
 
+.focus\:via-textOnPrimaryOpposite:focus {
+  --gradient-via-color: var(--textOnPrimaryOpposite);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+}
+
 .focus\:to-transparent:focus {
   --gradient-to-color: transparent;
 }
@@ -14343,6 +14413,10 @@ video {
 
 .focus\:to-textOnPrimary:focus {
   --gradient-to-color: var(--textOnPrimary);
+}
+
+.focus\:to-textOnPrimaryOpposite:focus {
+  --gradient-to-color: var(--textOnPrimaryOpposite);
 }
 
 .bg-opacity-0 {
@@ -15125,6 +15199,10 @@ video {
   border-color: var(--textOnPrimary);
 }
 
+.border-textOnPrimaryOpposite {
+  border-color: var(--textOnPrimaryOpposite);
+}
+
 .group:hover .group-hover\:border-transparent {
   border-color: transparent;
 }
@@ -15763,6 +15841,10 @@ video {
 
 .group:hover .group-hover\:border-textOnPrimary {
   border-color: var(--textOnPrimary);
+}
+
+.group:hover .group-hover\:border-textOnPrimaryOpposite {
+  border-color: var(--textOnPrimaryOpposite);
 }
 
 .group:focus .group-focus\:border-transparent {
@@ -16405,6 +16487,10 @@ video {
   border-color: var(--textOnPrimary);
 }
 
+.group:focus .group-focus\:border-textOnPrimaryOpposite {
+  border-color: var(--textOnPrimaryOpposite);
+}
+
 .hover\:border-transparent:hover {
   border-color: transparent;
 }
@@ -17045,6 +17131,10 @@ video {
   border-color: var(--textOnPrimary);
 }
 
+.hover\:border-textOnPrimaryOpposite:hover {
+  border-color: var(--textOnPrimaryOpposite);
+}
+
 .focus\:border-transparent:focus {
   border-color: transparent;
 }
@@ -17683,6 +17773,10 @@ video {
 
 .focus\:border-textOnPrimary:focus {
   border-color: var(--textOnPrimary);
+}
+
+.focus\:border-textOnPrimaryOpposite:focus {
+  border-color: var(--textOnPrimaryOpposite);
 }
 
 .border-opacity-0 {
@@ -25963,6 +26057,10 @@ video {
   color: var(--textOnPrimary);
 }
 
+.placeholder-textOnPrimaryOpposite::placeholder {
+  color: var(--textOnPrimaryOpposite);
+}
+
 .focus\:placeholder-transparent:focus::placeholder {
   color: transparent;
 }
@@ -26601,6 +26699,10 @@ video {
 
 .focus\:placeholder-textOnPrimary:focus::placeholder {
   color: var(--textOnPrimary);
+}
+
+.focus\:placeholder-textOnPrimaryOpposite:focus::placeholder {
+  color: var(--textOnPrimaryOpposite);
 }
 
 .placeholder-opacity-0::placeholder {
@@ -29852,6 +29954,10 @@ video {
   color: var(--textOnPrimary);
 }
 
+.text-textOnPrimaryOpposite {
+  color: var(--textOnPrimaryOpposite);
+}
+
 .group:hover .group-hover\:text-transparent {
   color: transparent;
 }
@@ -30490,6 +30596,10 @@ video {
 
 .group:hover .group-hover\:text-textOnPrimary {
   color: var(--textOnPrimary);
+}
+
+.group:hover .group-hover\:text-textOnPrimaryOpposite {
+  color: var(--textOnPrimaryOpposite);
 }
 
 .group:focus .group-focus\:text-transparent {
@@ -31132,6 +31242,10 @@ video {
   color: var(--textOnPrimary);
 }
 
+.group:focus .group-focus\:text-textOnPrimaryOpposite {
+  color: var(--textOnPrimaryOpposite);
+}
+
 .hover\:text-transparent:hover {
   color: transparent;
 }
@@ -31770,6 +31884,10 @@ video {
 
 .hover\:text-textOnPrimary:hover {
   color: var(--textOnPrimary);
+}
+
+.hover\:text-textOnPrimaryOpposite:hover {
+  color: var(--textOnPrimaryOpposite);
 }
 
 .focus-within\:text-transparent:focus-within {
@@ -32412,6 +32530,10 @@ video {
   color: var(--textOnPrimary);
 }
 
+.focus-within\:text-textOnPrimaryOpposite:focus-within {
+  color: var(--textOnPrimaryOpposite);
+}
+
 .focus\:text-transparent:focus {
   color: transparent;
 }
@@ -33052,6 +33174,10 @@ video {
   color: var(--textOnPrimary);
 }
 
+.focus\:text-textOnPrimaryOpposite:focus {
+  color: var(--textOnPrimaryOpposite);
+}
+
 .active\:text-transparent:active {
   color: transparent;
 }
@@ -33690,6 +33816,10 @@ video {
 
 .active\:text-textOnPrimary:active {
   color: var(--textOnPrimary);
+}
+
+.active\:text-textOnPrimaryOpposite:active {
+  color: var(--textOnPrimaryOpposite);
 }
 
 .text-opacity-0 {
@@ -44270,6 +44400,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .sm\:divide-textOnPrimaryOpposite > :not(template) ~ :not(template) {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .sm\:divide-solid > :not(template) ~ :not(template) {
     border-style: solid;
   }
@@ -45028,6 +45162,10 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .sm\:bg-textOnPrimaryOpposite {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
   .group:hover .sm\:group-hover\:bg-transparent {
     background-color: transparent;
   }
@@ -45666,6 +45804,10 @@ video {
 
   .group:hover .sm\:group-hover\:bg-textOnPrimary {
     background-color: var(--textOnPrimary);
+  }
+
+  .group:hover .sm\:group-hover\:bg-textOnPrimaryOpposite {
+    background-color: var(--textOnPrimaryOpposite);
   }
 
   .group:focus .sm\:group-focus\:bg-transparent {
@@ -46308,6 +46450,10 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .group:focus .sm\:group-focus\:bg-textOnPrimaryOpposite {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
   .sm\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -46946,6 +47092,10 @@ video {
 
   .sm\:hover\:bg-textOnPrimary:hover {
     background-color: var(--textOnPrimary);
+  }
+
+  .sm\:hover\:bg-textOnPrimaryOpposite:hover {
+    background-color: var(--textOnPrimaryOpposite);
   }
 
   .sm\:focus\:bg-transparent:focus {
@@ -47588,6 +47738,10 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .sm\:focus\:bg-textOnPrimaryOpposite:focus {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
   .sm\:active\:bg-transparent:active {
     background-color: transparent;
   }
@@ -48228,6 +48382,14 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .sm\:active\:bg-textOnPrimaryOpposite:active {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
+  .sm\:bg-none {
+    background-image: none;
+  }
+
   .sm\:bg-gradient-to-t {
     background-image: linear-gradient(to top, var(--gradient-color-stops));
   }
@@ -48835,6 +48997,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .sm\:from-textOnPrimaryOpposite {
+    --gradient-from-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .sm\:via-transparent {
     --gradient-via-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -49410,6 +49577,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .sm\:via-textOnPrimaryOpposite {
+    --gradient-via-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .sm\:to-transparent {
     --gradient-to-color: transparent;
   }
@@ -49868,6 +50040,10 @@ video {
 
   .sm\:to-textOnPrimary {
     --gradient-to-color: var(--textOnPrimary);
+  }
+
+  .sm\:to-textOnPrimaryOpposite {
+    --gradient-to-color: var(--textOnPrimaryOpposite);
   }
 
   .sm\:hover\:from-transparent:hover {
@@ -50442,6 +50618,11 @@ video {
 
   .sm\:hover\:from-textOnPrimary:hover {
     --gradient-from-color: var(--textOnPrimary);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .sm\:hover\:from-textOnPrimaryOpposite:hover {
+    --gradient-from-color: var(--textOnPrimaryOpposite);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -51020,6 +51201,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .sm\:hover\:via-textOnPrimaryOpposite:hover {
+    --gradient-via-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .sm\:hover\:to-transparent:hover {
     --gradient-to-color: transparent;
   }
@@ -51478,6 +51664,10 @@ video {
 
   .sm\:hover\:to-textOnPrimary:hover {
     --gradient-to-color: var(--textOnPrimary);
+  }
+
+  .sm\:hover\:to-textOnPrimaryOpposite:hover {
+    --gradient-to-color: var(--textOnPrimaryOpposite);
   }
 
   .sm\:focus\:from-transparent:focus {
@@ -52052,6 +52242,11 @@ video {
 
   .sm\:focus\:from-textOnPrimary:focus {
     --gradient-from-color: var(--textOnPrimary);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .sm\:focus\:from-textOnPrimaryOpposite:focus {
+    --gradient-from-color: var(--textOnPrimaryOpposite);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -52630,6 +52825,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .sm\:focus\:via-textOnPrimaryOpposite:focus {
+    --gradient-via-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .sm\:focus\:to-transparent:focus {
     --gradient-to-color: transparent;
   }
@@ -53088,6 +53288,10 @@ video {
 
   .sm\:focus\:to-textOnPrimary:focus {
     --gradient-to-color: var(--textOnPrimary);
+  }
+
+  .sm\:focus\:to-textOnPrimaryOpposite:focus {
+    --gradient-to-color: var(--textOnPrimaryOpposite);
   }
 
   .sm\:bg-opacity-0 {
@@ -53870,6 +54074,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .sm\:border-textOnPrimaryOpposite {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .group:hover .sm\:group-hover\:border-transparent {
     border-color: transparent;
   }
@@ -54508,6 +54716,10 @@ video {
 
   .group:hover .sm\:group-hover\:border-textOnPrimary {
     border-color: var(--textOnPrimary);
+  }
+
+  .group:hover .sm\:group-hover\:border-textOnPrimaryOpposite {
+    border-color: var(--textOnPrimaryOpposite);
   }
 
   .group:focus .sm\:group-focus\:border-transparent {
@@ -55150,6 +55362,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .group:focus .sm\:group-focus\:border-textOnPrimaryOpposite {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .sm\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -55790,6 +56006,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .sm\:hover\:border-textOnPrimaryOpposite:hover {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .sm\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -56428,6 +56648,10 @@ video {
 
   .sm\:focus\:border-textOnPrimary:focus {
     border-color: var(--textOnPrimary);
+  }
+
+  .sm\:focus\:border-textOnPrimaryOpposite:focus {
+    border-color: var(--textOnPrimaryOpposite);
   }
 
   .sm\:border-opacity-0 {
@@ -64708,6 +64932,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .sm\:placeholder-textOnPrimaryOpposite::placeholder {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .sm\:focus\:placeholder-transparent:focus::placeholder {
     color: transparent;
   }
@@ -65346,6 +65574,10 @@ video {
 
   .sm\:focus\:placeholder-textOnPrimary:focus::placeholder {
     color: var(--textOnPrimary);
+  }
+
+  .sm\:focus\:placeholder-textOnPrimaryOpposite:focus::placeholder {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .sm\:placeholder-opacity-0::placeholder {
@@ -68597,6 +68829,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .sm\:text-textOnPrimaryOpposite {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .group:hover .sm\:group-hover\:text-transparent {
     color: transparent;
   }
@@ -69235,6 +69471,10 @@ video {
 
   .group:hover .sm\:group-hover\:text-textOnPrimary {
     color: var(--textOnPrimary);
+  }
+
+  .group:hover .sm\:group-hover\:text-textOnPrimaryOpposite {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .group:focus .sm\:group-focus\:text-transparent {
@@ -69877,6 +70117,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .group:focus .sm\:group-focus\:text-textOnPrimaryOpposite {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .sm\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -70515,6 +70759,10 @@ video {
 
   .sm\:hover\:text-textOnPrimary:hover {
     color: var(--textOnPrimary);
+  }
+
+  .sm\:hover\:text-textOnPrimaryOpposite:hover {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .sm\:focus-within\:text-transparent:focus-within {
@@ -71157,6 +71405,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .sm\:focus-within\:text-textOnPrimaryOpposite:focus-within {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .sm\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -71797,6 +72049,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .sm\:focus\:text-textOnPrimaryOpposite:focus {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .sm\:active\:text-transparent:active {
     color: transparent;
   }
@@ -72435,6 +72691,10 @@ video {
 
   .sm\:active\:text-textOnPrimary:active {
     color: var(--textOnPrimary);
+  }
+
+  .sm\:active\:text-textOnPrimaryOpposite:active {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .sm\:text-opacity-0 {
@@ -82985,6 +83245,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .md\:divide-textOnPrimaryOpposite > :not(template) ~ :not(template) {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .md\:divide-solid > :not(template) ~ :not(template) {
     border-style: solid;
   }
@@ -83743,6 +84007,10 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .md\:bg-textOnPrimaryOpposite {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
   .group:hover .md\:group-hover\:bg-transparent {
     background-color: transparent;
   }
@@ -84381,6 +84649,10 @@ video {
 
   .group:hover .md\:group-hover\:bg-textOnPrimary {
     background-color: var(--textOnPrimary);
+  }
+
+  .group:hover .md\:group-hover\:bg-textOnPrimaryOpposite {
+    background-color: var(--textOnPrimaryOpposite);
   }
 
   .group:focus .md\:group-focus\:bg-transparent {
@@ -85023,6 +85295,10 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .group:focus .md\:group-focus\:bg-textOnPrimaryOpposite {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
   .md\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -85661,6 +85937,10 @@ video {
 
   .md\:hover\:bg-textOnPrimary:hover {
     background-color: var(--textOnPrimary);
+  }
+
+  .md\:hover\:bg-textOnPrimaryOpposite:hover {
+    background-color: var(--textOnPrimaryOpposite);
   }
 
   .md\:focus\:bg-transparent:focus {
@@ -86303,6 +86583,10 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .md\:focus\:bg-textOnPrimaryOpposite:focus {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
   .md\:active\:bg-transparent:active {
     background-color: transparent;
   }
@@ -86943,6 +87227,14 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .md\:active\:bg-textOnPrimaryOpposite:active {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
+  .md\:bg-none {
+    background-image: none;
+  }
+
   .md\:bg-gradient-to-t {
     background-image: linear-gradient(to top, var(--gradient-color-stops));
   }
@@ -87550,6 +87842,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .md\:from-textOnPrimaryOpposite {
+    --gradient-from-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .md\:via-transparent {
     --gradient-via-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -88125,6 +88422,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .md\:via-textOnPrimaryOpposite {
+    --gradient-via-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .md\:to-transparent {
     --gradient-to-color: transparent;
   }
@@ -88583,6 +88885,10 @@ video {
 
   .md\:to-textOnPrimary {
     --gradient-to-color: var(--textOnPrimary);
+  }
+
+  .md\:to-textOnPrimaryOpposite {
+    --gradient-to-color: var(--textOnPrimaryOpposite);
   }
 
   .md\:hover\:from-transparent:hover {
@@ -89157,6 +89463,11 @@ video {
 
   .md\:hover\:from-textOnPrimary:hover {
     --gradient-from-color: var(--textOnPrimary);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .md\:hover\:from-textOnPrimaryOpposite:hover {
+    --gradient-from-color: var(--textOnPrimaryOpposite);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -89735,6 +90046,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .md\:hover\:via-textOnPrimaryOpposite:hover {
+    --gradient-via-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .md\:hover\:to-transparent:hover {
     --gradient-to-color: transparent;
   }
@@ -90193,6 +90509,10 @@ video {
 
   .md\:hover\:to-textOnPrimary:hover {
     --gradient-to-color: var(--textOnPrimary);
+  }
+
+  .md\:hover\:to-textOnPrimaryOpposite:hover {
+    --gradient-to-color: var(--textOnPrimaryOpposite);
   }
 
   .md\:focus\:from-transparent:focus {
@@ -90767,6 +91087,11 @@ video {
 
   .md\:focus\:from-textOnPrimary:focus {
     --gradient-from-color: var(--textOnPrimary);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .md\:focus\:from-textOnPrimaryOpposite:focus {
+    --gradient-from-color: var(--textOnPrimaryOpposite);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -91345,6 +91670,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .md\:focus\:via-textOnPrimaryOpposite:focus {
+    --gradient-via-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .md\:focus\:to-transparent:focus {
     --gradient-to-color: transparent;
   }
@@ -91803,6 +92133,10 @@ video {
 
   .md\:focus\:to-textOnPrimary:focus {
     --gradient-to-color: var(--textOnPrimary);
+  }
+
+  .md\:focus\:to-textOnPrimaryOpposite:focus {
+    --gradient-to-color: var(--textOnPrimaryOpposite);
   }
 
   .md\:bg-opacity-0 {
@@ -92585,6 +92919,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .md\:border-textOnPrimaryOpposite {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .group:hover .md\:group-hover\:border-transparent {
     border-color: transparent;
   }
@@ -93223,6 +93561,10 @@ video {
 
   .group:hover .md\:group-hover\:border-textOnPrimary {
     border-color: var(--textOnPrimary);
+  }
+
+  .group:hover .md\:group-hover\:border-textOnPrimaryOpposite {
+    border-color: var(--textOnPrimaryOpposite);
   }
 
   .group:focus .md\:group-focus\:border-transparent {
@@ -93865,6 +94207,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .group:focus .md\:group-focus\:border-textOnPrimaryOpposite {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .md\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -94505,6 +94851,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .md\:hover\:border-textOnPrimaryOpposite:hover {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .md\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -95143,6 +95493,10 @@ video {
 
   .md\:focus\:border-textOnPrimary:focus {
     border-color: var(--textOnPrimary);
+  }
+
+  .md\:focus\:border-textOnPrimaryOpposite:focus {
+    border-color: var(--textOnPrimaryOpposite);
   }
 
   .md\:border-opacity-0 {
@@ -103423,6 +103777,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .md\:placeholder-textOnPrimaryOpposite::placeholder {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .md\:focus\:placeholder-transparent:focus::placeholder {
     color: transparent;
   }
@@ -104061,6 +104419,10 @@ video {
 
   .md\:focus\:placeholder-textOnPrimary:focus::placeholder {
     color: var(--textOnPrimary);
+  }
+
+  .md\:focus\:placeholder-textOnPrimaryOpposite:focus::placeholder {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .md\:placeholder-opacity-0::placeholder {
@@ -107312,6 +107674,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .md\:text-textOnPrimaryOpposite {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .group:hover .md\:group-hover\:text-transparent {
     color: transparent;
   }
@@ -107950,6 +108316,10 @@ video {
 
   .group:hover .md\:group-hover\:text-textOnPrimary {
     color: var(--textOnPrimary);
+  }
+
+  .group:hover .md\:group-hover\:text-textOnPrimaryOpposite {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .group:focus .md\:group-focus\:text-transparent {
@@ -108592,6 +108962,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .group:focus .md\:group-focus\:text-textOnPrimaryOpposite {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .md\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -109230,6 +109604,10 @@ video {
 
   .md\:hover\:text-textOnPrimary:hover {
     color: var(--textOnPrimary);
+  }
+
+  .md\:hover\:text-textOnPrimaryOpposite:hover {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .md\:focus-within\:text-transparent:focus-within {
@@ -109872,6 +110250,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .md\:focus-within\:text-textOnPrimaryOpposite:focus-within {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .md\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -110512,6 +110894,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .md\:focus\:text-textOnPrimaryOpposite:focus {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .md\:active\:text-transparent:active {
     color: transparent;
   }
@@ -111150,6 +111536,10 @@ video {
 
   .md\:active\:text-textOnPrimary:active {
     color: var(--textOnPrimary);
+  }
+
+  .md\:active\:text-textOnPrimaryOpposite:active {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .md\:text-opacity-0 {
@@ -121700,6 +122090,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .lg\:divide-textOnPrimaryOpposite > :not(template) ~ :not(template) {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .lg\:divide-solid > :not(template) ~ :not(template) {
     border-style: solid;
   }
@@ -122458,6 +122852,10 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .lg\:bg-textOnPrimaryOpposite {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
   .group:hover .lg\:group-hover\:bg-transparent {
     background-color: transparent;
   }
@@ -123096,6 +123494,10 @@ video {
 
   .group:hover .lg\:group-hover\:bg-textOnPrimary {
     background-color: var(--textOnPrimary);
+  }
+
+  .group:hover .lg\:group-hover\:bg-textOnPrimaryOpposite {
+    background-color: var(--textOnPrimaryOpposite);
   }
 
   .group:focus .lg\:group-focus\:bg-transparent {
@@ -123738,6 +124140,10 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .group:focus .lg\:group-focus\:bg-textOnPrimaryOpposite {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
   .lg\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -124376,6 +124782,10 @@ video {
 
   .lg\:hover\:bg-textOnPrimary:hover {
     background-color: var(--textOnPrimary);
+  }
+
+  .lg\:hover\:bg-textOnPrimaryOpposite:hover {
+    background-color: var(--textOnPrimaryOpposite);
   }
 
   .lg\:focus\:bg-transparent:focus {
@@ -125018,6 +125428,10 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .lg\:focus\:bg-textOnPrimaryOpposite:focus {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
   .lg\:active\:bg-transparent:active {
     background-color: transparent;
   }
@@ -125658,6 +126072,14 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .lg\:active\:bg-textOnPrimaryOpposite:active {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
+  .lg\:bg-none {
+    background-image: none;
+  }
+
   .lg\:bg-gradient-to-t {
     background-image: linear-gradient(to top, var(--gradient-color-stops));
   }
@@ -126265,6 +126687,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .lg\:from-textOnPrimaryOpposite {
+    --gradient-from-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .lg\:via-transparent {
     --gradient-via-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -126840,6 +127267,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .lg\:via-textOnPrimaryOpposite {
+    --gradient-via-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .lg\:to-transparent {
     --gradient-to-color: transparent;
   }
@@ -127298,6 +127730,10 @@ video {
 
   .lg\:to-textOnPrimary {
     --gradient-to-color: var(--textOnPrimary);
+  }
+
+  .lg\:to-textOnPrimaryOpposite {
+    --gradient-to-color: var(--textOnPrimaryOpposite);
   }
 
   .lg\:hover\:from-transparent:hover {
@@ -127872,6 +128308,11 @@ video {
 
   .lg\:hover\:from-textOnPrimary:hover {
     --gradient-from-color: var(--textOnPrimary);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .lg\:hover\:from-textOnPrimaryOpposite:hover {
+    --gradient-from-color: var(--textOnPrimaryOpposite);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -128450,6 +128891,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .lg\:hover\:via-textOnPrimaryOpposite:hover {
+    --gradient-via-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .lg\:hover\:to-transparent:hover {
     --gradient-to-color: transparent;
   }
@@ -128908,6 +129354,10 @@ video {
 
   .lg\:hover\:to-textOnPrimary:hover {
     --gradient-to-color: var(--textOnPrimary);
+  }
+
+  .lg\:hover\:to-textOnPrimaryOpposite:hover {
+    --gradient-to-color: var(--textOnPrimaryOpposite);
   }
 
   .lg\:focus\:from-transparent:focus {
@@ -129482,6 +129932,11 @@ video {
 
   .lg\:focus\:from-textOnPrimary:focus {
     --gradient-from-color: var(--textOnPrimary);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .lg\:focus\:from-textOnPrimaryOpposite:focus {
+    --gradient-from-color: var(--textOnPrimaryOpposite);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -130060,6 +130515,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .lg\:focus\:via-textOnPrimaryOpposite:focus {
+    --gradient-via-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .lg\:focus\:to-transparent:focus {
     --gradient-to-color: transparent;
   }
@@ -130518,6 +130978,10 @@ video {
 
   .lg\:focus\:to-textOnPrimary:focus {
     --gradient-to-color: var(--textOnPrimary);
+  }
+
+  .lg\:focus\:to-textOnPrimaryOpposite:focus {
+    --gradient-to-color: var(--textOnPrimaryOpposite);
   }
 
   .lg\:bg-opacity-0 {
@@ -131300,6 +131764,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .lg\:border-textOnPrimaryOpposite {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .group:hover .lg\:group-hover\:border-transparent {
     border-color: transparent;
   }
@@ -131938,6 +132406,10 @@ video {
 
   .group:hover .lg\:group-hover\:border-textOnPrimary {
     border-color: var(--textOnPrimary);
+  }
+
+  .group:hover .lg\:group-hover\:border-textOnPrimaryOpposite {
+    border-color: var(--textOnPrimaryOpposite);
   }
 
   .group:focus .lg\:group-focus\:border-transparent {
@@ -132580,6 +133052,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .group:focus .lg\:group-focus\:border-textOnPrimaryOpposite {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .lg\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -133220,6 +133696,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .lg\:hover\:border-textOnPrimaryOpposite:hover {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .lg\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -133858,6 +134338,10 @@ video {
 
   .lg\:focus\:border-textOnPrimary:focus {
     border-color: var(--textOnPrimary);
+  }
+
+  .lg\:focus\:border-textOnPrimaryOpposite:focus {
+    border-color: var(--textOnPrimaryOpposite);
   }
 
   .lg\:border-opacity-0 {
@@ -142138,6 +142622,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .lg\:placeholder-textOnPrimaryOpposite::placeholder {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .lg\:focus\:placeholder-transparent:focus::placeholder {
     color: transparent;
   }
@@ -142776,6 +143264,10 @@ video {
 
   .lg\:focus\:placeholder-textOnPrimary:focus::placeholder {
     color: var(--textOnPrimary);
+  }
+
+  .lg\:focus\:placeholder-textOnPrimaryOpposite:focus::placeholder {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .lg\:placeholder-opacity-0::placeholder {
@@ -146027,6 +146519,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .lg\:text-textOnPrimaryOpposite {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .group:hover .lg\:group-hover\:text-transparent {
     color: transparent;
   }
@@ -146665,6 +147161,10 @@ video {
 
   .group:hover .lg\:group-hover\:text-textOnPrimary {
     color: var(--textOnPrimary);
+  }
+
+  .group:hover .lg\:group-hover\:text-textOnPrimaryOpposite {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .group:focus .lg\:group-focus\:text-transparent {
@@ -147307,6 +147807,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .group:focus .lg\:group-focus\:text-textOnPrimaryOpposite {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .lg\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -147945,6 +148449,10 @@ video {
 
   .lg\:hover\:text-textOnPrimary:hover {
     color: var(--textOnPrimary);
+  }
+
+  .lg\:hover\:text-textOnPrimaryOpposite:hover {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .lg\:focus-within\:text-transparent:focus-within {
@@ -148587,6 +149095,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .lg\:focus-within\:text-textOnPrimaryOpposite:focus-within {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .lg\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -149227,6 +149739,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .lg\:focus\:text-textOnPrimaryOpposite:focus {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .lg\:active\:text-transparent:active {
     color: transparent;
   }
@@ -149865,6 +150381,10 @@ video {
 
   .lg\:active\:text-textOnPrimary:active {
     color: var(--textOnPrimary);
+  }
+
+  .lg\:active\:text-textOnPrimaryOpposite:active {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .lg\:text-opacity-0 {
@@ -160415,6 +160935,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .xl\:divide-textOnPrimaryOpposite > :not(template) ~ :not(template) {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .xl\:divide-solid > :not(template) ~ :not(template) {
     border-style: solid;
   }
@@ -161173,6 +161697,10 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .xl\:bg-textOnPrimaryOpposite {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
   .group:hover .xl\:group-hover\:bg-transparent {
     background-color: transparent;
   }
@@ -161811,6 +162339,10 @@ video {
 
   .group:hover .xl\:group-hover\:bg-textOnPrimary {
     background-color: var(--textOnPrimary);
+  }
+
+  .group:hover .xl\:group-hover\:bg-textOnPrimaryOpposite {
+    background-color: var(--textOnPrimaryOpposite);
   }
 
   .group:focus .xl\:group-focus\:bg-transparent {
@@ -162453,6 +162985,10 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .group:focus .xl\:group-focus\:bg-textOnPrimaryOpposite {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
   .xl\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -163091,6 +163627,10 @@ video {
 
   .xl\:hover\:bg-textOnPrimary:hover {
     background-color: var(--textOnPrimary);
+  }
+
+  .xl\:hover\:bg-textOnPrimaryOpposite:hover {
+    background-color: var(--textOnPrimaryOpposite);
   }
 
   .xl\:focus\:bg-transparent:focus {
@@ -163733,6 +164273,10 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .xl\:focus\:bg-textOnPrimaryOpposite:focus {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
   .xl\:active\:bg-transparent:active {
     background-color: transparent;
   }
@@ -164373,6 +164917,14 @@ video {
     background-color: var(--textOnPrimary);
   }
 
+  .xl\:active\:bg-textOnPrimaryOpposite:active {
+    background-color: var(--textOnPrimaryOpposite);
+  }
+
+  .xl\:bg-none {
+    background-image: none;
+  }
+
   .xl\:bg-gradient-to-t {
     background-image: linear-gradient(to top, var(--gradient-color-stops));
   }
@@ -164980,6 +165532,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .xl\:from-textOnPrimaryOpposite {
+    --gradient-from-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .xl\:via-transparent {
     --gradient-via-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -165555,6 +166112,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .xl\:via-textOnPrimaryOpposite {
+    --gradient-via-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .xl\:to-transparent {
     --gradient-to-color: transparent;
   }
@@ -166013,6 +166575,10 @@ video {
 
   .xl\:to-textOnPrimary {
     --gradient-to-color: var(--textOnPrimary);
+  }
+
+  .xl\:to-textOnPrimaryOpposite {
+    --gradient-to-color: var(--textOnPrimaryOpposite);
   }
 
   .xl\:hover\:from-transparent:hover {
@@ -166587,6 +167153,11 @@ video {
 
   .xl\:hover\:from-textOnPrimary:hover {
     --gradient-from-color: var(--textOnPrimary);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .xl\:hover\:from-textOnPrimaryOpposite:hover {
+    --gradient-from-color: var(--textOnPrimaryOpposite);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -167165,6 +167736,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .xl\:hover\:via-textOnPrimaryOpposite:hover {
+    --gradient-via-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .xl\:hover\:to-transparent:hover {
     --gradient-to-color: transparent;
   }
@@ -167623,6 +168199,10 @@ video {
 
   .xl\:hover\:to-textOnPrimary:hover {
     --gradient-to-color: var(--textOnPrimary);
+  }
+
+  .xl\:hover\:to-textOnPrimaryOpposite:hover {
+    --gradient-to-color: var(--textOnPrimaryOpposite);
   }
 
   .xl\:focus\:from-transparent:focus {
@@ -168197,6 +168777,11 @@ video {
 
   .xl\:focus\:from-textOnPrimary:focus {
     --gradient-from-color: var(--textOnPrimary);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
+  .xl\:focus\:from-textOnPrimaryOpposite:focus {
+    --gradient-from-color: var(--textOnPrimaryOpposite);
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
@@ -168775,6 +169360,11 @@ video {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
   }
 
+  .xl\:focus\:via-textOnPrimaryOpposite:focus {
+    --gradient-via-color: var(--textOnPrimaryOpposite);
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(255, 255, 255, 0));
+  }
+
   .xl\:focus\:to-transparent:focus {
     --gradient-to-color: transparent;
   }
@@ -169233,6 +169823,10 @@ video {
 
   .xl\:focus\:to-textOnPrimary:focus {
     --gradient-to-color: var(--textOnPrimary);
+  }
+
+  .xl\:focus\:to-textOnPrimaryOpposite:focus {
+    --gradient-to-color: var(--textOnPrimaryOpposite);
   }
 
   .xl\:bg-opacity-0 {
@@ -170015,6 +170609,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .xl\:border-textOnPrimaryOpposite {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .group:hover .xl\:group-hover\:border-transparent {
     border-color: transparent;
   }
@@ -170653,6 +171251,10 @@ video {
 
   .group:hover .xl\:group-hover\:border-textOnPrimary {
     border-color: var(--textOnPrimary);
+  }
+
+  .group:hover .xl\:group-hover\:border-textOnPrimaryOpposite {
+    border-color: var(--textOnPrimaryOpposite);
   }
 
   .group:focus .xl\:group-focus\:border-transparent {
@@ -171295,6 +171897,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .group:focus .xl\:group-focus\:border-textOnPrimaryOpposite {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .xl\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -171935,6 +172541,10 @@ video {
     border-color: var(--textOnPrimary);
   }
 
+  .xl\:hover\:border-textOnPrimaryOpposite:hover {
+    border-color: var(--textOnPrimaryOpposite);
+  }
+
   .xl\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -172573,6 +173183,10 @@ video {
 
   .xl\:focus\:border-textOnPrimary:focus {
     border-color: var(--textOnPrimary);
+  }
+
+  .xl\:focus\:border-textOnPrimaryOpposite:focus {
+    border-color: var(--textOnPrimaryOpposite);
   }
 
   .xl\:border-opacity-0 {
@@ -180853,6 +181467,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .xl\:placeholder-textOnPrimaryOpposite::placeholder {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .xl\:focus\:placeholder-transparent:focus::placeholder {
     color: transparent;
   }
@@ -181491,6 +182109,10 @@ video {
 
   .xl\:focus\:placeholder-textOnPrimary:focus::placeholder {
     color: var(--textOnPrimary);
+  }
+
+  .xl\:focus\:placeholder-textOnPrimaryOpposite:focus::placeholder {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .xl\:placeholder-opacity-0::placeholder {
@@ -184742,6 +185364,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .xl\:text-textOnPrimaryOpposite {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .group:hover .xl\:group-hover\:text-transparent {
     color: transparent;
   }
@@ -185380,6 +186006,10 @@ video {
 
   .group:hover .xl\:group-hover\:text-textOnPrimary {
     color: var(--textOnPrimary);
+  }
+
+  .group:hover .xl\:group-hover\:text-textOnPrimaryOpposite {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .group:focus .xl\:group-focus\:text-transparent {
@@ -186022,6 +186652,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .group:focus .xl\:group-focus\:text-textOnPrimaryOpposite {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .xl\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -186660,6 +187294,10 @@ video {
 
   .xl\:hover\:text-textOnPrimary:hover {
     color: var(--textOnPrimary);
+  }
+
+  .xl\:hover\:text-textOnPrimaryOpposite:hover {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .xl\:focus-within\:text-transparent:focus-within {
@@ -187302,6 +187940,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .xl\:focus-within\:text-textOnPrimaryOpposite:focus-within {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .xl\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -187942,6 +188584,10 @@ video {
     color: var(--textOnPrimary);
   }
 
+  .xl\:focus\:text-textOnPrimaryOpposite:focus {
+    color: var(--textOnPrimaryOpposite);
+  }
+
   .xl\:active\:text-transparent:active {
     color: transparent;
   }
@@ -188580,6 +189226,10 @@ video {
 
   .xl\:active\:text-textOnPrimary:active {
     color: var(--textOnPrimary);
+  }
+
+  .xl\:active\:text-textOnPrimaryOpposite:active {
+    color: var(--textOnPrimaryOpposite);
   }
 
   .xl\:text-opacity-0 {

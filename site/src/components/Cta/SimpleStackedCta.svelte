@@ -9,6 +9,7 @@
   let bgColorClass
   let subHeadingClass
   let headingClass
+  let buttonClass
 
   if (data.backgroundColor === 'inverted') {
     wrapperClass = 'inverted'
@@ -28,8 +29,8 @@
 
 <div class={`${wrapperClass}`}>
   <div class={bgColorClass}>
-    <div class="max-w-screen-xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        
+    <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 md:py-16 lg:px-8 lg:py-20">
+      
       {#if data.headingBlock && data.headingBlock.subHeading}
         <div class={`${subHeadingClass} text-sm mb-2 font-semibold uppercase tracking-wide sm:text-base lg:text-sm xl:text-base`}>
           {data.headingBlock.subHeading}
@@ -41,9 +42,8 @@
           {data.headingBlock.heading}
         </TagRenderer>
       {/if}
-
-      <!-- <div class="mt-8 flex justify-center"> -->
-        <div class="mt-8 max-w-md mx-auto flex-row space-y-3 sm:flex sm:space-x-3 sm:space-y-0 sm:justify-center md:mt-8">
+      
+      <div class="mt-8 max-w-md flex flex-col space-y-3 sm:flex-row sm:space-x-3 sm:space-y-0">
         {#if data.buttons && data.buttons.length > 0}
           {#each data.buttons as button}
             <Button {button} />

@@ -11,6 +11,7 @@ module.exports = {
         white: 'var(--white)',
         black: 'var(--black)',
         textOnPrimary: 'var(--textOnPrimary)',
+        textOnPrimaryOpposite: 'var(--textOnPrimaryOpposite)',
         indigo: {
           900: 'var(--primary-900)',
           800: 'var(--primary-800)',

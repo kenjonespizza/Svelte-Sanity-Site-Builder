@@ -47,11 +47,13 @@
 		const contrastLightWhiteOnPrimary = chroma.contrast(defaultColor['light'].white, {...brandColor.light.primary.rgb});
 		const contrastLightBlackOnPrimary = chroma.contrast(defaultColor['light'].black, {...brandColor.light.primary.rgb});
 		const lightTextOnPrimary = contrastLightWhiteOnPrimary > contrastLightBlackOnPrimary ? defaultColor['light'].white : defaultColor['light'].black
+		const lightTextOnPrimaryOpposite = contrastLightWhiteOnPrimary > contrastLightBlackOnPrimary ? defaultColor['light'].black : defaultColor['light'].white
 		
 		// See if white or black has a higher contrast on top of the primary color.  Return white or black.
 		const contrastDarkWhiteOnPrimary = chroma.contrast(defaultColor['dark'].black, {...brandColor.dark.primary.rgb});
 		const contrastDarkBlackOnPrimary = chroma.contrast(defaultColor['dark'].white, {...brandColor.dark.primary.rgb});
 		const darkTextOnPrimary = contrastDarkWhiteOnPrimary > contrastDarkBlackOnPrimary ? defaultColor['dark'].black : defaultColor['dark'].white
+		const darkTextOnPrimaryOpposite = contrastDarkWhiteOnPrimary > contrastDarkBlackOnPrimary ? defaultColor['dark'].white : defaultColor['dark'].black
 		// console.log('contrastDarkBlackOnPrimary:', contrastDarkBlackOnPrimary)
 		// console.log('contrastDarkWhiteOnPrimary:', contrastDarkWhiteOnPrimary)
 
@@ -71,6 +73,7 @@
 					900: lightPrimary[9],
 					950: lightPrimary[10],
 					text: lightTextOnPrimary,
+					textOpposite: lightTextOnPrimaryOpposite,
 				},
 				black: defaultColor['light'].black,
 				white: defaultColor['light'].white,
@@ -102,6 +105,7 @@
 					900: darkPrimary[9],
 					950: darkPrimary[10],
 					text: darkTextOnPrimary,
+					textOpposite: darkTextOnPrimaryOpposite,
 				},
 				black: defaultColor['dark'].black,
 				white: defaultColor['dark'].white,
@@ -129,8 +133,7 @@
 <script>
 	import { setContext } from 'svelte';
 	import { onMount } from 'svelte'
-	// import {theme as themeStore} from '../store';
-	import {shade, tint} from 'polished'
+	import { disableScrolling } from '../stores';
 	import chroma from 'chroma-js'
 	// import cssVars from 'svelte-css-vars';
 	import Header from '../components/Header/Header.svelte';
@@ -145,7 +148,6 @@
 	
   setContext('allPageData', allPageData);
 
-	
   onMount(() => {
 		// let theme = 'light'
 		if(typeof document !== 'undefined') {
@@ -172,6 +174,7 @@
 			stringLight += `--primary-900: ${color.light.primary[900]};`;
 			stringLight += `--primary-950: ${color.light.primary[950]};`;
 			stringLight += `--textOnPrimary: ${color.light.primary.text};`;
+			stringLight += `--textOnPrimaryOpposite: ${color.light.primary.textOpposite};`;
 			stringLight += `--black: ${color.light.black};`;
 			stringLight += `--white: ${color.light.white};`;
 			stringLight += `--gray-950: ${color.light.gray[950]};`;
@@ -199,6 +202,7 @@
 			stringDark += `--primary-900: ${color.dark.primary[900]};`;
 			stringDark += `--primary-950: ${color.dark.primary[950]};`;
 			stringDark += `--textOnPrimary: ${color.dark.primary.text};`;
+			stringDark += `--textOnPrimaryOpposite: ${color.dark.primary.textOpposite};`;
 			stringDark += `--black: ${color.dark.black};`;
 			stringDark += `--white: ${color.dark.white};`;
 			stringDark += `--gray-950: ${color.dark.gray[950]};`;
@@ -222,9 +226,29 @@
 		}
 	});
 
+	function setPhoNav(e) {
+		const navBar = document.querySelector('.navBar')
+		navBar.offsetHeight
+		const phoNav = document.querySelector('.phoNav')
+
+		phoNav.style.height = `${navBar.offsetHeight}px`
+	}
+
 </script>
 
+<svelte:window on:load={setPhoNav} />
+
 <svelte:head>
+	{#if $disableScrolling}
+    <style>
+      body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+    </style>
+  {/if}
+
   <style id="unique-stylesheet-id"> </style>
   <script>
 		// read the stored theme if it exists, 
@@ -248,6 +272,7 @@
 				stringLight += `--primary-900: ${color.light.primary[900]};`;
 				stringLight += `--primary-950: ${color.light.primary[950]};`;
 				stringLight += `--textOnPrimary: ${color.light.primary.text};`;
+				stringLight += `--textOnPrimaryOpposite: ${color.light.primary.textOpposite};`;
 				stringLight += `--black: ${color.light.black};`;
 				stringLight += `--white: ${color.light.white};`;
 				stringLight += `--gray-950: ${color.light.gray[950]};`;
@@ -275,6 +300,7 @@
 				stringDark += `--primary-900: ${color.dark.primary[900]};`;
 				stringDark += `--primary-950: ${color.dark.primary[950]};`;
 				stringDark += `--textOnPrimary: ${color.dark.primary.text};`;
+				stringDark += `--textOnPrimaryOpposite: ${color.dark.primary.textOpposite};`;
 				stringDark += `--black: ${color.dark.black};`;
 				stringDark += `--white: ${color.dark.white};`;
 				stringDark += `--gray-950: ${color.dark.gray[950]};`;
@@ -301,11 +327,7 @@
 </svelte:head>
 
 <!-- Nav Placeholder -->
-<div class="py-6">
-	<!-- TODO: Maybe make this all smart like -->
-	<div style="height: {menuSettings && menuSettings.logoHeight || 37}px"></div>
-</div>
 <Header {segment} {menuSettings} {siteSettings} {themeSettings} />
-<main>
+<main role="main">
 	<slot></slot>
 </main>

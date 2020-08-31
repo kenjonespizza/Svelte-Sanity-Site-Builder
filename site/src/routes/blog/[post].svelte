@@ -6,8 +6,6 @@
       const { postData } = await res.json();
       let post = postData
       return { post };
-      // console.log('allPostData:', allPostData)
-      // console.log('post:', post)
     } catch (err) {
       this.error(500, err);
     }
@@ -21,7 +19,7 @@ import BlockContent from '../../components/BlockContent.svelte'
 
   export let post
   let {authors} = post
-  console.log('authors:', authors)
+  // console.log('authors:', authors)
   // console.log('post:', post)
 </script>
 
@@ -66,9 +64,9 @@ import BlockContent from '../../components/BlockContent.svelte'
     <div class="text-lg max-w-7xl mx-auto mb-6">
       <div class=" lg:px-20">
 
-        <h1 class="mt-2 mb-8 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-5xl sm:leading-10">{post.pageInfo.name}</h1>
+        <h1 class="w-full mt-2 mb-8 text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:w-2/3">{post.pageInfo.name}</h1>
 
-        <BlockContent classes="text-xl text-gray-500 leading-8 w-full lg:w-1/2 mb-8" content={post.shortText} />
+        <BlockContent classes="text-xl text-gray-500 leading-8 w-full mb-8 lg:w-1/2 " content={post.shortText} />
 
         <div class="mb-8">
           <div class="flex-shrink-0 group block focus:outline-none">
@@ -97,10 +95,11 @@ import BlockContent from '../../components/BlockContent.svelte'
 
       </div>
       {#if post.image && post.image.image}
-        <img class="my-8 w-full rounded-lg object-cover object-center" style="height: 70vh;" src={urlFor(post.image.image).quality(80).width(2000)} alt={post.image.image.alt}>
+        <img class="my-16 w-full rounded-lg shadow-xl object-cover object-center" style="height: 70vh;" src={urlFor(post.image.image).quality(80).width(2000)} alt={post.image.image.alt}>
       {/if}
     </div>
-    <div class="prose prose-lg text-gray-500 mx-auto">
+    <BlockContent classes="prose prose-lg max-w-2xl text-gray-500 mx-auto" content={post.body} />
+    <!-- <div class="prose prose-lg text-gray-500 mx-auto">
       <p>Faucibus commodo massa rhoncus, volutpat. <strong>Dignissim</strong> sed <strong>eget risus enim</strong>. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. <a href="/">Mattis mauris semper</a> sed amet vitae sed turpis id.</p>
       <ul>
         <li>Quis elit egestas venenatis mattis dignissim.</li>
@@ -121,7 +120,7 @@ import BlockContent from '../../components/BlockContent.svelte'
       <h3>Everything you need to get up and running</h3>
       <p>Purus morbi dignissim senectus mattis <a href="/">adipiscing</a>. Amet, massa quam varius orci dapibus volutpat cras. In amet eu ridiculus leo sodales cursus tristique. Tincidunt sed tempus ut viverra ridiculus non molestie. Gravida quis fringilla amet eget dui tempor dignissim. Facilisis auctor venenatis varius nunc, congue erat ac. Cras fermentum convallis quam.</p>
       <p>Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit.</p>
-    </div>
+    </div> -->
   </div>
 </div>
 

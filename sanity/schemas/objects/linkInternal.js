@@ -11,7 +11,10 @@ export default {
       type: 'reference',
       weak: true,
       to: [
-        {type: 'page'}
+        {type: 'page'},
+        {type: 'post'},
+        {type: 'author'},
+        {type: 'category'},
       ],
     },
   ],

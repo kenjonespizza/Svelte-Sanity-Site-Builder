@@ -5,7 +5,7 @@ const sectionName = `Call To Action: Simple Centered`
 export default {
   name: 'simple_centered_cta',
   type: 'object',
-  title: 'Simple centered - CTA',
+  title: sectionName,
   icon: FcSpeaker,
   fields: [
     {
@@ -20,6 +20,21 @@ export default {
       of: [
         {type: 'button'}
       ]
+    },
+    {
+      name: 'backgroundColor',
+      title: 'Background Color?',
+      type: 'string',
+      description: 'Default: Normal',
+      options: {
+        list: [
+          {value: 'normal', title: "Normal"},
+          {value: 'inverted', title: "Inverted"},
+          {value: 'primary', title: "Primary Color"},
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      }
     },
   ],
   preview: {
