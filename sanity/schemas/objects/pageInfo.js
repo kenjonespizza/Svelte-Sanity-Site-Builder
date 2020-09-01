@@ -1,7 +1,7 @@
 import sanityClient from 'part:@sanity/base/client';
 import slugify from 'slugify';
 
-// This function first slugify the requested value.  Next it checks if the requested slug already exists.  If the page does exist, then a '-X' will be added to the slugified value to make it unique.  Then the slug is returned.
+// First, slugify the requested value.  Next, checks if the requested slug already exists.  If the slug exists, then '-X' will be added to the slug value to make it unique.  Then the slug is returned.
 function slugifier(input, type) {
   const slug = slugify(input, {
     replacement: '-', // Replace spaces with replacement
@@ -32,7 +32,7 @@ export default {
     {
       name: 'slug',
       title: 'Slug',
-      description: 'EX: "about-us". No np slash',
+      description: 'EX: "about-us". No leading slash',
       type: 'slug',
       options: {
         source: page => page.pageInfo && `${page.pageInfo.name}`,

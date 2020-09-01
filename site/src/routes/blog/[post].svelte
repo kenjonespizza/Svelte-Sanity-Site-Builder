@@ -21,11 +21,30 @@ import BlockContent from '../../components/BlockContent.svelte'
   let {authors} = post
   // console.log('authors:', authors)
   // console.log('post:', post)
+
+  let layout = "B"
+  let y
+  let outerHeight
+  let outerWidth
+  console.log('outerHeight:', outerHeight)
+  console.log('y:', y)
+
+  function scrolling(e) {
+    // console.log('outerHeight:', outerHeight)
+    // console.log('y:', y)
+    let percentScrolled =  y / outerHeight * 100
+    console.log('percentScrolled:', percentScrolled)
+
+
+    
+  }
 </script>
 
 <svelte:head>
   <title>{post.pageInfo.name}</title>
 </svelte:head>
+
+<svelte:window bind:scrollY={y} bind:outerHeight={outerHeight} bind:outerWidth={outerWidth}  on:scroll={scrolling}/>
 
 <!-- This component requires Tailwind CSS >= 1.5.1 and @tailwindcss/ui >= 0.4.0 -->
 <div class="relative py-16 bg-white overflow-hidden">
@@ -61,6 +80,7 @@ import BlockContent from '../../components/BlockContent.svelte'
     </div>
   </div>
   <div class="relative px-4 sm:px-6 lg:px-8">
+    {#if layout === "A"}
     <div class="text-lg max-w-7xl mx-auto mb-6">
       <div class=" lg:px-20">
 
@@ -98,6 +118,19 @@ import BlockContent from '../../components/BlockContent.svelte'
         <img class="my-16 w-full rounded-lg shadow-xl object-cover object-center" style="height: 70vh;" src={urlFor(post.image.image).quality(80).width(2000)} alt={post.image.image.alt}>
       {/if}
     </div>
+    {:else}
+      <div class="w-screen h-screen flex"></div>
+      <div class="fixed top-0 left-0 w-screen h-screen flex z-50">
+        <div class="postImage w-1/2 h-screen" style="transform: translateX(-{y / (outerHeight * .7) * 100}%);">
+          {#if post.image && post.image.image}
+            <img class="h-full w-full object-cover object-center" src={urlFor(post.image.image).quality(80).width(2000)} alt={post.image.image.alt}>
+          {/if}
+        </div>
+        <div class="postTitle w-1/2 h-full bg-indigo-600 flex flex-col justify-center p-20" style="transform: translateX({y / (outerHeight * .7) * 100}%);">
+          <h1 class="w-full mt-2 mb-8 text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:w-2/3">{post.pageInfo.name}</h1>
+        </div>
+      </div>
+    {/if}
     <BlockContent classes="prose prose-lg max-w-2xl text-gray-500 mx-auto" content={post.body} />
     <!-- <div class="prose prose-lg text-gray-500 mx-auto">
       <p>Faucibus commodo massa rhoncus, volutpat. <strong>Dignissim</strong> sed <strong>eget risus enim</strong>. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. <a href="/">Mattis mauris semper</a> sed amet vitae sed turpis id.</p>

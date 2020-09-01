@@ -4,7 +4,7 @@ import SimpleCenteredHero from './Hero/SimpleCenteredHero.svelte'
 import WithAngledImageOnRightHero from './Hero/WithAngledImageOnRightHero.svelte'
 import WithFullWidthImageHero from './Hero/WithFullWidthImageHero.svelte'
 import WithContactFormHero from './Hero/WithContactFormHero.svelte'
-import withVideoPopoverHero from './Hero/withVideoPopoverHero.svelte'
+import WithVideoPopoverHero from './Hero/WithVideoPopoverHero.svelte'
 // CTAs
 import SimpleCenteredCta from './Cta/SimpleCenteredCta.svelte'
 import SimpleJustifiedCta from './Cta/SimpleJustifiedCta.svelte'
@@ -23,7 +23,7 @@ const Components = {
   with_angled_image_on_right_hero: WithAngledImageOnRightHero,
   with_full_width_image_hero: WithFullWidthImageHero,
   with_contact_form_hero: WithContactFormHero,
-  with_video_popover_hero: withVideoPopoverHero,
+  with_video_popover_hero: WithVideoPopoverHero,
   // CTAs
   simple_centered_cta: SimpleCenteredCta,
   simple_justified_cta: SimpleJustifiedCta,

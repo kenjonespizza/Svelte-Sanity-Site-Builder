@@ -1,23 +1,3 @@
-<script context="module">
-  
-  // // run a groq query
-  // import {resolveLink} from '../utils/helpers'
-  // console.log('linkHERE:', link)
-  // // export async function preload(page, session) {
-	// // 	resolveLink
-  // // }
-  
-  // export async function resolveLink({link}) {
-  // // console.log('link.link[0].link:', link[0].link._ref)
-
-  //   const linkData = await sanityClient.fetch(`*[_type == "page" && _id == '${link[0].link._ref}']`)
-  //   return linkData || []
-  // }
-
-  // console.log('resolveLink:', resolveLink())
-
-</script>
-
 <script>
   import { getPageInfoFromRef, resolveSubdirectory } from '../utils/helpers'
   import { getContext } from 'svelte';
@@ -29,18 +9,12 @@
   export let subDirectory = null;
   export let title;
   export let text = '';
-  // console.log('text:', text)
-  // export let portableText
-  // console.log('portableText:', portableText)
 
   let linkData;
-
-  // console.log($$props)
 
   // Build linkData to grab & normalize the data
   if ((link && link.link[0]._type === "linkInternal") || ref) {
     const allPageData = getContext('allPageData'); // Grab all pages link info
-    // console.log('allPageData:', allPageData)
     if (ref) {
       linkData = getPageInfoFromRef(ref, allPageData) // Retrun the page info
     } else {
