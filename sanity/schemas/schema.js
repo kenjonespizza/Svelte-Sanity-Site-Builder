@@ -15,7 +15,7 @@ import author from './blog/documents/author';
 import category from './blog/documents/category';
 import post from './blog/documents/post';
 import tag from './blog/documents/tag';
-import blogSettings from './blog/documents/blogSettings';
+import blog from './blog/documents/blog';
 
 // Import Objects
 import basicImage from './objects/basicImage';
@@ -39,9 +39,10 @@ import youtube from './objects/youtube';
 import socialMediaHandles from './objects/socialMediaHandles';
 
 // Import Blog Objects
+import authorPageInfo from './blog/objects/authorPageInfo';
 import authorReference from './blog/objects/authorReference';
 import blogPageInfo from './blog/objects/blogPageInfo';
-import authorPageInfo from './blog/objects/authorPageInfo';
+import postPageInfo from './blog/objects/postPageInfo';
 
 // Import Page Sections
 // import { heroSimpleCentered } from './pageSections/heros';
@@ -73,7 +74,7 @@ export default createSchema({
       category,
       post,
       tag,
-      blogSettings,
+      blog,
 
       // Objects
       basicImage,
@@ -97,9 +98,10 @@ export default createSchema({
       socialMediaHandles,
 
       // Blog Objects
+      authorPageInfo,
       authorReference,
       blogPageInfo,
-      authorPageInfo,
+      postPageInfo,
     ])
     .concat(allPageSections),
 });

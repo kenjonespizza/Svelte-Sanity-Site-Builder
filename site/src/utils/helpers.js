@@ -30,13 +30,53 @@ export function getPageInfoFromRef (ref, allPageData) {
 // Return a subDirectory base on what the type of page is
 export const resolveSubdirectory = (linkData) => {
   let type = linkData && linkData._type ? linkData._type : null 
-  if (type === 'post') {
-    return 'blog/'
-  } else if (type === 'page') { // if type exists, just return the type as the subDirectory
-    return ""
-  } else if (type) { // if type exists, just return the type as the subDirectory
-    return `${type}/`
-  }
+  // if (type === 'post') {
+  //   return 'blog/'
+  // } else if (type === 'page') { // if type exists, just return the type as the subDirectory
+  //   return ""
+  // } else if (type) { // if type exists, just return the type as the subDirectory
+  //   return `${type}/`
+  // }
 
-  return null
+  switch (type) {
+    case 'post':
+      return 'blog/'
+    case 'page':
+      return ''
+    case 'blog':
+      return ''
+    default:
+      return `${type}/`
+  }
 }
+
+export function toPlainText(blocks = []) {
+  return blocks
+    // loop through each block
+    .map(block => {
+      // if it's not a text block with children, 
+      // return nothing
+      if (block._type !== 'block' || !block.children) {
+        return ''
+      }
+      // loop through the children spans, and join the
+      // text strings
+      return block.children.map(child => child.text).join('')
+    })
+    // join the paragraphs leaving split by two linebreaks
+    .join('\n\n')
+}
+
+export function truncate(str, length, ending) {
+  if (length == null) {
+    length = 255;
+  }
+  if (ending == null) {
+    ending = '...';
+  }
+  if (str.length > length) {
+    return str.substring(0, length - ending.length) + ending;
+  } else {
+    return str;
+  }
+};

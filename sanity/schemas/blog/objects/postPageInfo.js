@@ -7,8 +7,7 @@ function slugifier(input, type) {
     remove: /[*+~.,;()'"!:?@]/g, // regex to remove characters
     lower: true, // result in lower case
   });
-  const query =
-    'count(*[pageInfo.slug.current == $slug]{_id}) && _typ == "author"';
+  const query = 'count(*[pageInfo.slug.current == $slug && _type == "post"]{_id})';
   const params = { slug };
   return sanityClient.fetch(query, params).then((count) => {
     if (count > 0) {
@@ -19,26 +18,24 @@ function slugifier(input, type) {
 }
 
 export default {
-  name: 'authorPageInfo',
-  title: 'Page Information',
+  name: 'postPageInfo',
+  title: 'Blog Post Information',
   type: 'object',
   fields: [
     {
       name: 'name',
-      title: 'Full Name',
+      title: 'Title',
       type: 'string',
-      validation: Rule => Rule.required(),
     },
     {
       name: 'slug',
       title: 'Slug',
-      description: 'EX: "projects". No leading slash',
+      description: 'EX: "about-us". No leading slash',
       type: 'slug',
       options: {
-        source: (author) => author.pageInfo && `${author.pageInfo.name}`,
+        source: (page) => page.pageInfo && `${page.pageInfo.name}`,
         slugify: slugifier,
       },
-      validation: Rule => Rule.required()
     },
     
   ],

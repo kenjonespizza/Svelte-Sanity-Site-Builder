@@ -6,10 +6,15 @@ export default {
   title: 'Blog Post',
   icon: RiDraftLine,
   fields: [
+    // {
+    //   name: 'pageInfo',
+    //   title: 'Title & Slug',
+    //   type: 'blogPageInfo',
+    // },
     {
       name: 'pageInfo',
       title: 'Title & Slug',
-      type: 'blogPageInfo',
+      type: 'postPageInfo',
     },
     {
       name: 'shortText',
@@ -24,7 +29,7 @@ export default {
     },
     {
       name: 'image',
-      type: 'basicImage',
+      type: 'imageNoAlt',
       title: 'Main image',
     },
     {

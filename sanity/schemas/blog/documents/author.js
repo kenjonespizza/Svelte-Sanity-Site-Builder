@@ -12,6 +12,11 @@ export default {
       type: 'authorPageInfo',
     },
     {
+      name: 'position',
+      title: 'Position or Tagline',
+      type: 'string',
+    },
+    {
       name: 'image',
       type: 'imageNoAlt',
       title: 'Image',

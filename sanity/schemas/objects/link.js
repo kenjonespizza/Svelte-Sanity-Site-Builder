@@ -17,6 +17,7 @@ export default {
       name: 'text',
       title: 'Text',
       type: 'string',
+      validation: Rule => Rule.required()
     },
     {
       name: 'link',
@@ -53,5 +54,27 @@ export default {
       description: "Optional: This text shows when the link is hovered.",
       fieldset: 'linkProperties',
     },
-  ]
+  ],
+  preview: {
+    select: {
+      text: 'text',
+      link: 'link'
+    },
+
+    prepare({text, link}) {
+      console.log('link:', link)
+      let subtitle
+
+      if ( link && link.length && link[0]._type === 'linkInternal' ) {
+        subtitle = 'Internal Link'
+      } else if ( link && link.length && link[0]._type === 'linkExternal' ) {
+        subtitle = 'External Link'
+      }
+      
+      return {
+        title: text,
+        subtitle
+      }
+    }
+  }
 }

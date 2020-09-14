@@ -12,6 +12,7 @@ export default {
       weak: true,
       to: [
         {type: 'page'},
+        {type: 'blog'},
         {type: 'post'},
         {type: 'author'},
         {type: 'category'},

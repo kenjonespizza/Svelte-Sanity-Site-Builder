@@ -43,17 +43,32 @@
 		const darkPrimaryDark = chroma.scale([{...brandColor.dark.primary.rgb}, 'white']).padding([0, 0.1]).colors(5)
 		const darkPrimary = [...darkPrimaryLight, ...darkPrimaryDark]
 
-		// See if white or black has a higher contrast on top of the primary color.  Return white or black.
-		const contrastLightWhiteOnPrimary = chroma.contrast(defaultColor['light'].white, {...brandColor.light.primary.rgb});
-		const contrastLightBlackOnPrimary = chroma.contrast(defaultColor['light'].black, {...brandColor.light.primary.rgb});
-		const lightTextOnPrimary = contrastLightWhiteOnPrimary > contrastLightBlackOnPrimary ? defaultColor['light'].white : defaultColor['light'].black
-		const lightTextOnPrimaryOpposite = contrastLightWhiteOnPrimary > contrastLightBlackOnPrimary ? defaultColor['light'].black : defaultColor['light'].white
+		let lightTextOnPrimary
+		let lightTextOnPrimaryOpposite
+		let darkTextOnPrimary
+		let darkTextOnPrimaryOpposite
 		
-		// See if white or black has a higher contrast on top of the primary color.  Return white or black.
-		const contrastDarkWhiteOnPrimary = chroma.contrast(defaultColor['dark'].black, {...brandColor.dark.primary.rgb});
-		const contrastDarkBlackOnPrimary = chroma.contrast(defaultColor['dark'].white, {...brandColor.dark.primary.rgb});
-		const darkTextOnPrimary = contrastDarkWhiteOnPrimary > contrastDarkBlackOnPrimary ? defaultColor['dark'].black : defaultColor['dark'].white
-		const darkTextOnPrimaryOpposite = contrastDarkWhiteOnPrimary > contrastDarkBlackOnPrimary ? defaultColor['dark'].white : defaultColor['dark'].black
+		if (themeSettings.textOnLight == 'white' || themeSettings.textOnLight == 'black') {
+		lightTextOnPrimary = defaultColor['light'][themeSettings.textOnLight];
+		lightTextOnPrimaryOpposite = defaultColor['light'][themeSettings.textOnLight === 'white' ? 'black' : 'white'];
+		} else {
+			// See if white or black has a higher contrast on top of the primary color.  Return white or black.
+			const contrastLightWhiteOnPrimary = chroma.contrast(defaultColor['light'].white, {...brandColor.light.primary.rgb});
+			const contrastLightBlackOnPrimary = chroma.contrast(defaultColor['light'].black, {...brandColor.light.primary.rgb});
+			lightTextOnPrimary = contrastLightWhiteOnPrimary > contrastLightBlackOnPrimary ? defaultColor['light'].white : defaultColor['light'].black
+			lightTextOnPrimaryOpposite = contrastLightWhiteOnPrimary > contrastLightBlackOnPrimary ? defaultColor['light'].black : defaultColor['light'].white
+		}
+		
+		if (themeSettings.textOnDark == 'white' || themeSettings.textOnDark == 'black') {
+			darkTextOnPrimaryOpposite = defaultColor['dark'][themeSettings.textOnDark];
+			darkTextOnPrimary = defaultColor['dark'][themeSettings.textOnDark === 'white' ? 'black' : 'white'];
+		} else {
+			// See if white or black has a higher contrast on top of the primary color.  Return white or black.
+			const contrastDarkWhiteOnPrimary = chroma.contrast(defaultColor['dark'].black, {...brandColor.dark.primary.rgb});
+			const contrastDarkBlackOnPrimary = chroma.contrast(defaultColor['dark'].white, {...brandColor.dark.primary.rgb});
+			darkTextOnPrimary = contrastDarkWhiteOnPrimary > contrastDarkBlackOnPrimary ? defaultColor['dark'].black : defaultColor['dark'].white
+			darkTextOnPrimaryOpposite = contrastDarkWhiteOnPrimary > contrastDarkBlackOnPrimary ? defaultColor['dark'].white : defaultColor['dark'].black
+		}
 		// console.log('contrastDarkBlackOnPrimary:', contrastDarkBlackOnPrimary)
 		// console.log('contrastDarkWhiteOnPrimary:', contrastDarkWhiteOnPrimary)
 

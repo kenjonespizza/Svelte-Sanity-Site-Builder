@@ -19,7 +19,7 @@ function slugifier(input, type) {
 
 export default {
   name: 'blogPageInfo',
-  title: 'Page Information',
+  title: 'Blog Information',
   type: 'object',
   fields: [
     {
@@ -30,22 +30,13 @@ export default {
     {
       name: 'slug',
       title: 'Slug',
-      description: 'EX: "projects". No leading slash',
+      description: '⚠️ Contact gang@allday.io update this slug.',
       type: 'slug',
       options: {
         source: (page) => page.pageInfo && `${page.pageInfo.name}`,
         slugify: slugifier,
       },
+      // readOnly: true,
     },
-    // {
-    //   name: 'childOf',
-    //   title: 'Child of:',
-    //   type: 'reference',
-    //   description: 'Leave empty if top level page',
-    //   to: [
-    //     {type: 'pages'}
-    //   ],
-    //   weak: true
-    // },
   ],
 };

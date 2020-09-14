@@ -22,21 +22,23 @@ import BlockContent from '../../components/BlockContent.svelte'
   // console.log('authors:', authors)
   // console.log('post:', post)
 
-  let layout = "B"
+  let layout = "A"
   let y
   let outerHeight
   let outerWidth
-  console.log('outerHeight:', outerHeight)
-  console.log('y:', y)
+  let scrollGeneratedClasses
 
   function scrolling(e) {
     // console.log('outerHeight:', outerHeight)
     // console.log('y:', y)
     let percentScrolled =  y / outerHeight * 100
-    console.log('percentScrolled:', percentScrolled)
+    // console.log('percentScrolled:', percentScrolled)
 
-
-    
+    if (percentScrolled > 70) {
+      scrollGeneratedClasses = 'pointer-events-none'
+    } else {
+      scrollGeneratedClasses = 'pointer-events-auto'
+    }
   }
 </script>
 
@@ -95,7 +97,7 @@ import BlockContent from '../../components/BlockContent.svelte'
                 {#each authors as author, i }
                   {#if author.image}
                     <Link classes={`${i > 0 ? "-ml-3" : ""} inline-block`} ref={author._id} title={author.pageInfo.name} >
-                      <img class={`relative h-12 w-12 rounded-full text-white border-3 border-white object-cover object-center`} src={author.image ? urlFor(author.image).quality(100).width(40) : "/images/userImageNotFound.png"} alt={author.pageInfo.name}>
+                      <img class={`relative h-12 w-12 rounded-full text-white border-3 border-white object-cover object-center`} src={author.image ? urlFor(author.image).quality(100).size(80, 80) : "/images/userImageNotFound.png"} alt={author.pageInfo.name}>
                     </Link>
                   {/if}
                 {/each}
@@ -114,20 +116,47 @@ import BlockContent from '../../components/BlockContent.svelte'
         <!-- React, Redux, Node.js, Express, and SQL -->
 
       </div>
-      {#if post.image && post.image.image}
-        <img class="my-16 w-full rounded-lg shadow-xl object-cover object-center" style="height: 70vh;" src={urlFor(post.image.image).quality(80).width(2000)} alt={post.image.image.alt}>
+      {#if post.image}
+        <img class="my-16 w-full rounded-lg shadow-xl object-cover object-center" style="height: 70vh;" src={urlFor(post.image).quality(80).width(2000)} alt={post.image.alt}>
       {/if}
     </div>
     {:else}
       <div class="w-screen h-screen flex"></div>
-      <div class="fixed top-0 left-0 w-screen h-screen flex z-50">
-        <div class="postImage w-1/2 h-screen" style="transform: translateX(-{y / (outerHeight * .7) * 100}%);">
-          {#if post.image && post.image.image}
-            <img class="h-full w-full object-cover object-center" src={urlFor(post.image.image).quality(80).width(2000)} alt={post.image.image.alt}>
+      <div class={`${scrollGeneratedClasses} fixed top-0 left-0 w-screen h-screen flex z-50`}>
+        <div class="postImage w-1/2 h-screen bg-white shadow-2xl" style="transform: translateX(-{y / (outerHeight * .7) * 100}%);">
+          {#if post.image && post.image}
+            <img class="h-full w-full object-cover object-center" src={urlFor(post.image).quality(80).width(2000)} alt={post.image.alt}>
           {/if}
         </div>
-        <div class="postTitle w-1/2 h-full bg-indigo-600 flex flex-col justify-center p-20" style="transform: translateX({y / (outerHeight * .7) * 100}%);">
-          <h1 class="w-full mt-2 mb-8 text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:w-2/3">{post.pageInfo.name}</h1>
+        <div class="postTitle w-1/2 h-full bg-indigo-600 flex flex-col justify-center p-20 shadow-2xl" style="transform: translateX({y / (outerHeight * .7) * 100}%);">
+          <h1 class="w-full mt-2 mb-8 text-3xl leading-tight font-extrabold tracking-tight text-textOnPrimary sm:text-5xl lg:w-2/3">{post.pageInfo.name}</h1>
+
+          <BlockContent classes="text-xl text-textOnPrimary opacity-75 leading-8 " content={post.shortText} />
+
+          <div class="my-8">
+            <p class="text-sm leading-5 font-medium text-textOnPrimary">
+              By: 
+              {#each authors as author, i }
+                <Link ref={author._id} classes="text-textOnPrimary underline">{author.pageInfo.name}</Link>{ i + 2 === authors.length && authors.length > 1 ? ` and ` : i + 1 !== authors.length && authors.length > 1 ? `, ` : ''}
+              {/each}
+            </p>
+          </div>
+
+          <div class="flex-shrink-0 group block focus:outline-none">
+            <div class="flex items-center flex-wrap">
+              <div class="flex relative z-0 overflow-hidden">
+                {#each authors as author, i }
+                  {#if author.image}
+                    <Link classes={`${i > 0 ? "-ml-3" : ""} inline-block`} ref={author._id} title={author.pageInfo.name} >
+                      <img class={`relative h-12 w-12 rounded-full text-white border-3 border-textOnPrimary object-cover object-center`} src={author.image ? urlFor(author.image).quality(100).size(80, 80) : "/images/userImageNotFound.png"} alt={author.pageInfo.name}>
+                    </Link>
+                  {/if}
+                {/each}
+              </div>
+            </div>
+          </div>
+
+
         </div>
       </div>
     {/if}

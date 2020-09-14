@@ -38,6 +38,21 @@ export default {
       },
       fieldset: 'colorsLight',
     },
+    {
+      name: 'textOnLight',
+      title: 'Color of text when on top of the primary color',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Use which ever has the highest contrast', value: 'default'},
+          {title: 'White', value: 'white'},
+          {title: 'Black', value: 'black'},
+        ],
+        layout: 'radio',
+        direction: 'horizontal'
+      },
+      fieldset: 'colorsLight',
+    },
     // {
     //   name: 'colorSecondaryLight',
     //   title: 'Secondary Color',
@@ -53,6 +68,21 @@ export default {
       type: 'color',
       options: {
         disableAlpha: true,
+      },
+      fieldset: 'colorsDark',
+    },
+    {
+      name: 'textOnDark',
+      title: 'Color of text when on top of the primary color',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Use which ever has the highest contrast', value: 'default'},
+          {title: 'White', value: 'white'},
+          {title: 'Black', value: 'black'},
+        ],
+        layout: 'radio',
+        direction: 'horizontal'
       },
       fieldset: 'colorsDark',
     },

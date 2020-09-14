@@ -1,11 +1,17 @@
 import { IoIosDocument } from 'react-icons/io';
 
 export default {
-  name: 'blogSettings',
+  name: 'blog',
   title: 'Blog info & settings',
   type: 'document',
   icon: IoIosDocument,
   fields: [
+    {
+      name: 'pageInfo',
+      title: 'Blog Info',
+      type: 'blogPageInfo',
+      hidden: false,
+    },
     {
       name: 'content',
       title: 'Blog page content',

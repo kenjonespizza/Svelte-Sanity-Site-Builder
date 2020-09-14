@@ -73,8 +73,8 @@ const blog = S.listItem()
           .child(
             S.editor()
               .title('Blog: Settings & info')
-              .schemaType('blogSettings')
-              .documentId('blogSettings')
+              .schemaType('blog')
+              .documentId('blog')
           ),
         S.documentTypeListItem('author').title('Authors').icon(RiGroupLine),
         S.documentTypeListItem('category').title('Categories').icon(RiFolder5Line),
