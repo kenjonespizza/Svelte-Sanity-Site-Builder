@@ -12,7 +12,7 @@
 
 
 <script>
-  import Link from '../../components/Link.svelte'
+  import Link from '../../../components/Link.svelte'
   export let posts;
 </script>
 

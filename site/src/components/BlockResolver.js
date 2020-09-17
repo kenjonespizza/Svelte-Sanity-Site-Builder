@@ -13,6 +13,11 @@ import SplitWithImageCta from './Cta/SplitWithImageCta.svelte'
 // Testimonials
 import SideBySideTestimonial from './Testimonial/SideBySideTestimonial.svelte'
 import SimpleCenteredTestimonial from './Testimonial/SimpleCenteredTestimonial.svelte'
+// Icons
+import Dribbble from './Icon/Dribbble.svelte'
+import LinkedIn from './Icon/LinkedIn.svelte'
+import Twitter from './Icon/Twitter.svelte'
+import Youtube from './Icon/Youtube.svelte'
 
 import BlockNotFound from './BlockNotFound.svelte'
 
@@ -32,6 +37,11 @@ const Components = {
   // Testimonials
   side_by_side_testimonial: SideBySideTestimonial,
   simple_centered_testimonial: SimpleCenteredTestimonial,
+  // Icons
+  dribbble: Dribbble,
+  linkedIn: LinkedIn,
+  twitter: Twitter,
+  youtube: Youtube,
 }
 
 // TODO: Automate ^... Maybe using globbing?

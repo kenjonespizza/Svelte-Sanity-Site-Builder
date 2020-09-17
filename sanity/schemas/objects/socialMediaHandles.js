@@ -39,5 +39,11 @@ export default {
       type: 'url',
       description: 'Leave blank if not applicable.',
     },
+    {
+      name: 'dribbble',
+      title: 'Dribbble',
+      type: 'url',
+      description: 'Leave blank if not applicable.',
+    },
   ],
 };

@@ -2,15 +2,15 @@
   import { getPageInfoFromRef, resolveSubdirectory } from '../utils/helpers'
   import { getContext } from 'svelte';
 
-  export let classes;
-  export let link;
-  // console.log('link:', link)
-  export let ref;
+  export let classes = '';
+  export let link = null;
+  export let ref = null;
   export let subDirectory = null;
-  export let title;
+  export let title = '';
   export let text = '';
 
   let linkData;
+  $: linkData;
 
   // Build linkData to grab & normalize the data
   if ((link && link.link[0]._type === "linkInternal") || ref) {

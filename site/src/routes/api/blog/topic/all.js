@@ -1,4 +1,4 @@
-import client from '../../../sanityClient'
+import client from '../../../../sanityClient'
 
 /**
  * This route is called 'all' instead of index to prevent route conflicts.

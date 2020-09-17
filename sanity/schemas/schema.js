@@ -14,7 +14,6 @@ import themeSettings from './documents/siteSettings/themeSettings';
 import author from './blog/documents/author';
 import category from './blog/documents/category';
 import post from './blog/documents/post';
-import tag from './blog/documents/tag';
 import blog from './blog/documents/blog';
 
 // Import Objects
@@ -73,7 +72,6 @@ export default createSchema({
       author,
       category,
       post,
-      tag,
       blog,
 
       // Objects

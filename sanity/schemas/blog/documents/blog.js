@@ -17,17 +17,27 @@ export default {
       title: 'Blog page content',
       type: 'portableText',
     },
-    {
-      name: 'columns',
-      title: 'Columns to display',
-      type: 'string',
-      options: {
-        list: ['1', '2', '3', '4'],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-      description: 'Default is 3.',
-    },
+    // {
+    //   name: 'postsPerPage',
+    //   title: 'Posts Per Page',
+    //   type: 'number',
+    //   options: {
+    //     list: [12, 24, 36],
+    //     layout: 'radio',
+    //     direction: 'horizontal',
+    //   }
+    // },
+    // {
+    //   name: 'columns',
+    //   title: 'Columns to display',
+    //   type: 'string',
+    //   options: {
+    //     list: ['1', '2', '3', '4'],
+    //     layout: 'radio',
+    //     direction: 'horizontal',
+    //   },
+    //   description: 'Default is 3.',
+    // },
   ],
   preview: {
     select: {

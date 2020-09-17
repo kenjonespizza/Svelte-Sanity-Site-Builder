@@ -78,10 +78,10 @@ export default {
       ],
     },
     {
-      name: 'tags',
+      name: 'topics',
       type: 'array',
-      title: 'Tags',
-      description: 'Add as many tags as you like',
+      title: 'Topics',
+      description: 'Max: 5 topics',
       of: [{ type: 'string' }],
       options: {
         layout: 'tags',

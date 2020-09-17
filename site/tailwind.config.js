@@ -3,6 +3,15 @@ module.exports = {
     './src/**/*.svelte',
   ],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        default: '1rem',
+        sm: '1rem',
+        md: '1.5rem',
+        lg: '2rem',
+      },
+    },
     extend: {
       borderWidth: {
         3: '3px',

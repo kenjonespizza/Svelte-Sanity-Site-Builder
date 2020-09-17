@@ -152,6 +152,7 @@
 	import chroma from 'chroma-js'
 	// import cssVars from 'svelte-css-vars';
 	import Header from '../components/Header/Header.svelte';
+	import Footer from '../components/Footer/Footer.svelte';
 
 	export let segment
 	export let siteSettings
@@ -346,3 +347,4 @@
 <main role="main">
 	<slot></slot>
 </main>
+<Footer />

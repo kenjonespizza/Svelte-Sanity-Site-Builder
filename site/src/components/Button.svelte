@@ -18,6 +18,6 @@
   }
 </script>
 
-<Link link={button.link} classes={!overrideAllClasses ? ` text-center flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md shadow focus:outline-none  transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10 ${classesPerType} ${additionalClasses}` : overrideAllClasses} >
+<Link link={button.link} classes={!overrideAllClasses ? ` text-center flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md shadow focus:outline-none transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10 ${classesPerType} ${additionalClasses}` : overrideAllClasses} >
   <slot>{button.link.text}</slot>
 </Link>

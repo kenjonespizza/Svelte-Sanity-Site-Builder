@@ -11,16 +11,27 @@
 
   export let menuSettings = []
 	export let siteSettings = []
-	export let themeSettings = []
+  export let themeSettings = []
   
   function toggleMobileNav() {
     isMobileNavOpen.update(() => !$isMobileNavOpen)
   }
 
+  // This is to assist getting the height of the nav correct before the script funs that sets the filler height
+  let initailHeaderHeight = '86px'
+  // If there is a button in the header, change the initiasl height
+  if(menuSettings && menuSettings.headerNavigation && menuSettings.headerNavigation.length) {
+    menuSettings.headerNavigation.forEach(item => {
+      if (item._type === "button") {
+        initailHeaderHeight = '106px'
+      }
+    });
+  }
+
 </script>
 
 <!-- This example requires Tailwind CSS v1.4.0+ -->
-<div class="py-6 phoNav" style="height: 108px;">
+<div class="py-6 phoNav" style="height: {initailHeaderHeight};">
 	<div style="height: {menuSettings.logoHeight}px"></div>
 </div>
 <header class="fixed top-0 z-20 right-0 bg-white w-full navBar">

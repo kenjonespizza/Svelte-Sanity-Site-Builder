@@ -1,3 +1,5 @@
+import slugee from 'slugify'
+
 import sanityClient from '../sanityClient'
 import imageUrlBuilder from '@sanity/image-url'
 
@@ -30,13 +32,6 @@ export function getPageInfoFromRef (ref, allPageData) {
 // Return a subDirectory base on what the type of page is
 export const resolveSubdirectory = (linkData) => {
   let type = linkData && linkData._type ? linkData._type : null 
-  // if (type === 'post') {
-  //   return 'blog/'
-  // } else if (type === 'page') { // if type exists, just return the type as the subDirectory
-  //   return ""
-  // } else if (type) { // if type exists, just return the type as the subDirectory
-  //   return `${type}/`
-  // }
 
   switch (type) {
     case 'post':
@@ -80,3 +75,20 @@ export function truncate(str, length, ending) {
     return str;
   }
 };
+
+export function slugify(string) {
+  return slugee(string, {
+    replacement: '-',  // replace spaces with replacement character, defaults to `-`
+    remove: undefined, // remove characters that match regex, defaults to `undefined`
+    lower: true,      // convert to lower case, defaults to `false`
+    strict: true,     // strip special characters except replacement, defaults to `false`
+  })
+}
+
+export function unSlugify(string) {
+  if (typeof string !== 'string') {
+    return ''
+  } else {
+    return string.replace('-', ' ')
+  }
+}

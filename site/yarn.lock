@@ -3086,6 +3086,11 @@ slash@^3.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
+slugify@^1.4.5:
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/slugify/-/slugify-1.4.5.tgz#a7517acf5f4c02a4df41e735354b660a4ed1efcf"
+  integrity sha512-WpECLAgYaxHoEAJ8Q1Lo8HOs1ngn7LN7QjXgOLbmmfkcWvosyk4ZTXkTzKyhngK640USTZUlgoQJfED1kz5fnQ==
+
 source-map-support@~0.5.12:
   version "0.5.19"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.19.tgz#a98b62f86dcaf4f67399648c085291ab9e8fed61"

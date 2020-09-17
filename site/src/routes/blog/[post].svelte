@@ -15,13 +15,10 @@
 <script>
 import BlockContent from '../../components/BlockContent.svelte'
   import Link from '../../components/Link.svelte'
-  import { urlFor } from '../../utils/helpers'
+  import { urlFor, slugify } from '../../utils/helpers'
 
   export let post
   let {authors} = post
-  // console.log('authors:', authors)
-  // console.log('post:', post)
-
   let layout = "A"
   let y
   let outerHeight
@@ -29,10 +26,7 @@ import BlockContent from '../../components/BlockContent.svelte'
   let scrollGeneratedClasses
 
   function scrolling(e) {
-    // console.log('outerHeight:', outerHeight)
-    // console.log('y:', y)
     let percentScrolled =  y / outerHeight * 100
-    // console.log('percentScrolled:', percentScrolled)
 
     if (percentScrolled > 70) {
       scrollGeneratedClasses = 'pointer-events-none'
@@ -113,7 +107,19 @@ import BlockContent from '../../components/BlockContent.svelte'
             </div>
           </div>
         </div>
-        <!-- React, Redux, Node.js, Express, and SQL -->
+
+        {#if post.topics}
+          <div class="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-4">
+          {#each post.topics as topic }
+            <a href={`blog/topic/${slugify(topic)}`} rel=prefetch class="capitalize inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium leading-5 bg-indigo-100 text-indigo-800">
+              <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-indigo-400" fill="currentColor" viewBox="0 0 8 8">
+                <circle cx="4" cy="4" r="3" />
+              </svg>
+              {topic}
+            </a>
+          {/each}
+        </div>
+      {/if}
 
       </div>
       {#if post.image}

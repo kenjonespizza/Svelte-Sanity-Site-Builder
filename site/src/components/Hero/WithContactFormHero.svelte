@@ -6,7 +6,6 @@
   import {urlFor} from '../../utils/helpers'
 
   export let data
-  console.log('data:', data)
   
   let formFields = []
   let hasFromFields
@@ -15,7 +14,6 @@
     hasFromFields = true
     formFields = data.formFields
   }
-  console.log('formFields:', formFields)
   
 </script>
 
