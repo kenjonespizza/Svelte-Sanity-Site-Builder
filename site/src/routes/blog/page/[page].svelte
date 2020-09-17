@@ -6,9 +6,9 @@
     try {
       // As with the server route, we have acces to params.slug here
       const res = await this.fetch(`api/blog/page/${params.page}`);
-      const { posts, currentPage, perPage, count } = await res.json();
+      const { posts, currentPage, perPage, count,blogInfo } = await res.json();
 
-      return { posts, currentPage, perPage, count };
+      return { posts, currentPage, perPage, count,blogInfo };
     } catch (err) {
       this.error(500, err);
     }
@@ -19,14 +19,13 @@
 <script>
   import Post from '../../../components/Blog/Post.svelte'
   import Pagination from '../../../components/Pagination.svelte'
+  import BlockContent from '../../../components/BlockContent.svelte'
+
   export let posts;
-  // console.log('posts:', posts)
   export let currentPage;
-  // console.log('currentPage:', currentPage)
   export let perPage;
-  // console.log('perPage:', perPage)
   export let count;
-  // console.log('count:', count)
+  export let blogInfo;
 </script>
 
 <style>
@@ -38,6 +37,13 @@
 </svelte:head>
 <div class="relative py-16 bg-white overflow-hidden">
   <div class="container">
+
+    <div class="space-y-2">
+      <h1 class="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+        {blogInfo.pageInfo.name}
+      </h1>
+      <BlockContent content={blogInfo.content} classes="max-w-4xl prose text-gray-500" />
+    </div>
 
 {#if posts.length > 0}
       <div class="py-6">

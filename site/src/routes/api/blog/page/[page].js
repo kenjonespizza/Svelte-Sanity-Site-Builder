@@ -20,15 +20,16 @@ export async function get (req, res) {
     const filter = `*[][0]`;
     const projection = `{
       "posts": *[_type == "post" && defined(pageInfo.slug.current)] | order(publishedAt desc) [$start...$end],
-      "count": count(*[_type == 'post'])
+      "count": count(*[_type == 'post']),
+      "blogInfo": *[_type == "blog"][0]{...},
     }`;
     
     const query = filter + projection;
     const params = {start, end}
     const results = await client.fetch(query, params)
-    const {posts, count} = results
+    const {posts, count, blogInfo} = results
 
-    res.end(JSON.stringify({ posts, currentPage, perPage, count }));
+    res.end(JSON.stringify({ posts, currentPage, perPage, count, blogInfo }));
   } catch (err) {
     console.log('err:', err.message)
     res.writeHead(500, {
