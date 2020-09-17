@@ -6,9 +6,9 @@
     try {
       // As with the server route, we have acces to params.slug here
       const res = await this.fetch(`api/blog/page/${params.page}`);
-      const { posts, currentPage, perPage, count,blogInfo } = await res.json();
+      const { posts, currentPage, perPage, count, blogInfo } = await res.json();
 
-      return { posts, currentPage, perPage, count,blogInfo };
+      return { posts, currentPage, perPage, count, blogInfo };
     } catch (err) {
       this.error(500, err);
     }

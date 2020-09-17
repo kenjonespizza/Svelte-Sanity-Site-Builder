@@ -66,8 +66,6 @@ export let perPage
             </div>
           </div>
         </li>
-
-        <!-- More people...-->
       </ul>
     </div>
     {#if author.posts.length > 0}
