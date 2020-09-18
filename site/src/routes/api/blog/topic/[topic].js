@@ -1,6 +1,6 @@
 import client from '../../../../sanityClient'
 import { postPerPage } from '../utils'
-import { slugify } from '../../../../utils/helpers'
+import { slugify, massageTopics } from '../../../../utils/helpers'
 
 export async function get (req, res) {
  
@@ -41,14 +41,10 @@ export async function get (req, res) {
       filter = `*[][0]`;
       projection = `{
         ...,
-        "posts": *[_type == 'post' && _id in $allPostsWithTopic] | order(publishedAt desc) [$start...$end] {
-          pageInfo,
-          publishedAt,
-          excerpt,
-          image,
-          body,
-          topics,
-          _id
+        "posts": *[_type == 'post' && _id in $allPostsWithTopic] | order(publishedAt desc) [$start...$end] {...},
+        "blogInfo": *[_type == "blog"][0]{...},
+        "topics": *[_type == "post" && defined(topics)] {
+          topics
         },
         "count": count(*[_type == 'post' && _id in $allPostsWithTopic])
       }`;
@@ -59,8 +55,9 @@ export async function get (req, res) {
       return results
     })
     .then( results => {
-      const {posts, count} = results
-      res.end(JSON.stringify({ posts, count, currentPage, perPage }));
+      const {posts, count, categories, blogInfo, topics: allTopics} = results
+      let topics = massageTopics(allTopics)
+      res.end(JSON.stringify({ posts, currentPage, perPage, count, blogInfo, categories, topics }));
     })
     .catch( error => {
       console.log('error:', error.message)

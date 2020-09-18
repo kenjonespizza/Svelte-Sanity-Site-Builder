@@ -19,15 +19,21 @@ export async function get (req, res) {
       "posts": *[_type == 'post' && references(^._id)] | order(publishedAt desc) [$start...$end] {
         ...
       },
+      "blogInfo": *[_type == "blog"][0]{...},
+      "categories": *[_type == "category"]{
+        _id,
+        pageInfo,
+        "count": count(*[_type == 'post' && references(^._id)])
+      },
       "count": count(*[_type == 'post' && references(^._id)])
     }`;
     
     const query = filter + projection;
     const params = {category, start, end}
-    const categoryData = await client.fetch(query, params)
-    const {posts, count} = categoryData
-
-    res.end(JSON.stringify({ categoryData, posts, count, currentPage, perPage }));
+    const categoryInfo = await client.fetch(query, params)
+    const {posts, count, categories, blogInfo} = categoryInfo
+    // console.log('categoryInfo:', categoryInfo)
+    res.end(JSON.stringify({ posts, categoryInfo, currentPage, perPage, count, blogInfo, categories }));
   } catch (err) {
     console.log('err:', err.message)
     res.writeHead(500, {

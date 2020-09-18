@@ -3,10 +3,12 @@
   import {serializers} from './serializers'
   import Link from "./Link.svelte";
 
-  export let content;
+  export let content = undefined;
   export let classes;
 </script>
 
-<div class={classes}>
-  <BlockContentPkg blocks={content} {serializers} />
-</div>
+{#if content}
+  <div class={classes}>
+    <BlockContentPkg blocks={content} {serializers} />
+  </div>
+{/if}

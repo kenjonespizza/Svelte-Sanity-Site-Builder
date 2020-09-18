@@ -59,6 +59,9 @@ module.exports = {
         outline: 'var(--boxShadow-outline)',
         none: 'none',
       },
+      screens: {
+        'xs': '480px',
+      }
     },
   },
   variants: {},

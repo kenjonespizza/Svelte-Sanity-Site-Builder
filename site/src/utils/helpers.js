@@ -1,5 +1,3 @@
-import slugee from 'slugify'
-
 import sanityClient from '../sanityClient'
 import imageUrlBuilder from '@sanity/image-url'
 
@@ -36,6 +34,8 @@ export const resolveSubdirectory = (linkData) => {
   switch (type) {
     case 'post':
       return 'blog/'
+    case 'category':
+      return 'blog/category/'
     case 'page':
       return ''
     case 'blog':
@@ -77,12 +77,18 @@ export function truncate(str, length, ending) {
 };
 
 export function slugify(string) {
-  return slugee(string, {
-    replacement: '-',  // replace spaces with replacement character, defaults to `-`
-    remove: undefined, // remove characters that match regex, defaults to `undefined`
-    lower: true,      // convert to lower case, defaults to `false`
-    strict: true,     // strip special characters except replacement, defaults to `false`
-  })
+  const a = 'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;'
+  const b = 'aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------'
+  const p = new RegExp(a.split('').join('|'), 'g')
+
+  return string.toString().toLowerCase()
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
+    .replace(/&/g, '-and-') // Replace & with 'and'
+    .replace(/[^\w\-]+/g, '') // Remove all non-word characters
+    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+    .replace(/^-+/, '') // Trim - from start of text
+    .replace(/-+$/, '') // Trim - from end of text
 }
 
 export function unSlugify(string) {
@@ -91,4 +97,36 @@ export function unSlugify(string) {
   } else {
     return string.replace('-', ' ')
   }
+}
+
+export function mergeArrays(filterFunction = (x) => {x}, ...arrays) {
+  // const arrays = arraysParam.shift()
+  let preFilterJointArray = []
+
+  arrays.forEach(array => {
+      preFilterJointArray = [...preFilterJointArray, ...array]
+  })
+
+  let jointArray = []
+  preFilterJointArray.forEach(each => {
+    jointArray.push(filterFunction(each))
+  })
+  
+  const uniqueArray = jointArray.reduce((newArray, item) =>{
+      if (newArray.includes(item)){
+          return newArray
+      } else {
+          return [...newArray, item]
+      }
+  }, [])
+  return uniqueArray
+}
+
+export function massageTopics(unmassagedTopics) {
+  let topics = []
+  unmassagedTopics.forEach(eachTopics => {
+    topics = mergeArrays(slugify, topics, eachTopics.topics)
+  })
+
+  return topics
 }

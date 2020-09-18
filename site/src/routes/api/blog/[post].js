@@ -6,7 +6,8 @@ export async function get (req, res) {
     const postFilter = `*[_type == "post" && pageInfo.slug.current == "${post}"][0]`;
     const postProjection = `{
       ...,
-      authors[]->{pageInfo, image, _id}
+      authors[]->{pageInfo, image, _id},
+      categories[]->{pageInfo, image, _id},
     }`;
     
     const postQuery = postFilter + postProjection;

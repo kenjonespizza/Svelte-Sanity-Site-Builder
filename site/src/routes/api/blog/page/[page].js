@@ -1,4 +1,5 @@
 import client from '../../../../sanityClient'
+import { mergeArrays, slugify } from '../../../../utils/helpers'
 
 /**
  * This route is called 'all' instead of index to prevent route conflicts.
@@ -22,14 +23,26 @@ export async function get (req, res) {
       "posts": *[_type == "post" && defined(pageInfo.slug.current)] | order(publishedAt desc) [$start...$end],
       "count": count(*[_type == 'post']),
       "blogInfo": *[_type == "blog"][0]{...},
+      "categories": *[_type == "category"]{
+        _id,
+        pageInfo,
+        "count": count(*[_type == 'post' && references(^._id)])
+      },
+      "topics": *[_type == "post" && defined(topics)] {
+        topics
+      },
     }`;
     
     const query = filter + projection;
     const params = {start, end}
     const results = await client.fetch(query, params)
-    const {posts, count, blogInfo} = results
+    const {posts, count, blogInfo, categories, topics: allTopics} = results
+    let topics = []
+    allTopics.forEach(eachTopics => {
+      topics = mergeArrays(slugify, topics, eachTopics.topics)
+    })
 
-    res.end(JSON.stringify({ posts, currentPage, perPage, count, blogInfo }));
+    res.end(JSON.stringify({ posts, currentPage, perPage, count, blogInfo, categories, topics }));
   } catch (err) {
     console.log('err:', err.message)
     res.writeHead(500, {

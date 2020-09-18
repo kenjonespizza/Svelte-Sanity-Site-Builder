@@ -8,6 +8,8 @@
   export let subDirectory = null;
   export let title = '';
   export let text = '';
+  export let noscroll = undefined;
+
 
   let linkData;
   $: linkData;
@@ -32,11 +34,11 @@
 </script>
 
 {#if ref}
-  <a class={classes} href={`/${normalizedSubdirectory}${linkData.pageInfo.slug.current}`} title={title || ""} rel='prefetch'>
+  <a class={classes} href={`/${normalizedSubdirectory}${linkData.pageInfo.slug.current}`} title={title || ""} rel='prefetch' sapper:noscroll={noscroll}>
     <slot>{text !== '' ? text : link.text}</slot>
   </a>
 {:else if link.link[0]._type === "linkInternal"}
-  <a class={classes} href={`/${normalizedSubdirectory}${linkData.pageInfo.slug.current}`} rel={link.openInNewTab ? 'external' : 'prefetch'} target={link.openInNewTab ? '_blank' : ''} title={title || ""}>
+  <a class={classes} href={`/${normalizedSubdirectory}${linkData.pageInfo.slug.current}`} rel={link.openInNewTab ? 'external' : 'prefetch'} target={link.openInNewTab ? '_blank' : ''} title={title || ""} sapper:noscroll={noscroll}>
     <slot>{text !== '' ? text : link.text}</slot>
   </a>
 {:else if link.link[0]._type === "linkExternal"}

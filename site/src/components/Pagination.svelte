@@ -10,7 +10,7 @@
 
 </script>
 {#if (currentPage > 1) || (currentPage < max)}
-<nav class="bg-white py-3 flex items-center justify-between border-t border-gray-100">
+<nav class="bg-white py-8 flex items-center justify-between border-t border-gray-100">
   <div class="hidden sm:block">
     <p class="text-sm leading-5 text-gray-700">
       Showing

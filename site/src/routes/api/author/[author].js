@@ -16,22 +16,16 @@ export async function get (req, res) {
     const authorFilter = `*[_type == "author" && pageInfo.slug.current == $author][0]`;
     const authorProjection = `{
       ...,
-      "posts": *[_type == 'post' && references(^._id)] | order(publishedAt desc) [$start...$end] {
-        pageInfo,
-        publishedAt,
-        excerpt,
-        image,
-        body,
-        _id
-      },
+      "posts": *[_type == 'post' && references(^._id)] | order(publishedAt desc) [$start...$end] {...},
       "count": count(*[_type == 'post' && references(^._id)])
     }`;
     
     const authorQuery = authorFilter + authorProjection;
     const queryParams = {author, start, end}
     const authorData = await client.fetch(authorQuery, queryParams)
+    const {posts, count} = authorData
 
-    res.end(JSON.stringify({ authorData, currentPage, perPage }));
+    res.end(JSON.stringify({ authorData, posts, count, currentPage, perPage }));
   } catch (err) {
     console.log('err:', err.message)
     res.writeHead(500, {

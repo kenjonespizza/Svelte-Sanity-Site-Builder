@@ -82,6 +82,7 @@ export default {
       type: 'array',
       title: 'Topics',
       description: 'Max: 5 topics',
+      validation: Rule => Rule.max(5),
       of: [{ type: 'string' }],
       options: {
         layout: 'tags',
