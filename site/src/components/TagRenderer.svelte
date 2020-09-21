@@ -27,6 +27,10 @@
   <h6 class={classes}>
     <slot />
   </h6>
+{:else if tag === 'div'}
+  <div class={classes}>
+    <slot />
+  </div>
 {:else}
   <span class={classes}>
     <slot />

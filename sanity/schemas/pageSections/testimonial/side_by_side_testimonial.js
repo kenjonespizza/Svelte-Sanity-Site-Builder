@@ -7,7 +7,7 @@ export default {
   fieldsets: [],
   fields: [
     {
-      name: 'testimonialArray',
+      name: 'testimonials',
       title: 'Testimonials',
       type: 'array',
       of: [
@@ -33,7 +33,7 @@ export default {
   ],
   preview: {
     select: {
-      testimonial: 'testimonialArray',
+      testimonial: 'testimonials',
       disabled: 'disabled',
     },
     prepare({ disabled, testimonial }) {
@@ -41,7 +41,7 @@ export default {
 
       if (disabled) {
         title = '⚠️ DISABLED';
-      } else if (testimonial.length === 0) {
+      } else if (!testimonial || testimonial.length === 0) {
         title = `No Testimonial`
       } else if (testimonial.length === 1) {
         title = `1 Testimonial`
