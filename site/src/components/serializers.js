@@ -14,7 +14,6 @@ export const serializers = {
   // },
     marks: {
     link: props => {
-      // console.log('props:', props)
       return {
         component: Link,
         childNodes: props.children,

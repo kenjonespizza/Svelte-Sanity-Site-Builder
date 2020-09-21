@@ -127,6 +127,12 @@ export function massageTopics(unmassagedTopics) {
   unmassagedTopics.forEach(eachTopics => {
     topics = mergeArrays(slugify, topics, eachTopics.topics)
   })
+  topics.sort()
 
   return topics
+}
+
+export const capitalize = (s) => {
+  if (typeof s !== 'string') return ''
+  return s.charAt(0).toUpperCase() + s.slice(1)
 }

@@ -29,7 +29,7 @@
     <div class="bg-white overflow-hidden shadow rounded-lg">
       <div class="px-4 py-5 sm:p-6">
         <p class="text-sm leading-5 text-gray-500 text-center">
-            Sorry, no blog posts to show 😭.  <a rel=prefetch href="/">Go to the Homepage</a>
+            Sorry, no blog posts to show 😭.  <a rel=prefetch href="/" class="underline">Go to the Homepage</a>
         </p>
       </div>
     </div>

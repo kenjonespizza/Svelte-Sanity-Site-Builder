@@ -38,7 +38,7 @@
   <div class="mx-auto px-4 border-b border-gray-100 sm:px-8">
     <div class="flex justify-between items-center py-6 md:space-x-10">
       <div class="">
-        <Link classes="flex" ref={siteSettings.frontpage._ref}>
+        <Link classes="flex" ref={siteSettings.homepage._ref}>
           <!-- Logo On Light -->
           {#if themeSettings.logoOnLight || themeSettings.logoOnDark}
             <img class="hiddenOnDark w-auto" style="height: {menuSettings && menuSettings.logoHeight || 40}px" src={urlFor(themeSettings.logoOnLight || themeSettings.logoOnDark).quality(100).height(menuSettings && menuSettings.logoHeight * 2 || 80)} alt={siteSettings.siteName}>

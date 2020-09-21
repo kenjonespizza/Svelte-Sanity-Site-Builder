@@ -1,3 +1,5 @@
+import {internalPageTypes} from '../../utils/variables'
+
 export default {
   name: 'siteSettings',
   type: 'document',
@@ -19,10 +21,10 @@ export default {
       title: 'Description',
     },
     {
-      name: 'frontpage',
+      name: 'homepage',
       type: 'reference',
-      description: 'Choose page to be the frontpage',
-      to: { type: 'page' },
+      description: 'Choose page to be the homepage',
+      to: internalPageTypes,
       validation: Rule => Rule.required(),
     },
   ],

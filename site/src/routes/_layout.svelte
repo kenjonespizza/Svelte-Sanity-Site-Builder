@@ -1,26 +1,24 @@
 <script context="module">
-	import { get } from 'svelte/store';
-
 	import client from '../sanityClient'
 	import defaultColor from '../theme/colors';
-	// import {theme} from '../theme/mode'; 
-
-	// let theme = 'light';
-	// try {
-	// 	theme = localStorage.theme;
-	// } catch (e) {
-	// 	// ignore — could be SSR, or e.g. Firefox with restrictive permissions
-	// }
-	// console.log(window);
-	// initialTheme.update(theme)
 
 	export async function preload(page, session) {
-		const globalDataFetch = await client.fetch(`*[][0]{'siteSettings':*[_type == "siteSettings"][0]{...},'menuSettings':*[_type == "menuSettings"][0]{...},'themeSettings':*[_type == "themeSettings"][0]{...},'allPageData': *[defined(pageInfo.slug.current)]{_id,pageInfo,_type}}`)
-		// return { siteSettings: siteSettingsResponse || [], menuSettings: menuSettingsResponse || [] }
-		const {menuSettings: menuSettingsArr, siteSettings: siteSettingsArr, themeSettings: themeSettingsArr, allPageData: allPageDataArr} = globalDataFetch
+		const globalDataFetch = await client.fetch(`*[][0]{
+			'siteSettings':*[_type == "siteSettings"][0]{...},
+			'menuSettings':*[_type == "menuSettings"][0]{...},
+			'themeSettings':*[_type == "themeSettings"][0]{...},
+			'allPageData': *[defined(pageInfo.slug.current)]{
+				_id,
+				pageInfo,
+				_type,
+				"homepage": *[_id == "siteSettings"] {
+					homepage
+				}
+			}
+		}`)
+		const {menuSettings: menuSettingsArr, siteSettings: siteSettingsArr, themeSettings: themeSettingsArr, allPageData} = globalDataFetch
 		const menuSettings = menuSettingsArr
 		const siteSettings = siteSettingsArr
-		const allPageData = allPageDataArr
 		const themeSettings = themeSettingsArr
 		const brandColor = {
 			light: {
@@ -69,8 +67,6 @@
 			darkTextOnPrimary = contrastDarkWhiteOnPrimary > contrastDarkBlackOnPrimary ? defaultColor['dark'].black : defaultColor['dark'].white
 			darkTextOnPrimaryOpposite = contrastDarkWhiteOnPrimary > contrastDarkBlackOnPrimary ? defaultColor['dark'].white : defaultColor['dark'].black
 		}
-		// console.log('contrastDarkBlackOnPrimary:', contrastDarkBlackOnPrimary)
-		// console.log('contrastDarkWhiteOnPrimary:', contrastDarkWhiteOnPrimary)
 
 		// Make an object of all needed colors.  This will get turned into JSON and stored in local storage, so dont do anything crazy.
 		const color = {
@@ -150,7 +146,6 @@
 	import { onMount } from 'svelte'
 	import { disableScrolling } from '../stores';
 	import chroma from 'chroma-js'
-	// import cssVars from 'svelte-css-vars';
 	import Header from '../components/Header/Header.svelte';
 	import Footer from '../components/Footer/Footer.svelte';
 
@@ -165,11 +160,8 @@
   setContext('allPageData', allPageData);
 
   onMount(() => {
-		// let theme = 'light'
 		if(typeof document !== 'undefined') {
 				localStorage.setItem('color', JSON.stringify(color))
-				// let theme = localStorage.getItem('theme')
-				// themeStore.update(() => theme)
 		}
 
 		renderCSS();
@@ -347,4 +339,4 @@
 <main role="main">
 	<slot></slot>
 </main>
-<Footer />
+<Footer {menuSettings} />

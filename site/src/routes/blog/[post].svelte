@@ -164,9 +164,12 @@ import BlockContent from '../../components/BlockContent.svelte'
           <div class="flex items-start justify-start flex-col space-y-4 xs:space-y-0 xs:flex-row xs:space-x-4">
           {#each post.topics as topic }
             <a href={`blog/topic/${slugify(topic)}`} rel=prefetch class="capitalize inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium leading-5 bg-indigo-100 text-indigo-800">
-              <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-indigo-400" fill="currentColor" viewBox="0 0 8 8">
-                <circle cx="4" cy="4" r="3" />
+              <svg class="-ml-0.5 mr-1.5 h-3 w-3 text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill="none" d="M0 0h24v24H0z"/><path d="M7.784 14l.42-4H4V8h4.415l.525-5h2.011l-.525 5h3.989l.525-5h2.011l-.525 5H20v2h-3.784l-.42 4H20v2h-4.415l-.525 5h-2.011l.525-5H9.585l-.525 5H7.049l.525-5H4v-2h3.784zm2.011 0h3.99l.42-4h-3.99l-.42 4z"/>
               </svg>
+              <!-- <svg class="-ml-1 mr-3 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                
+              </svg> -->
               {topic}
             </a>
           {/each}

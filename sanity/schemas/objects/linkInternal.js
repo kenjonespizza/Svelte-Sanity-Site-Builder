@@ -1,4 +1,4 @@
-import link from "./link";
+import {internalPageTypes} from '../utils/variables'
 
 export default {
   title: 'Internal Link',
@@ -10,13 +10,7 @@ export default {
       title: 'Select page to link to',
       type: 'reference',
       weak: true,
-      to: [
-        {type: 'page'},
-        {type: 'blog'},
-        {type: 'post'},
-        {type: 'author'},
-        {type: 'category'},
-      ],
+      to: internalPageTypes,
     },
   ],
   preview: {

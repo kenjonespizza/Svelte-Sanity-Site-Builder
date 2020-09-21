@@ -6,8 +6,11 @@ import client from '../../../sanityClient'
  */
 export async function get (req, res) {
   try {
-    const pages = await client.fetch(`*[defined(pageInfo.slug.current)]`)
-    res.end(JSON.stringify({ pages }));
+    const page = await client.fetch(`*[_type == "siteSettings"][0] {
+      homepage->{...}
+    }`)
+    const {homepage} = page
+    res.end(JSON.stringify({ homepage }));
   } catch (err) {
     console.log('err:', err.message)
     res.writeHead(500, {

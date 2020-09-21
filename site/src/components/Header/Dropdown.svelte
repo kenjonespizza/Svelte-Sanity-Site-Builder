@@ -7,15 +7,6 @@
 
   function toggle() {isOpen = !isOpen}
 
-  // afterUpdate(() => {
-  //   console.log('the component just updated');
-  //   if (isOpen) {
-  //     addAfterStateChange = 'block'
-  //   } else {
-  //     addAfterStateChange = 'hidden'
-  //   }
-	// });
-
   export let data;
 </script>
 

@@ -57,7 +57,9 @@ export default {
       name: 'footerNavigation',
       title: 'Footer Navigation',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [
+        {type: 'link'},
+      ],
       options: {
         editModal: 'popover',
       },

@@ -13,7 +13,7 @@ export default function resolvePreviewUrl (document) {
     case 'siteSettings':
       return baseUrl
     case 'page':
-      if (document._id === 'frontpage' || document._id === 'drafts.frontpage') {
+      if (document._id === 'homepage' || document._id === 'drafts.homepage') {
         return baseUrl
       }
       return null

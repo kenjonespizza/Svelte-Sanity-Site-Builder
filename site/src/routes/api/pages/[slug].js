@@ -4,6 +4,7 @@ export async function get (req, res) {
   try {
     // We have access to req.params.slug because the filename has [slug] in it.
     const { slug } = req.params;
+    // if (req.params === 'thiIsTheHomePage')
     const pageFilter = '*[][0]';
     const pageProjection = `{
       'page': *[pageInfo.slug.current == "${slug}"]{...}

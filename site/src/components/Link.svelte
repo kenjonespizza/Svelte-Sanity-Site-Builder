@@ -10,7 +10,6 @@
   export let text = '';
   export let noscroll = undefined;
 
-
   let linkData;
   $: linkData;
 
@@ -26,6 +25,11 @@
   
   if (link && link.link[0]._type === "linkExternal") {
     linkData = link
+  }
+
+  // If link is internal, check if its the homepage
+  if (linkData.homepage && linkData._id && (linkData.homepage[0].homepage._ref === linkData._id)) {
+    linkData.pageInfo.slug.current = ""
   }
 
   // Use the provided subDirectory prop if it exists, otherwise, resolve using the pages '_type'

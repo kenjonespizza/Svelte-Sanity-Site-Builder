@@ -6,7 +6,6 @@
 </script>  
 <script>
   export let data
-  // console.log('data:', data)
 </script>
 
 <div class="bg-gray-50">

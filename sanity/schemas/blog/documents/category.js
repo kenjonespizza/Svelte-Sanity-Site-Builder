@@ -9,18 +9,18 @@ export default {
     {
       name: 'pageInfo',
       title: 'Title & Slug',
-      type: 'blogPageInfo',
+      type: 'pageInfo',
     },
     {
       name: 'description',
       title: 'Description',
       type: 'portableText',
     },
-    // {
-    //   name: 'image',
-    //   title: 'Image',
-    //   type: 'figure',
-    // },
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'imageNoAlt',
+    },
   ],
   preview: {
     select: {

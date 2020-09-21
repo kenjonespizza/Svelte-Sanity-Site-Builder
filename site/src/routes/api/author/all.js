@@ -6,8 +6,20 @@ import client from '../../../sanityClient'
  */
 export async function get (req, res) {
   try {
-    const posts = await client.fetch(`*[_type == "post" && defined(pageInfo.slug.current)] | order(publishedAt desc)`)
-    res.end(JSON.stringify({ posts }));
+    const constraints = `*[][0]`
+    const projections = `{
+      "authors": *[_type == "author" && defined(pageInfo.slug.current)] | order(pageInfo.name asc){
+        ...
+      },
+      "blogInfo": *[_type == "blog"][0]{
+        ...
+      }
+    }`
+    const query = constraints + projections
+    const params = {}
+    const results = await client.fetch(query, params)
+    const {authors, blogInfo} = results
+    res.end(JSON.stringify({ authors, blogInfo }));
   } catch (err) {
     console.log('err:', err.message)
     res.writeHead(500, {

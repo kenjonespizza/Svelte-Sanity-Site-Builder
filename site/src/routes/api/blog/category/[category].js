@@ -32,7 +32,6 @@ export async function get (req, res) {
     const params = {category, start, end}
     const categoryInfo = await client.fetch(query, params)
     const {posts, count, categories, blogInfo} = categoryInfo
-    // console.log('categoryInfo:', categoryInfo)
     res.end(JSON.stringify({ posts, categoryInfo, currentPage, perPage, count, blogInfo, categories }));
   } catch (err) {
     console.log('err:', err.message)

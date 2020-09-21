@@ -6,8 +6,15 @@ import client from '../../../../sanityClient'
  */
 export async function get (req, res) {
   try {
-    const posts = await client.fetch(`*[_type == "post" && defined(pageInfo.slug.current)] | order(publishedAt desc)`)
-    res.end(JSON.stringify({ posts }));
+    const filter = `*[_type == "category" && defined(pageInfo.slug.current)] | order(desc)`
+    const projections = `{
+      ...,
+      "count": count(*[_type == 'post' && references(^._id)])
+    }`
+    const query = filter + projections
+    const params = ""
+    const categories = await client.fetch(query , params)
+    res.end(JSON.stringify(categories));
   } catch (err) {
     console.log('err:', err.message)
     res.writeHead(500, {
