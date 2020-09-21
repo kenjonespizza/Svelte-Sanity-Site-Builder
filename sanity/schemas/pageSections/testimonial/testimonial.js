@@ -7,16 +7,18 @@ export default {
       name: 'quote',
       title: 'Quote',
       type: 'minimalPortableText',
+      validation: Rule => Rule.required()
     },
     {
       name: 'authorName',
       title: 'Author Name',
       type: 'string',
+      validation: Rule => Rule.required()
     },
     {
       name: 'authorImage',
       title: 'Author Image',
-      type: 'basicImage',
+      type: 'imageNoAlt',
     },
     {
       name: 'authorRol',

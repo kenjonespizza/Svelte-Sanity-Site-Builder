@@ -7,7 +7,7 @@ export default {
   fieldsets: [],
   fields: [
     {
-      name: 'testimonialArray',
+      name: 'testimonials',
       title: 'Testimonials',
       type: 'array',
       of: [
@@ -33,7 +33,7 @@ export default {
   ],
   preview: {
     select: {
-      testimonial: 'testimonialArray',
+      testimonial: 'testimonials',
       disabled: 'disabled',
     },
     prepare({ disabled, testimonial }) {
