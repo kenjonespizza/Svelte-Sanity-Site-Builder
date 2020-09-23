@@ -1,11 +1,11 @@
 module.exports = {
-  purge: [
-    // './src/**/*.svelte',
-    // './src/**/*.js',
-    // './__sapper__/**/*.svelte',
-    // './__sapper__/**/*.js',
-    './src/**/*.svelte', './src/**/*.html'
-  ],
+  purge: {
+		content: ["./src/**/*.svelte", "./src/**/*.html"],
+		options: {
+			defaultExtractor: (content) => [...content.matchAll(/(?:class:)*([\w\d-/:%.]+)/gm)].map(([_match, group, ..._rest]) => group),
+			keyframes: true,
+    },
+  },
   theme: {
     container: {
       center: true,
