@@ -2,6 +2,8 @@ module.exports = {
   purge: [
     './src/**/*.svelte',
     './__sapper__/**/*.js',
+    './__sapper__/export/**/*.js',
+    './__sapper__/export/**/*.svelte',
   ],
   theme: {
     container: {
