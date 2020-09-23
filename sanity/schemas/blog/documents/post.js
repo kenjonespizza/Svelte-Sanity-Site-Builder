@@ -124,7 +124,7 @@ export default {
       title: 'pageInfo.name',
       publishedAt: 'publishedAt',
       slug: 'pageInfo.slug',
-      media: 'image.image',
+      media: 'image',
     },
     prepare({ title = 'No title', publishedAt, slug = {}, media }) {
       return {

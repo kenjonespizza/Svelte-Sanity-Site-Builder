@@ -44,7 +44,7 @@
               
               {#if data.headingBlock && data.headingBlock.heading}
                 <TagRenderer tag={data.headingType || 'h2'} classes="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
-                  {data.heading}
+                  {data.headingBlock.heading}
                 </TagRenderer>
               {/if}
 

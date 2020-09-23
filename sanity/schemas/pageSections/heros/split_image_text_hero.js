@@ -35,7 +35,7 @@ export default {
     select: {
       heading: 'headingBlock.heading',
       disabled: 'disabled',
-      image: 'image.image',
+      image: 'image',
     },
     prepare({ heading, disabled, image }) {
       return {
