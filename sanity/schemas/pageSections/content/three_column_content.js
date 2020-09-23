@@ -1,24 +1,25 @@
-const sectionName = `Content: Split With Image`
+const sectionName = `Content: 3 Columns`
 import {blockPreview} from '../../../src/utils/helpers'
 
 export default {
-  name: 'split_with_image_content',
+  name: 'three_column_content',
   title: sectionName,
   type: 'document',
-  fieldsets: [
-    {title: 'Image', name: 'image'}
-  ],
   fields: [
     {
-      name: 'content',
-      title: 'Content',
+      name: 'column1',
+      title: 'Column 1',
       type: 'portableText',
     },
     {
-      name: 'image',
-      title: 'Image',
-      type: 'basicImage',
-      fieldset: 'image'
+      name: 'column2',
+      title: 'Column 2',
+      type: 'portableText',
+    },
+    {
+      name: 'column3',
+      title: 'Column 3',
+      type: 'portableText',
     },
     {
       name: 'textSize',
@@ -57,20 +58,6 @@ export default {
       }
     },
     {
-      name: 'imageSide',
-      title: 'Image On:',
-      description: 'Default: Left',
-      type: 'string',
-      options: {
-        list: [
-          {title: 'Left', value: 'left'},
-          {title: 'Right', value: 'right'},
-        ],
-        layout: 'radio',
-        direction: 'horizontal'
-      }
-    },
-    {
       name: 'backgroundColor',
       title: 'Background Color',
       type: 'string',
@@ -90,16 +77,16 @@ export default {
       }
     },
   ],
-  preview: {
-    select: {
-      content: 'content',
-      disabled: 'disabled',
-    },
-    prepare({ content, disabled }) {
-      return {
-        title: `${disabled ? '⚠️ DISABLED' : blockPreview(content, "No Content")}`,
-        subtitle: sectionName,
-      };
-    },
-  },
+  // preview: {
+  //   select: {
+  //     column1: 'column1',
+  //     column2: 'column2',
+  //   },
+  //   prepare: {
+  //     return: {
+  //       title: '',
+  //       subtitle: sectionName,
+  //     }
+  //   }
+  // }
 }

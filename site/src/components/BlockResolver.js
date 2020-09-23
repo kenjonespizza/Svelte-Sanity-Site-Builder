@@ -17,6 +17,8 @@ import WithLargeAvatarTestimonial from './Testimonial/WithLargeAvatarTestimonial
 // Content
 import BasicContent from './Content/BasicContent.svelte'
 import SplitWithImageContent from './Content/SplitWithImageContent.svelte'
+import TwoColumnContent from './Content/TwoColumnContent.svelte'
+import ThreeColumnContent from './Content/ThreeColumnContent.svelte'
 // Icons
 import Dribbble from './Icon/Dribbble.svelte'
 import LinkedIn from './Icon/LinkedIn.svelte'
@@ -45,6 +47,8 @@ const Components = {
   // Content
   basic_content: BasicContent,
   split_with_image_content: SplitWithImageContent,
+  two_column_content: TwoColumnContent,
+  three_column_content: ThreeColumnContent,
   // Icons
   dribbble: Dribbble,
   linkedIn: LinkedIn,

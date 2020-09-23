@@ -52,7 +52,7 @@ import * as pageSections from './pageSections';
 import sectionsDefaultFields from './pageSections/_sectionsDefaultFields';
 
 const allPageSections = Object.values(pageSections).map((section) => {
-  return { ...section, fields: sectionsDefaultFields.concat(section.fields) };
+  return { ...section, fields: section.fields.concat(sectionsDefaultFields) };
 });
 
 export default createSchema({

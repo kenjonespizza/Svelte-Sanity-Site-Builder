@@ -35,6 +35,8 @@ export default {
         // Content
         { type: 'basic_content' },
         { type: 'split_with_image_content' },
+        { type: 'two_column_content' },
+        { type: 'three_column_content' },
         // Stats
         // { type: 'split_with_image_stats' },
         // { type: 'simple_on_brand_stats' },

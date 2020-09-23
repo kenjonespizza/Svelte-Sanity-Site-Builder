@@ -1,7 +1,9 @@
 export default [
   {
+    title: 'Disable Section',
+    name: 'disabled',
     type: 'boolean',
-    name: 'disabled'
+    description: 'Default: Enabled',
   }
   // {
   //   name: 'background',
