@@ -1,0 +1,52 @@
+@import "tailwindcss/base";
+/* @import "./base.pcss"; */
+
+@import "tailwindcss/components";
+/* @import "./components.pcss"; */
+
+@import "tailwindcss/utilities";
+/* @import "./utilities.pcss"; */
+
+@layer base {
+	html, body {
+		color: var(--gray-900);
+		background-color: var(--white);
+	}
+
+	::-moz-selection {
+		background: var(--primary-500);
+		color: var(--textOnPrimary);
+	}
+	::selection {
+		background: var(--primary-500);
+		color: var(--textOnPrimary);
+	}
+
+	html.light .hiddenOnLight {
+		display: none;
+	}
+
+	html.dark .hiddenOnDark {
+		display: none;
+	}
+
+	/* This style won't work within the component... I think because the button is loaded dynamically */
+	.carousel > button {
+		z-index: 2 !important;
+	}
+
+	.video-responsive {
+		overflow: hidden;
+		padding-bottom: 56.25%;
+		position: relative;
+		height: 0;
+	}
+
+	.video-responsive iframe {
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+}
