@@ -2,7 +2,7 @@
   import BlockContent from '../BlockContent.svelte'
 
   export let data
-  console.log('data:', data)
+  // console.log('data:', data)
 
   let acceptableClasses = ['sm', 'md', 'lg', 'xl', '2xl']
   let addedClasses

@@ -1,20 +1,31 @@
+const _ = require("lodash");
+const htmlTags = require('html-tags');
+console.log('htmlTags:', htmlTags)
+const production = !process.env.ROLLUP_WATCH;
+console.log('production:', production)
+
 module.exports = {
   purge: {
 		content: ["./src/**/*.svelte", "./src/**/*.html"],
-		defaultExtractor: content => {
-      // Capture as liberally as possible, including things like `h-(screen-1.5)`
-      const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
-      const broadMatchesWithoutTrailingSlash = broadMatches.map(match => _.trimEnd(match, '\\'))
-      // Capture classes within other delimiters like .block(class="w-1/2") in Pug
-      const innerMatches = content.match(/[^<>"'`\s.(){}[\]#=%]*[^<>"'`\s.(){}[\]#=%:]/g) || []
-      const matches = broadMatches.concat(broadMatchesWithoutTrailingSlash).concat(innerMatches)
-      // if (_.get(config, 'purge.preserveHtmlElements', true)) {
-      //   return [...htmlTags].concat(matches)
-      // } else {
-      // }
-      return [...matches, ...svelteExtractor(content)]
+		enabled: production, // disable purge in dev
+		options: {
+			defaultExtractor: content => {
+				// Capture as liberally as possible, including things like `h-(screen-1.5)`
+				const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
+				const broadMatchesWithoutTrailingSlash = broadMatches.map(match => _.trimEnd(match, '\\'))
+				// Capture classes within other delimiters like .block(class="w-1/2") in Pug
+				const innerMatches = content.match(/[^<>"'`\s.(){}[\]#=%]*[^<>"'`\s.(){}[\]#=%:]/g) || []
+				const matches = broadMatches.concat(broadMatchesWithoutTrailingSlash).concat(innerMatches)
+				// if (_.get(config, 'purge.preserveHtmlElements', true)) {
+				//   return [...htmlTags].concat(matches)
+				// } else {
+				// }
+				const toReturn = [...matches, ...svelteExtractor(content)]
+				// console.log('toReturn:', toReturn)
+				return toReturn
+      },
+      whitelist: htmlTags,
     },
-    enabled: production // disable purge in dev
   },
   theme: {
     container: {

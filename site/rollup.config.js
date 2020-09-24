@@ -14,6 +14,8 @@ const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
 const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning);
 
+const { preprocess } = require('./svelte.config')
+
 export default {
 	client: {
 		input: config.client.input(),
@@ -26,7 +28,8 @@ export default {
 			svelte({
 				dev,
 				hydratable: true,
-				emitCss: true
+				emitCss: true,
+				preprocess: [preprocess],
 			}),
 			resolve({
 				browser: true,
@@ -72,7 +75,8 @@ export default {
 			}),
 			svelte({
 				generate: 'ssr',
-				dev
+				dev,
+				preprocess: [preprocess],
 			}),
 			resolve({
 				dedupe: ['svelte']
@@ -85,6 +89,7 @@ export default {
 		),
 
 		preserveEntrySignatures: 'strict',
+		// preserveEntrySignatures: 'false',
 		onwarn,
 	},
 
