@@ -45,7 +45,7 @@
   </div>
   <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-indigo-600">
     {#if data.image && data.image.asset}
-      <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src={urlFor(data.image).quality(80).width(1400)} alt={data.image.alt}>
+      <img loading=lazy class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src={urlFor(data.image).quality(80).width(1400)} alt={data.image.alt}>
     {/if}
   </div>
 </div>

@@ -9,7 +9,7 @@
 <div>
   <a href={`blog/${post.pageInfo.slug.current}`} rel=prefetch classes="block">
     {#if post.image}
-    <img class="mb-4 object-cover h-96 w-full shadow-lg rounded-lg" src={urlFor(post.image).quality(80).width(822)} alt="">
+    <img loading=lazy class="mb-4 object-cover h-96 w-full shadow-lg rounded-lg" src={urlFor(post.image).quality(80).width(822)} alt="">
     {/if}
     <p class="text-sm leading-5 text-gray-500">
       <time datetime={new Date(post.publishedAt)}>{new Date(post.publishedAt).toDateString()}</time>

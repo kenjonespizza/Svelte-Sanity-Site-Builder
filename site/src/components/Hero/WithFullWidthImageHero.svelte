@@ -67,7 +67,7 @@
       </div>
       {#if data.image && data.image.asset}
         <div class="max-w-screen-xl mx-auto px-4 sm:px-6">
-          <img class="relative rounded-lg shadow-lg" src={urlFor(data.image).quality(80).width(1650)} alt={data.image.alt}>
+          <img loading=lazy class="relative rounded-lg shadow-lg" src={urlFor(data.image).quality(80).width(1650)} alt={data.image.alt}>
         </div>
       {/if}
     </div>

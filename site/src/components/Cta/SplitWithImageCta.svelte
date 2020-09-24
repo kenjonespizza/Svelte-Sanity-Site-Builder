@@ -36,7 +36,7 @@
   <div class={`${bgColorClass} relative`}>
     <div class="h-56 bg-indigo-600 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
       {#if data.image && data.image.asset}
-        <img class="w-full h-full object-cover" src={urlFor(data.image).quality(80).width(1400)} alt={data.image.alt}>
+        <img loading=lazy class="w-full h-full object-cover" src={urlFor(data.image).quality(80).width(1400)} alt={data.image.alt}>
       {/if}
     </div>
     <div class="relative max-w-screen-xl mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-16">

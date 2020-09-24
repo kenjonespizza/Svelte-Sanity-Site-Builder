@@ -51,7 +51,7 @@
               <footer class="mt-8">
                 <div class="flex">
 
-                    <img class="rounded-full border-2 border-textOnPrimary h-10 w-10 object-cover object-center" src={testimonial.authorImage ? urlFor(testimonial.authorImage).quality(80).width(80) : '/images/userImageNotFound.png'} alt={testimonial.authorName}>
+                    <img loading=lazy class="rounded-full border-2 border-textOnPrimary h-10 w-10 object-cover object-center" src={testimonial.authorImage ? urlFor(testimonial.authorImage).quality(80).width(80) : '/images/userImageNotFound.png'} alt={testimonial.authorName}>
 
                   <div class="ml-4 flex flex-col justify-center">
                     <div class={`${textClass} text-base leading-6 font-medium`}>{testimonial.authorName}</div>

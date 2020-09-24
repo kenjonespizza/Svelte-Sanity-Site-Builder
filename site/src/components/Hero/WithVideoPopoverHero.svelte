@@ -89,7 +89,7 @@
           <div on:click={toggleVideo} class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
             <button type="button" class="relative block w-full rounded-lg overflow-hidden focus:outline-none focus:shadow-outline">
               {#if data.image && data.image.asset}
-                <img class="w-full" src={urlFor(data.image).quality(80).width(450)} alt={data.image.alt}>
+                <img loading=lazy class="w-full" src={urlFor(data.image).quality(80).width(450)} alt={data.image.alt}>
               {/if}
               <div class="absolute inset-0 w-full h-full flex items-center justify-center">
                 <svg class="h-20 w-20 text-indigo-500" fill="currentColor" viewBox="0 0 84 84">

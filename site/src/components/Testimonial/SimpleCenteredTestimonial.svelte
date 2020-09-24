@@ -43,7 +43,7 @@
             <footer class="mt-8">
               <div class="md:flex md:items-center md:justify-center">
                 <div class="md:flex-shrink-0">
-                  <img class="mx-auto h-10 w-10 rounded-full object-cover object-center" src={testimonial.authorImage ? urlFor(testimonial.authorImage).quality(80).width(80) : '/images/userImageNotFound.png'} alt={testimonial.authorName}>
+                  <img loading=lazy class="mx-auto h-10 w-10 rounded-full object-cover object-center" src={testimonial.authorImage ? urlFor(testimonial.authorImage).quality(80).width(80) : '/images/userImageNotFound.png'} alt={testimonial.authorName}>
                 </div>
                 <div class="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">
                   <div class={`${textClass} text-base leading-6 font-medium`}>{testimonial.authorName}</div>

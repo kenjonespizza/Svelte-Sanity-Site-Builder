@@ -51,7 +51,7 @@ export let count
       <ul class="space-y-12 sm:divide-y sm:divide-gray-200 sm:space-y-0 sm:-mt-8 lg:col-gap-8 lg:space-y-0">
         <li class="sm:py-8">
           <div class="space-y-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-16 sm:space-y-0">
-            <img class="object-cover h-full w-full shadow-lg rounded-lg" src={urlFor(author.image).quality(80).size(822, 822)} alt="">
+            <img loading=lazy class="object-cover h-full w-full shadow-lg rounded-lg" src={urlFor(author.image).quality(80).size(822, 822)} alt="">
             <div class="sm:col-span-2">
               <div class="space-y-4">
                 <div class="text-lg leading-6 font-medium space-y-1">

@@ -18,7 +18,7 @@
   <div class={`${data.backgroundColor === 'faded' ? 'bg-gray-50' : 'bg-white'} relative`}>
     <div class="lg:absolute lg:inset-0">
       <div class={`lg:absolute lg:inset-y-0 ${data.imageSide === 'left' ? 'lg:left-0' : 'lg:right-0'} lg:w-1/2`}>
-        <img class="h-auto w-full object-cover lg:absolute lg:h-full" src={urlFor(data.image).quality(80).width(1600)} alt={data.image.alt}>
+        <img loading=lazy class="h-auto w-full object-cover lg:absolute lg:h-full" src={urlFor(data.image).quality(80).width(1600)} alt={data.image.alt}>
       </div>
     </div>
     <div class="relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6 lg:grid lg:grid-cols-2 lg:px-0">
