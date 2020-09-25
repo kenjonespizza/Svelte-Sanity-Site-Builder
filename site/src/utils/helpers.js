@@ -95,7 +95,7 @@ export function unSlugify(string) {
   if (typeof string !== 'string') {
     return ''
   } else {
-    return string.replace('-', ' ')
+    return string.replace(/([_-])/g, ' ')
   }
 }
 

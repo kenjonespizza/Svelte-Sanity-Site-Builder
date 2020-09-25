@@ -25,7 +25,7 @@
     on:click={toggle}
     type="button"
     class={`${
-      isOpen ? 'bg-gray-100 rounded-b-none' : ''} rounded-lg text-gray-900 px-6 py-3 group inline-flex items-center text-base leading-6 font-medium hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150`}
+      isOpen ? 'bg-gray-100 rounded-b-none' : ''} rounded-lg text-gray-900 px-6 py-3 group inline-flex justify-between items-center text-base leading-6 font-medium hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150`}
   >
     <span>{data.text}</span>
     <svg

@@ -47,7 +47,7 @@
             </TagRenderer>
           {/if}
 
-          <BlockContent content={data.content} classes="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl prose" />
+          <BlockContent content={data.contentAboveImage} classes="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl prose" />
 
           <div class="mt-5 max-w-md mx-auto flex-row space-y-3 sm:flex sm:space-x-3 sm:space-y-0 sm:justify-center md:mt-8">
             {#if data.buttons && data.buttons.length > 0}
@@ -65,9 +65,9 @@
         <div class="flex-1"></div>
         <div class="flex-1 w-full bg-gray-800"></div>
       </div>
-      {#if data.image && data.image.image}
+      {#if data.image && data.image.asset}
         <div class="max-w-screen-xl mx-auto px-4 sm:px-6">
-          <img class="relative rounded-lg shadow-lg" src={urlFor(data.image.image).quality(80).width(1400)} alt={data.image.image.alt}>
+          <img class="relative rounded-lg shadow-lg" src={urlFor(data.image).quality(80).width(1650)} alt={data.image.alt}>
         </div>
       {/if}
     </div>
@@ -75,7 +75,7 @@
   <div class="inverted bg-gray-200">
     <div class="max-w-screen-xl mx-auto pt-16 pb-20 px-4 sm:px-6 md:pb-24 lg:px-8">
 
-      <BlockContent content={data.content} classes="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl prose" />
+      <BlockContent content={data.contentBelowImage} classes="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl prose" />
       
     </div>
   </div>

@@ -3,17 +3,22 @@ export { default as single_price_with_details } from './pricing/single_price_wit
 export { default as three_tiers_with_emphasized_tier } from './pricing/three_tiers_with_emphasized_tier_pricing';
 export { default as two_tiers_with_extra_tier_pricing } from './pricing/two_tiers_with_extra_tier_pricing';
 // Heros
-export { default as with_contact_form } from './heros/with_contact_form';
+export { default as with_contact_form_hero } from './heros/with_contact_form_hero';
 export { default as with_angled_image_on_right_hero } from './heros/with_angled_image_on_right_hero';
 export { default as simple_centered_hero } from './heros/simple_centered_hero';
 export { default as split_image_text_hero } from './heros/split_image_text_hero';
-export { default as with_full_width_image } from './heros/with_full_width_image';
-export { default as with_video_popover } from './heros/with_video_popover';
+export { default as with_full_width_image_hero } from './heros/with_full_width_image_hero';
+export { default as with_video_popover_hero } from './heros/with_video_popover_hero';
 // Cta
 export { default as simple_centered_cta } from './cta/simple_centered_cta';
 export { default as simple_justified_cta } from './cta/simple_justified_cta';
 export { default as simple_stacked_cta } from './cta/simple_stacked_cta';
 export { default as split_with_image_cta } from './cta/split_with_image_cta';
+// Content
+export { default as basic_content } from './content/basic_content';
+export { default as split_with_image_content } from './content/split_with_image_content';
+export { default as two_column_content } from './content/two_column_content';
+export { default as three_column_content } from './content/three_column_content';
 // Stats
 export { default as split_with_image_stats } from './stats/split_with_image_stats';
 export { default as simple_on_brand_stats } from './stats/simple_on_brand_stats';

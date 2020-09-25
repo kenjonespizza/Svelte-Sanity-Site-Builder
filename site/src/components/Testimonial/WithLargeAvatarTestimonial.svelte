@@ -61,7 +61,7 @@
               <footer class="mt-8">
                 <div class="flex">
                   <div class="flex-shrink-0 lg:hidden">
-                    <img class="h-12 w-12 rounded-full object-cover object-center" src={testimonial.authorImage ? urlFor(testimonial.authorImage).quality(80).width(1400) : '/images/userImageNotFound.png'} alt={testimonial.authorName}>
+                    <img class="h-12 w-12 rounded-full object-cover object-center" src={testimonial.authorImage ? urlFor(testimonial.authorImage).quality(80).width(640) : '/images/userImageNotFound.png'} alt={testimonial.authorName}>
                   </div>
                   <div class="ml-4 lg:ml-0">
                     <div class={`${textClass} text-base leading-6 font-medium`}>{testimonial.authorName}</div>

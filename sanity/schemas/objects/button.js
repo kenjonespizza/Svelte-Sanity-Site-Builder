@@ -7,6 +7,7 @@ export default {
       name: 'link',
       title: 'Link',
       type: 'link',
+      validation: Rule => Rule.required()
     },
     {
       name: 'color',

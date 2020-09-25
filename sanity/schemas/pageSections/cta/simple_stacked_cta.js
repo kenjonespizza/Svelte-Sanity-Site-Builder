@@ -1,12 +1,9 @@
-import { FcSpeaker } from 'react-icons/fc';
-
 const sectionName = `Call To Action: Simple Stacked`
 
 export default {
   name: 'simple_stacked_cta',
   type: 'object',
   title: sectionName,
-  icon: FcSpeaker,
   fields: [
     {
       name: 'headingBlock',

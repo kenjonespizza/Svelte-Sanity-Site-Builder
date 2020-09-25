@@ -38,8 +38,8 @@
 
     </div>
     <div class="relative bg-indigo-600 w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
-      {#if data.image && data.image.image}
-        <img class="absolute inset-0 w-full h-full object-cover" src={urlFor(data.image.image).quality(80).width(1400)} alt={data.image.image.alt}>
+      {#if data.image && data.image.asset}
+        <img class="absolute inset-0 w-full h-full object-cover" src={urlFor(data.image).quality(80).width(1400)} alt={data.image.alt}>
       {/if}
     </div>
   </main>

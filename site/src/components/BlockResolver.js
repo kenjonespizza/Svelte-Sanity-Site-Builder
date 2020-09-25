@@ -14,6 +14,11 @@ import SplitWithImageCta from './Cta/SplitWithImageCta.svelte'
 import SideBySideTestimonial from './Testimonial/SideBySideTestimonial.svelte'
 import SimpleCenteredTestimonial from './Testimonial/SimpleCenteredTestimonial.svelte'
 import WithLargeAvatarTestimonial from './Testimonial/WithLargeAvatarTestimonial.svelte'
+// Content
+import BasicContent from './Content/BasicContent.svelte'
+import SplitWithImageContent from './Content/SplitWithImageContent.svelte'
+import TwoColumnContent from './Content/TwoColumnContent.svelte'
+import ThreeColumnContent from './Content/ThreeColumnContent.svelte'
 // Icons
 import Dribbble from './Icon/Dribbble.svelte'
 import LinkedIn from './Icon/LinkedIn.svelte'
@@ -39,6 +44,11 @@ const Components = {
   side_by_side_testimonial: SideBySideTestimonial,
   simple_centered_testimonial: SimpleCenteredTestimonial,
   with_large_avatar_testimonial: WithLargeAvatarTestimonial,
+  // Content
+  basic_content: BasicContent,
+  split_with_image_content: SplitWithImageContent,
+  two_column_content: TwoColumnContent,
+  three_column_content: ThreeColumnContent,
   // Icons
   dribbble: Dribbble,
   linkedIn: LinkedIn,

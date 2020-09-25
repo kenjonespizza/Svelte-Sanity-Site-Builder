@@ -1,12 +1,9 @@
-import { FcSpeaker } from 'react-icons/fc';
-
 const sectionName = `Call To Action: Simple Justified`
 
 export default {
   name: 'simple_justified_cta',
   type: 'object',
   title: sectionName,
-  icon: FcSpeaker,
   fields: [
     {
       name: 'headingBlock',
