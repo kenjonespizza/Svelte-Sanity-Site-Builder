@@ -50,4 +50,4 @@ export let blogInfo
     <span class="capitalize">{unSlugify(topic)}</span>
   </h1>
 </BlogHero>
-<Posts {posts} {categories} {topics} {count} {currentPage} {perPage} currentTopic={topic} />
+<Posts {posts} {categories} {topics} {count} {currentPage} {perPage} paginationSlug={`blog/topic/${topic}`} currentTopic={topic} />

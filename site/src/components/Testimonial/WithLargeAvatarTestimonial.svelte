@@ -1,27 +1,27 @@
 <script>
-  import Carousel from '../Carousel.svelte'
-  import BlockContent from '../BlockContent.svelte'
-  import TagRenderer from '../TagRenderer.svelte'
-  import { urlFor } from '../../utils/helpers'
+  import Carousel from "../Carousel.svelte";
+  import BlockContent from "../BlockContent.svelte";
+  import TagRenderer from "../TagRenderer.svelte";
+  import { urlFor } from "../../utils/helpers";
 
-  export let data
+  export let data;
 
-  let wrapperClass
-  let bgColorClass = 'bg-white'
-  let textClass = 'text-gray-900'
-  let primaryTextClass = 'text-indigo-600'
+  let wrapperClass;
+  let bgColorClass = "bg-white";
+  let textClass = "text-gray-900";
+  let primaryTextClass = "text-indigo-600";
 
-  if (data.backgroundColor === 'inverted') {
-    wrapperClass = 'inverted'
-  } else if (data.backgroundColor === 'primary') {
-    bgColorClass = 'bg-indigo-600'
-    textClass = 'text-textOnPrimary'
-    primaryTextClass = 'text-textOnPrimary'
+  if (data.backgroundColor === "inverted") {
+  	wrapperClass = "inverted";
+  } else if (data.backgroundColor === "primary") {
+  	bgColorClass = "bg-indigo-600";
+  	textClass = "text-textOnPrimary";
+  	primaryTextClass = "text-textOnPrimary";
   }
   
 </script>
 
-<section class={`${wrapperClass || ''} ${bgColorClass} overflow-hidden`}>
+<section class={`${wrapperClass || ""} ${bgColorClass} overflow-hidden`}>
   <div class="relative max-w-screen-xl mx-auto pt-20 pb-12 px-4 sm:px-6 lg:px-8 lg:py-20">
     <svg class="absolute top-full left-0 transform translate-x-80 -translate-y-24 lg:hidden" width="784" height="404" fill="none" viewBox="0 0 784 404">
       <defs>
@@ -49,7 +49,7 @@
 
           <div class="relative lg:flex lg:items-center">
             <div class="hidden lg:block lg:flex-shrink-0">
-              <img class="bg-white h-64 w-64 rounded-full xl:h-80 xl:w-80 object-cover object-center" src={testimonial.authorImage ? urlFor(testimonial.authorImage).quality(80).width(1400) : '/images/userImageNotFound.png'} alt={testimonial.authorName}>
+              <img loading=lazy class="bg-white h-64 w-64 rounded-full xl:h-80 xl:w-80 object-cover object-center" src={testimonial.authorImage ? urlFor(testimonial.authorImage).quality(80).width(1400) : "/images/userImageNotFound.png"} alt={testimonial.authorName}>
             </div>
       
             <div class="relative lg:ml-10">
@@ -61,12 +61,12 @@
               <footer class="mt-8">
                 <div class="flex">
                   <div class="flex-shrink-0 lg:hidden">
-                    <img class="h-12 w-12 rounded-full object-cover object-center" src={testimonial.authorImage ? urlFor(testimonial.authorImage).quality(80).width(640) : '/images/userImageNotFound.png'} alt={testimonial.authorName}>
+                    <img loading=lazy class="h-12 w-12 rounded-full object-cover object-center" src={testimonial.authorImage ? urlFor(testimonial.authorImage).quality(80).width(640) : "/images/userImageNotFound.png"} alt={testimonial.authorName}>
                   </div>
                   <div class="ml-4 lg:ml-0">
                     <div class={`${textClass} text-base leading-6 font-medium`}>{testimonial.authorName}</div>
                     {#if testimonial.authorRol || testimonial.authorCompany}
-                      <div class={`${primaryTextClass} text-base leading-6 font-medium opacity-75`}>{testimonial.authorRol}{testimonial.authorRol && testimonial.authorCompany ? ', ' : ' '}{testimonial.authorCompany}</div>
+                      <div class={`${primaryTextClass} text-base leading-6 font-medium opacity-75`}>{testimonial.authorRol}{testimonial.authorRol && testimonial.authorCompany ? ", " : " "}{testimonial.authorCompany}</div>
                     {/if}
                   </div>
                 </div>

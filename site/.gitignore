@@ -1,9 +1,8 @@
+._*
 .DS_Store
+/.history/
 /node_modules/
-/sanity/node_modules/
+__sapper__/
 /src/node_modules/@sapper/
-yarn-error.log
-/cypress/screenshots/
-/__sapper__/
-
-.vercel
+/static/global.css
+/static/global.css.map

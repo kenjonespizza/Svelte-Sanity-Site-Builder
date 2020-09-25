@@ -36,7 +36,7 @@
         <li>
           <Link ref={author._id} classes="space-y-4">
             <div class="relative pb-full bg-white shadow-lg rounded-lg overflow-hidden">
-              <img class="absolute object-cover h-full w-full" src={author.image ? urlFor(author.image).width(600).quality(80) : "/images/userImageNotFound.png"} alt={author.pageInfo.name}>
+              <img loading=lazy class="absolute object-cover h-full w-full" src={author.image ? urlFor(author.image).width(600).quality(80) : "/images/userImageNotFound.png"} alt={author.pageInfo.name}>
             </div>
 
             <div class="space-y-2">

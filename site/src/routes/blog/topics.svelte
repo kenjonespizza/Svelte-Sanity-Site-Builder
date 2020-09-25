@@ -1,20 +1,20 @@
 <script context="module">
   export async function preload({ params }) {
-    try {
-      const results = await this.fetch(`api/blog/topic/all`)
-      const topics = await results.json();
-      return topics
-    } catch (error) {
-      this.error(500, error)
-    }
+  	try {
+  		const results = await this.fetch("api/blog/topic/all");
+  		const topics = await results.json();
+  		return topics;
+  	} catch (error) {
+  		this.error(500, error);
+  	}
   }
 </script>
 
 <script>
-  import BlogHero from '../../components/Blog/BlogHero.svelte'
-  import { unSlugify } from '../../utils/helpers'
+  import BlogHero from "../../components/Blog/BlogHero.svelte";
+  import { unSlugify } from "../../utils/helpers";
 
-  export let topics
+  export let topics;
 </script>
 
 <svelte:head>

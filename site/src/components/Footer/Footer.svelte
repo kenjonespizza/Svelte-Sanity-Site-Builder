@@ -1,7 +1,7 @@
 <script>
-  import Link from '../Link.svelte'
+  import Link from "../Link.svelte";
 
-  export let menuSettings = []
+  export let menuSettings = [];
 
   const navItems = menuSettings.footerNavigation || [];
 </script>

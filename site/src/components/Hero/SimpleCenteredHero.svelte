@@ -1,11 +1,11 @@
 <script context="module">
-  import BlockContent from '../BlockContent.svelte'
-  import Button from '../Button.svelte'
-  import TagRenderer from '../TagRenderer.svelte'
-  import {urlFor} from '../../utils/helpers'
+  import BlockContent from "../BlockContent.svelte";
+  import Button from "../Button.svelte";
+  import TagRenderer from "../TagRenderer.svelte";
+  import { urlFor } from "../../utils/helpers";
 </script>  
 <script>
-  export let data
+  export let data;
 </script>
 
 <div class="relative bg-gray-50 overflow-hidden">
@@ -41,7 +41,7 @@
         {/if}
         
         {#if data.headingBlock && data.headingBlock.heading}
-          <TagRenderer tag={data.headingBlock.headingType || 'h2'} classes="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
+          <TagRenderer tag={data.headingBlock.headingType || "h2"} classes="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
             {data.headingBlock.heading}
           </TagRenderer>
         {/if}

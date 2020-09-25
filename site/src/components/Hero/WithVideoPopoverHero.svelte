@@ -8,28 +8,28 @@
   import getYouTubeID from 'get-youtube-id'
 </script>  
 <script>
-  export let data
+  export let data;
 
-  let isVideoOpen = false
-  let videoId = getYouTubeID(data.video.url)
+  let isVideoOpen = false;
+  const videoId = getYouTubeID(data.video.url);
 
   function toggleVideo() {
-    isVideoOpen = !isVideoOpen
+  	isVideoOpen = !isVideoOpen;
 
-    disableScrolling.update(() => isVideoOpen)
+  	disableScrolling.update(() => isVideoOpen);
   }
 
-  function closeVideo ({key}) {
-    if (isVideoOpen && key === 'Escape') {
-      toggleVideo()
-    }
+  function closeVideo({ key }) {
+  	if (isVideoOpen && key === "Escape") {
+  		toggleVideo();
+  	}
   }
 
   const options = {
-    // see https://developers.google.com/youtube/player_parameters
-    playerVars: {
-      autoplay: 1
-    }
+  	// see https://developers.google.com/youtube/player_parameters
+  	playerVars: {
+  		autoplay: 1,
+  	},
   };
 </script>
 
@@ -60,7 +60,7 @@
           {/if}
 
           {#if data.headingBlock && data.headingBlock.heading}
-            <TagRenderer tag={data.headingBlock.headingType || 'h2'} classes="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
+            <TagRenderer tag={data.headingBlock.headingType || "h2"} classes="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
               {data.headingBlock.heading}
             </TagRenderer>
           {/if}
@@ -89,7 +89,7 @@
           <div on:click={toggleVideo} class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
             <button type="button" class="relative block w-full rounded-lg overflow-hidden focus:outline-none focus:shadow-outline">
               {#if data.image && data.image.asset}
-                <img class="w-full" src={urlFor(data.image).quality(80).width(450)} alt={data.image.alt}>
+                <img loading=lazy class="w-full" src={urlFor(data.image).quality(80).width(450)} alt={data.image.alt}>
               {/if}
               <div class="absolute inset-0 w-full h-full flex items-center justify-center">
                 <svg class="h-20 w-20 text-indigo-500" fill="currentColor" viewBox="0 0 84 84">
@@ -106,17 +106,17 @@
 </div>
 
 
-<div class={`${isVideoOpen ? 'pointer-events-auto' : 'pointer-events-none'} fixed z-20 inset-0 overflow-y-auto`}>
+<div class={`${isVideoOpen ? "pointer-events-auto" : "pointer-events-none"} fixed z-20 inset-0 overflow-y-auto`}>
   <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
-    <div on:click={toggleVideo} class={`${isVideoOpen ? 'opacity-100' : 'opacity-0'} ease-in-out duration-300 fixed inset-0 transition-opacity`}>
+    <div on:click={toggleVideo} class={`${isVideoOpen ? "opacity-100" : "opacity-0"} ease-in-out duration-300 fixed inset-0 transition-opacity`}>
       <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
     </div>
 
     <!-- This element is to trick the browser into centering the modal contents. -->
     <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>&#8203;
 
-    <div class={`${isVideoOpen ? 'opacity-100 translate-y-0 sm:scale-100' : 'opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'} ease-in-out duration-300 inline-block align-bottom rounded-lg text-left overflow-hidden relative shadow-xl transform transition-all sm:align-middle sm:max-w-screen-xl sm:w-10/12`} role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+    <div class={`${isVideoOpen ? "opacity-100 translate-y-0 sm:scale-100" : "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"} ease-in-out duration-300 inline-block align-bottom rounded-lg text-left overflow-hidden relative shadow-xl transform transition-all sm:align-middle sm:max-w-screen-xl sm:w-10/12`} role="dialog" aria-modal="true" aria-labelledby="modal-headline">
       
       {#if isVideoOpen}
         <YouTube {videoId} class="w-full video-responsive" {options} />

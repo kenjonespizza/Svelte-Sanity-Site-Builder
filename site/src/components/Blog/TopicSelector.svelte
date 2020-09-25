@@ -1,17 +1,17 @@
 <script>
   // import { disableScrolling } from '../../stores';
-  import { unSlugify } from '../../utils/helpers'
+  import { unSlugify } from "../../utils/helpers";
 
-  export let topics
-  export let currentTopic
+  export let topics;
+  export let currentTopic;
 
   // $: selectedtopic = currentTopic
 
-  let isOpen = false
+  let isOpen = false;
 
   function toggle() {
-    isOpen = !isOpen
-    // disableScrolling.set(isOpen)
+  	isOpen = !isOpen;
+  	// disableScrolling.set(isOpen)
   }
 </script>
 
@@ -22,9 +22,9 @@
 </style>
 
 {#if topics && topics.length > 0}
-  <div class={`${isOpen ? 'z-30' : 'z-0'} space-y-1 w-full sm:w-64 pointer`}>
-    <span class={`${isOpen ? 'text-white' : 'text-gray-900'} block text-lg leading-5 font-bold`}>
-      Topics: <span class={`${isOpen ? 'text-gray-100' : 'text-gray-500'} text-xs`}>(more specific)</span>
+  <div class={`${isOpen ? "z-30" : "z-0"} space-y-1 w-full sm:w-64 pointer`}>
+    <span class={`${isOpen ? "text-white" : "text-gray-900"} block text-lg leading-5 font-bold`}>
+      Topics: <span class={`${isOpen ? "text-gray-100" : "text-gray-500"} text-xs`}>(more specific)</span>
     </span>
     <div class="relative">
       <span class="inline-block w-full rounded-md shadow-sm">
@@ -46,12 +46,12 @@
         </button>
       </span>
 
-      <div class={`${isOpen ? 'block' : 'hidden'} absolute mt-1 w-full rounded-md bg-white shadow-lg`}>
+      <div class={`${isOpen ? "block" : "hidden"} absolute mt-1 w-full rounded-md bg-white shadow-lg`}>
         <ul tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-item-3" class="max-h-60 rounded-md py-1 text-base leading-6 shadow-xs overflow-auto focus:outline-none sm:text-sm sm:leading-5">
           {#each topics as topic}
             <li on:click={toggle} role="option" class="text-gray-900 cursor-default select-none relative hover:bg-gray-100">
               <a href={`blog/topic/${topic}`} sapper:noscroll class=" py-2 px-4 flex items-center space-x-3">
-                <span class={`${topic === currentTopic ? 'font-bold' : 'font-normal'} block truncate capitalize`}>
+                <span class={`${topic === currentTopic ? "font-bold" : "font-normal"} block truncate capitalize`}>
                   {unSlugify(topic)}
                 </span>
               </a>
@@ -73,8 +73,8 @@
     on:click={toggle}
     class={`${
       isOpen
-        ? 'opacity-75 z-20 pointer-events-auto'
-        : 'opacity-0 z-0 pointer-events-none'
+        ? "opacity-75 z-20 pointer-events-auto"
+        : "opacity-0 z-0 pointer-events-none"
     } cover fixed top-0 left-0 w-screen h-screen bg-black opacity-10 cursor-default transition duration-300`}
   />
 {/if}

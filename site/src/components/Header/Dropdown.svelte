@@ -1,11 +1,11 @@
 <script>
-  import { afterUpdate } from 'svelte';
-  import Link from '../Link.svelte'
+  import { afterUpdate } from "svelte";
+  import Link from "../Link.svelte";
 
-  let isOpen = false
-  let addAfterStateChange = ''
+  let isOpen = false;
+  const addAfterStateChange = "";
 
-  function toggle() {isOpen = !isOpen}
+  function toggle() { isOpen = !isOpen; }
 
   export let data;
 </script>
@@ -44,7 +44,7 @@
             <div on:click={toggle}>
               <Link
                 link={item}
-                classes={`space-y-1 text-base leading-6 font-medium text-gray-500 transition -m-3 p-3 flex items-start space-x-4 rounded-lg ease-in-out duration-200 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900`}
+                classes={"space-y-1 text-base leading-6 font-medium text-gray-500 transition -m-3 p-3 flex items-start space-x-4 rounded-lg ease-in-out duration-200 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900"}
               >
                 {item.text}
               </Link>

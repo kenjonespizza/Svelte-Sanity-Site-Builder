@@ -1,39 +1,39 @@
 <script>
-  import Carousel from '../Carousel.svelte'
-  import BlockContent from '../BlockContent.svelte'
-  import TagRenderer from '../TagRenderer.svelte'
-  import { urlFor } from '../../utils/helpers'
+  import Carousel from "../Carousel.svelte";
+  import BlockContent from "../BlockContent.svelte";
+  import TagRenderer from "../TagRenderer.svelte";
+  import { urlFor } from "../../utils/helpers";
 
-  export let data
+  export let data;
 
-  let wrapperClass
-  let bgColorClass
-  let textClass
-  let primaryTextClass
+  let wrapperClass;
+  let bgColorClass;
+  let textClass;
+  let primaryTextClass;
 
-  if (data.backgroundColor === 'inverted') {
-    wrapperClass = 'inverted'
-    bgColorClass = 'bg-white'
-    textClass = 'text-gray-900'
-    primaryTextClass = 'text-indigo-600'
-  } else if (data.backgroundColor === 'primary') {
-    bgColorClass = 'bg-indigo-600'
-    textClass = 'text-textOnPrimary border-textOnPrimary'
-    primaryTextClass = 'text-textOnPrimary'
+  if (data.backgroundColor === "inverted") {
+  	wrapperClass = "inverted";
+  	bgColorClass = "bg-white";
+  	textClass = "text-gray-900";
+  	primaryTextClass = "text-indigo-600";
+  } else if (data.backgroundColor === "primary") {
+  	bgColorClass = "bg-indigo-600";
+  	textClass = "text-textOnPrimary border-textOnPrimary";
+  	primaryTextClass = "text-textOnPrimary";
   } else {
-    bgColorClass = 'bg-white'
-    textClass = 'text-gray-900'
-    primaryTextClass = 'text-indigo-600'
+  	bgColorClass = "bg-white";
+  	textClass = "text-gray-900";
+  	primaryTextClass = "text-indigo-600";
   }
 
-  let carouselOptions = {
-    perPage: {768: 2},
-    dots: false,
-  }
+  const carouselOptions = {
+  	perPage: { 768: 2 },
+  	dots: false,
+  };
   
 </script>
 
-<section class={`${wrapperClass || ''}`}>
+<section class={`${wrapperClass || ""}`}>
   <div class={bgColorClass}>
     <div class="max-w-screen-xl mx-auto slides-wrap">
       <svelte:component this={data.testimonials.length > 2 ? Carousel : TagRenderer} tag="div" classes="md:grid md:grid-cols-2 md:px-6 lg:px-8" backgroundColor={data.backgroundColor} {carouselOptions}>
@@ -51,12 +51,12 @@
               <footer class="mt-8">
                 <div class="flex">
 
-                    <img class="rounded-full border-2 border-textOnPrimary h-10 w-10 object-cover object-center" src={testimonial.authorImage ? urlFor(testimonial.authorImage).quality(80).width(80) : '/images/userImageNotFound.png'} alt={testimonial.authorName}>
+                    <img loading=lazy class="rounded-full border-2 border-textOnPrimary h-10 w-10 object-cover object-center" src={testimonial.authorImage ? urlFor(testimonial.authorImage).quality(80).width(80) : "/images/userImageNotFound.png"} alt={testimonial.authorName}>
 
                   <div class="ml-4 flex flex-col justify-center">
                     <div class={`${textClass} text-base leading-6 font-medium`}>{testimonial.authorName}</div>
                     {#if testimonial.authorRol || testimonial.authorCompany}
-                    <div class={`${primaryTextClass} text-base leading-6 font-medium`}>{testimonial.authorRol}{testimonial.authorRol && testimonial.authorCompany ? ', ' : ' '}{testimonial.authorCompany}</div>
+                    <div class={`${primaryTextClass} text-base leading-6 font-medium`}>{testimonial.authorRol}{testimonial.authorRol && testimonial.authorCompany ? ", " : " "}{testimonial.authorCompany}</div>
                     {/if}
                   </div>
                 </div>

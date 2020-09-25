@@ -1,21 +1,21 @@
 <script context="module">
   export async function preload({ params }) {
-    try {
-      const results = await this.fetch(`api/blog/category/all`)
-      const categories = await results.json();
-      return { categories }
-    } catch (error) {
-      this.error(500, error)
-    }
+  	try {
+  		const results = await this.fetch("api/blog/category/all");
+  		const categories = await results.json();
+  		return { categories };
+  	} catch (error) {
+  		this.error(500, error);
+  	}
   }
 </script>
 
 <script>
-  import BlogHero from '../../components/Blog/BlogHero.svelte'
-  import Link from '../../components/Link.svelte'
-  import { urlFor } from '../../utils/helpers'
+  import BlogHero from "../../components/Blog/BlogHero.svelte";
+  import Link from "../../components/Link.svelte";
+  import { urlFor } from "../../utils/helpers";
 
-  export let categories
+  export let categories;
 </script>
 
 <svelte:head>
@@ -32,7 +32,7 @@
       {#each categories as category}
         <Link ref={category._id} classes="bg-white shadow-lg rounded-lg overflow-hidden">
           <div class="relative pb-2/3">
-            <img class="absolute object-cover h-full w-full" src={urlFor(category.image).width(600)} alt={category.pageInfo.name}>
+            <img loading=lazy class="absolute object-cover h-full w-full" src={urlFor(category.image).width(600)} alt={category.pageInfo.name}>
           </div>
           <h4 class="font-bold text-xl p-4 text-center">{category.pageInfo.name} <span class="span text-gray-500 font-light text-base">({category.count})</span></h4>
         </Link>

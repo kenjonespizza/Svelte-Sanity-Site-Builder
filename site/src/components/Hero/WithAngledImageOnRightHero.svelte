@@ -1,11 +1,11 @@
 <script context="module">
-  import BlockContent from '../BlockContent.svelte'
-  import Button from '../Button.svelte'
-  import TagRenderer from '../TagRenderer.svelte'
-  import {urlFor} from '../../utils/helpers'
+  import BlockContent from "../BlockContent.svelte";
+  import Button from "../Button.svelte";
+  import TagRenderer from "../TagRenderer.svelte";
+  import { urlFor } from "../../utils/helpers";
 </script>  
 <script>
-  export let data
+  export let data;
 </script>
 
 <div class="relative bg-white overflow-hidden text-center lg:text-left">
@@ -25,7 +25,7 @@
           {/if}
 
           {#if data.headingBlock && data.headingBlock.heading}
-            <TagRenderer tag={data.headingBlock.headingType || 'h2'} classes="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
+            <TagRenderer tag={data.headingBlock.headingType || "h2"} classes="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
               {data.headingBlock.heading}
             </TagRenderer>
           {/if}
@@ -45,7 +45,7 @@
   </div>
   <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-indigo-600">
     {#if data.image && data.image.asset}
-      <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src={urlFor(data.image).quality(80).width(1400)} alt={data.image.alt}>
+      <img loading=lazy class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src={urlFor(data.image).quality(80).width(1400)} alt={data.image.alt}>
     {/if}
   </div>
 </div>

@@ -1,18 +1,18 @@
 <script>
-  import BlockContent from '../BlockContent.svelte'
-  import Button from '../Button.svelte'
-  import Link from '../Link.svelte'
-  import TagRenderer from '../TagRenderer.svelte'
-  import {urlFor} from '../../utils/helpers'
+  import BlockContent from "../BlockContent.svelte";
+  import Button from "../Button.svelte";
+  import Link from "../Link.svelte";
+  import TagRenderer from "../TagRenderer.svelte";
+  import { urlFor } from "../../utils/helpers";
 
-  export let data
+  export let data;
   
-  let formFields = []
-  let hasFromFields
+  let formFields = [];
+  let hasFromFields;
   
-  if (data.formFields && typeof data.formFields === 'object' && data.formFields.length > 0) {
-    hasFromFields = true
-    formFields = data.formFields
+  if (data.formFields && typeof data.formFields === "object" && data.formFields.length > 0) {
+  	hasFromFields = true;
+  	formFields = data.formFields;
   }
   
 </script>
@@ -43,7 +43,7 @@
               {/if}
               
               {#if data.headingBlock && data.headingBlock.heading}
-                <TagRenderer tag={data.headingType || 'h2'} classes="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
+                <TagRenderer tag={data.headingType || "h2"} classes="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
                   {data.headingBlock.heading}
                 </TagRenderer>
               {/if}
@@ -123,7 +123,7 @@
                       </div>
                     </div>
 
-                    {#if formFields.includes('email')}
+                    {#if formFields.includes("email")}
                     <div>
                       <label for="email" class="sr-only">
                         Email Address
@@ -134,7 +134,7 @@
                     </div>
                     {/if}
 
-                    {#if formFields.includes('phone')}
+                    {#if formFields.includes("phone")}
                     <div>
                       <label for="mobile-or-email" class="sr-only">
                         Mobile number
@@ -157,7 +157,7 @@
                     <div>
                       <span class="block w-full rounded-md shadow-sm">
                         <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-                          {data.submitButtonText || 'Submit'}
+                          {data.submitButtonText || "Submit"}
                         </button>
                       </span>
                     </div>

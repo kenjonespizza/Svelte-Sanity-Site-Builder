@@ -1,22 +1,26 @@
 <script context="module">
   export async function preload({ params }) {
-    try {
-      // As with the server route, we have acces to params.slug here
-      const res = await this.fetch(`api/blog/all`);
-      const { posts, currentPage, perPage, count, blogInfo, categories, topics } = await res.json();
+  	try {
+  		// As with the server route, we have acces to params.slug here
+  		const res = await this.fetch("api/blog/all");
+  		const {
+			posts, currentPage, perPage, count, blogInfo, categories, topics,
+		} = await res.json();
 
-      return { posts, currentPage, perPage, count, blogInfo, categories, topics };
-    } catch (err) {
-      this.error(500, err);
-    }
-  };
+  		return {
+			posts, currentPage, perPage, count, blogInfo, categories, topics,
+		};
+  	} catch (err) {
+  		this.error(500, err);
+  	}
+  }
 </script>
 
 
 <script>
-  import BlogHero from '../../components/Blog/BlogHero.svelte'
-  import Posts from '../../components/Blog/Posts.svelte'
-  import BlockContent from '../../components/BlockContent.svelte'
+  import BlogHero from "../../components/Blog/BlogHero.svelte";
+  import Posts from "../../components/Blog/Posts.svelte";
+  import BlockContent from "../../components/BlockContent.svelte";
 
   export let posts;
   export let currentPage;

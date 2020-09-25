@@ -1,16 +1,17 @@
 <script>
-  import BlogFilters from './BlogFilters.svelte'
-  import Post from './Post.svelte'
-  import Pagination from '../Pagination.svelte'
+  import BlogFilters from "./BlogFilters.svelte";
+  import Post from "./Post.svelte";
+  import Pagination from "../Pagination.svelte";
 
-  export let posts = []
-  export let categories = []
-  export let topics = []
-  export let count = undefined
-  export let currentPage = undefined
-  export let perPage = undefined
-  export let currentCategory = undefined
-  export let currentTopic = undefined
+  export let posts = [];
+  export let categories = [];
+  export let topics = [];
+  export let count;
+  export let currentPage;
+  export let perPage;
+  export let currentCategory;
+  export let currentTopic;
+  export let paginationSlug = "blog/page"
 </script>
 
 {#if posts.length > 0}
@@ -22,7 +23,7 @@
         <Post {post} />
       {/each}
     </div>
-    <Pagination totalResults={count} slug={`blog/page`} {currentPage} {perPage}/>
+    <Pagination totalResults={count} slug={paginationSlug} {currentPage} {perPage}/>
   </div>
 {:else}
   <div class="container my-16">

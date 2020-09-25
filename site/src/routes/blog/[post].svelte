@@ -1,39 +1,39 @@
 <script context="module">
   export async function preload({ params }) {
-    try {
-      // As with the server route, we have acces to params.slug here
-      const res = await this.fetch(`api/blog/${params.post}`);
-      const { postData } = await res.json();
-      let post = postData
-      return { post };
-    } catch (err) {
-      this.error(500, err);
-    }
-  };
+  	try {
+  		// As with the server route, we have acces to params.slug here
+  		const res = await this.fetch(`api/blog/${params.post}`);
+  		const { postData } = await res.json();
+  		const post = postData;
+  		return { post };
+  	} catch (err) {
+  		this.error(500, err);
+  	}
+  }
 </script>
 
 <script>
-import BlockContent from '../../components/BlockContent.svelte'
-  import Link from '../../components/Link.svelte'
-  import { urlFor, slugify } from '../../utils/helpers'
+import BlockContent from "../../components/BlockContent.svelte";
+import Link from "../../components/Link.svelte";
+import { urlFor, slugify } from "../../utils/helpers";
 
-  export let post
-  let {authors} = post
-  let layout = "A"
-  let y
-  let outerHeight
-  let outerWidth
-  let scrollGeneratedClasses
+export let post;
+const { authors } = post;
+const layout = "A";
+let y;
+let outerHeight;
+let outerWidth;
+let scrollGeneratedClasses;
 
-  function scrolling(e) {
-    let percentScrolled =  y / outerHeight * 100
+function scrolling(e) {
+	const percentScrolled = y / outerHeight * 100;
 
-    if (percentScrolled > 70) {
-      scrollGeneratedClasses = 'pointer-events-none'
-    } else {
-      scrollGeneratedClasses = 'pointer-events-auto'
-    }
-  }
+	if (percentScrolled > 70) {
+		scrollGeneratedClasses = "pointer-events-none";
+	} else {
+		scrollGeneratedClasses = "pointer-events-auto";
+	}
+}
 </script>
 
 <svelte:head>
@@ -89,7 +89,7 @@ import BlockContent from '../../components/BlockContent.svelte'
                 {#each authors as author, i }
                   {#if author.image}
                     <Link classes={`${i > 0 ? "-ml-3" : ""} inline-block`} ref={author._id} title={author.pageInfo.name} >
-                      <img class={`relative h-12 w-12 rounded-full text-white border-3 border-white object-cover object-center`} src={author.image ? urlFor(author.image).quality(100).size(80, 80) : "/images/userImageNotFound.png"} alt={author.pageInfo.name}>
+                      <img loading=lazy class={"relative h-12 w-12 rounded-full text-white border-3 border-white object-cover object-center"} src={author.image ? urlFor(author.image).quality(100).size(80, 80) : "/images/userImageNotFound.png"} alt={author.pageInfo.name}>
                     </Link>
                   {/if}
                 {/each}
@@ -98,12 +98,12 @@ import BlockContent from '../../components/BlockContent.svelte'
                 <p class="text-sm leading-5 font-medium text-gray-700 group-hover:text-gray-900">
                   By: 
                   {#each authors as author, i }
-                    <Link ref={author._id} classes="text-indigo-600">{author.pageInfo.name}</Link>{ i + 2 === authors.length && authors.length > 1 ? ` and ` : i + 1 !== authors.length && authors.length > 1 ? `, ` : ''}
+                    <Link ref={author._id} classes="text-indigo-600">{author.pageInfo.name}</Link>{ i + 2 === authors.length && authors.length > 1 ? " and " : i + 1 !== authors.length && authors.length > 1 ? ", " : ""}
                   {/each}
                   {#if post.categories && post.categories.length > 0}
                     In: 
                     {#each post.categories as category, i }
-                      <Link ref={category._id} classes="text-indigo-600">{category.pageInfo.name}</Link>{ i + 2 === category.length && category.length > 1 ? ` and ` : i + 1 !== category.length && category.length > 1 ? `, ` : ''}
+                      <Link ref={category._id} classes="text-indigo-600">{category.pageInfo.name}</Link>{ i + 2 === category.length && category.length > 1 ? " and " : i + 1 !== category.length && category.length > 1 ? ", " : ""}
                     {/each}
                   {/if}
                 </p>
@@ -114,18 +114,18 @@ import BlockContent from '../../components/BlockContent.svelte'
 
       </div>
       {#if post.image}
-        <img class="my-16 w-full rounded-lg shadow-xl object-cover object-center" style="height: 70vh;" src={urlFor(post.image).quality(80).width(2000)} alt={post.image.alt}>
+        <img loading=lazy class="my-16 w-full rounded-lg shadow-xl object-cover object-center" style="height: 70vh;" src={urlFor(post.image).quality(80).width(2000)} alt={post.image.alt}>
       {/if}
     </div>
     {:else}
       <div class="w-screen h-screen flex"></div>
       <div class={`${scrollGeneratedClasses} fixed top-0 left-0 w-screen h-screen flex z-50`}>
-        <div class="postImage w-1/2 h-screen bg-white shadow-2xl" style="transform: translateX(-{y / (outerHeight * .7) * 100}%);">
+        <div class="postImage w-1/2 h-screen bg-white shadow-2xl" style="transform: translateX(-{y / (outerHeight * 0.7) * 100}%);">
           {#if post.image && post.image}
-            <img class="h-full w-full object-cover object-center" src={urlFor(post.image).quality(80).width(2000)} alt={post.image.alt}>
+            <img loading=lazy class="h-full w-full object-cover object-center" src={urlFor(post.image).quality(80).width(2000)} alt={post.image.alt}>
           {/if}
         </div>
-        <div class="postTitle w-1/2 h-full bg-indigo-600 flex flex-col justify-center p-20 shadow-2xl" style="transform: translateX({y / (outerHeight * .7) * 100}%);">
+        <div class="postTitle w-1/2 h-full bg-indigo-600 flex flex-col justify-center p-20 shadow-2xl" style="transform: translateX({y / (outerHeight * 0.7) * 100}%);">
           <h1 class="w-full mt-2 mb-8 text-3xl leading-tight font-extrabold tracking-tight text-textOnPrimary sm:text-5xl lg:w-2/3">{post.pageInfo.name}</h1>
 
           <BlockContent classes="text-xl text-textOnPrimary opacity-75 leading-8 " content={post.shortText} />
@@ -134,7 +134,7 @@ import BlockContent from '../../components/BlockContent.svelte'
             <p class="text-sm leading-5 font-medium text-textOnPrimary">
               By: 
               {#each authors as author, i }
-                <Link ref={author._id} classes="text-textOnPrimary underline">{author.pageInfo.name}</Link>{ i + 2 === authors.length && authors.length > 1 ? ` and ` : i + 1 !== authors.length && authors.length > 1 ? `, ` : ''}
+                <Link ref={author._id} classes="text-textOnPrimary underline">{author.pageInfo.name}</Link>{ i + 2 === authors.length && authors.length > 1 ? " and " : i + 1 !== authors.length && authors.length > 1 ? ", " : ""}
               {/each}
             </p>
           </div>
@@ -144,7 +144,7 @@ import BlockContent from '../../components/BlockContent.svelte'
               <div class="flex relative z-0 overflow-hidden">
                 {#each authors as author, i }
                   <Link classes={`${i > 0 ? "-ml-3" : ""} inline-block`} ref={author._id} title={author.pageInfo.name} >
-                    <img class={`relative h-12 w-12 rounded-full text-white border-3 border-textOnPrimary object-cover object-center`} src={author.image ? urlFor(author.image).quality(80).size(80, 80) : "/images/userImageNotFound.png"} alt={author.pageInfo.name}>
+                    <img class={"relative h-12 w-12 rounded-full text-white border-3 border-textOnPrimary object-cover object-center"} src={author.image ? urlFor(author.image).quality(80).size(80, 80) : "/images/userImageNotFound.png"} alt={author.pageInfo.name}>
                   </Link>
                 {/each}
               </div>

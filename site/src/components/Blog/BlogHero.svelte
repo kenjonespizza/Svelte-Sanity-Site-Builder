@@ -1,7 +1,3 @@
-<script>
-  import BlockContent from '../BlockContent.svelte'
-</script>
-
 <div class="relative bg-gray-50 overflow-hidden">
   <div class="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full">
     <div class="relative h-full max-w-screen-xl mx-auto">

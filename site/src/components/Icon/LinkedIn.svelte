@@ -1,5 +1,5 @@
 <script>
-  export let classes = 'w-5 h-5'
+  export let classes = "w-5 h-5";
 </script>
 
 <svg class={classes} fill="currentColor" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/>

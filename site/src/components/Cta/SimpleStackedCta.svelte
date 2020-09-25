@@ -1,29 +1,29 @@
 <script context="module">
-  import Button from '../Button.svelte'
-  import TagRenderer from '../TagRenderer.svelte'
+  import Button from "../Button.svelte";
+  import TagRenderer from "../TagRenderer.svelte";
 </script>  
 <script>
-  export let data
+  export let data;
 
-  let wrapperClass
-  let bgColorClass
-  let subHeadingClass
-  let headingClass
-  let buttonClass
+  let wrapperClass;
+  let bgColorClass;
+  let subHeadingClass;
+  let headingClass;
+  let buttonClass;
 
-  if (data.backgroundColor === 'inverted') {
-    wrapperClass = 'inverted'
-    bgColorClass = 'bg-white'
-    subHeadingClass = 'text-gray-500'
-    headingClass = 'text-gray-900'
-  } else if (data.backgroundColor === 'primary') {
-    bgColorClass = 'bg-indigo-600'
-    subHeadingClass = 'text-textOnPrimary opacity-75'
-    headingClass = 'text-textOnPrimary'
+  if (data.backgroundColor === "inverted") {
+  	wrapperClass = "inverted";
+  	bgColorClass = "bg-white";
+  	subHeadingClass = "text-gray-500";
+  	headingClass = "text-gray-900";
+  } else if (data.backgroundColor === "primary") {
+  	bgColorClass = "bg-indigo-600";
+  	subHeadingClass = "text-textOnPrimary opacity-75";
+  	headingClass = "text-textOnPrimary";
   } else {
-    bgColorClass = 'bg-white'
-    subHeadingClass = 'text-gray-500'
-    headingClass = 'text-gray-900'
+  	bgColorClass = "bg-white";
+  	subHeadingClass = "text-gray-500";
+  	headingClass = "text-gray-900";
   }
 </script>
 
@@ -38,7 +38,7 @@
       {/if}
       
       {#if data.headingBlock && data.headingBlock.heading}
-        <TagRenderer tag={data.headingBlock.headingType || 'h2'} classes={`${headingClass} text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10`}>
+        <TagRenderer tag={data.headingBlock.headingType || "h2"} classes={`${headingClass} text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10`}>
           {data.headingBlock.heading}
         </TagRenderer>
       {/if}

@@ -1,18 +1,18 @@
 <script>
-  import Link from '../Link.svelte'
-  import { isMobileNavOpen } from '../../stores'
+  import Link from "../Link.svelte";
+  import { isMobileNavOpen } from "../../stores";
 
-  let isOpen = false
+  let isOpen = false;
 
-  function toggle() {isOpen = !isOpen}
+  function toggle() { isOpen = !isOpen; }
 
   function toggleMobileNav() {
-    isMobileNavOpen.update(() => !$isMobileNavOpen)
+  	isMobileNavOpen.update(() => !$isMobileNavOpen);
   }
 
-  function toggleDropdownAndNav () {
-    toggle()
-    toggleMobileMenu()
+  function toggleDropdownAndNav() {
+  	toggle();
+  	toggleMobileMenu();
   }
 
   export let data;
@@ -25,12 +25,12 @@
     on:click={toggle}
     type="button"
     class={`${
-      isOpen ? 'bg-gray-100 rounded-b-none' : ''} rounded-lg text-gray-900 px-6 py-3 group inline-flex justify-between items-center text-base leading-6 font-medium hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150`}
+      isOpen ? "bg-gray-100 rounded-b-none" : ""} rounded-lg text-gray-900 px-6 py-3 group inline-flex justify-between items-center text-base leading-6 font-medium hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150`}
   >
     <span>{data.text}</span>
     <svg
       class={`${
-        isOpen ? '-rotate-180' : ''
+        isOpen ? "-rotate-180" : ""
       } h-5 w-5 group-hover:text-gray-600 group-focus:text-gray-600 transform transition ease-in-out duration-150`}
       viewBox="0 0 20 20"
       fill="currentColor"
@@ -43,9 +43,9 @@
     </svg>
   </button>
 
-  <div class={`${isOpen ? 'opacity-100 block' : 'opacity-0 translate-y-1 hidden'} -my-3 py-3`}
+  <div class={`${isOpen ? "opacity-100 block" : "opacity-0 translate-y-1 hidden"} -my-3 py-3`}
       >
-    <div class={`${isOpen ? 'rounded-t-none rounded-b-md' : ''} bg-gray-100 rounded-lg p-2 flex flex-col`}>
+    <div class={`${isOpen ? "rounded-t-none rounded-b-md" : ""} bg-gray-100 rounded-lg p-2 flex flex-col`}>
       {#each data.pages as item}
         <div on:click={toggleMobileNav}>
           <Link
