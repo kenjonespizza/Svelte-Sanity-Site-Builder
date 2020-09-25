@@ -143,11 +143,9 @@ import BlockContent from '../../components/BlockContent.svelte'
             <div class="flex items-center flex-wrap">
               <div class="flex relative z-0 overflow-hidden">
                 {#each authors as author, i }
-                  {#if author.image}
-                    <Link classes={`${i > 0 ? "-ml-3" : ""} inline-block`} ref={author._id} title={author.pageInfo.name} >
-                      <img class={`relative h-12 w-12 rounded-full text-white border-3 border-textOnPrimary object-cover object-center`} src={author.image ? urlFor(author.image).quality(100).size(80, 80) : "/images/userImageNotFound.png"} alt={author.pageInfo.name}>
-                    </Link>
-                  {/if}
+                  <Link classes={`${i > 0 ? "-ml-3" : ""} inline-block`} ref={author._id} title={author.pageInfo.name} >
+                    <img class={`relative h-12 w-12 rounded-full text-white border-3 border-textOnPrimary object-cover object-center`} src={author.image ? urlFor(author.image).quality(80).size(80, 80) : "/images/userImageNotFound.png"} alt={author.pageInfo.name}>
+                  </Link>
                 {/each}
               </div>
             </div>
