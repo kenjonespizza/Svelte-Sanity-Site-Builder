@@ -11,10 +11,13 @@ const main = async () => {
 	else if (sourcemap === "false") sourcemap = false;
 
 	const pcss = await readFile("src/global.pcss");
+	const styles = await readFile("src/styles.css");
 
 	const result = await postcss(postcssConfig.plugins).process(pcss, { from: "src/global.pcss", to: "static/global.css", map: sourcemap ? { inline: sourcemap === "inline" } : false });
 
-	await writeFile("static/global.css", result.css);
+	// console.log("result.css:", result.css);
+
+	await writeFile("static/global.css", result.css + styles);
 
 	if (result.map) await writeFile("static/global.css.map", result.map.toString());
 	else {

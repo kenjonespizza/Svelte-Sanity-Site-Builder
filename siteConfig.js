@@ -1,4 +1,4 @@
 export default {
-  sanityProjectId: 'nkke0fth',
+  sanityProjectId: 'dnp3e9uu',
   sanityDataset: 'production',
 }

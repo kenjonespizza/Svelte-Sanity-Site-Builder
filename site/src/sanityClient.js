@@ -1,11 +1,13 @@
 import sanityClient from "@sanity/client";
-import { api } from "../../sanity/sanity.json";
+import * as siteConfig from "../../siteConfig";
 
-const { projectId, dataset } = api;
+console.log("siteConfig:", siteConfig);
+
+const { sanityProjectId, sanityDataset } = siteConfig.default;
 
 const client = sanityClient({
-	projectId,
-	dataset,
+	projectId: sanityProjectId,
+	dataset: sanityDataset,
 	// useCdn: true
 
 	useCdn: false,

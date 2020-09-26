@@ -1,10 +1,3 @@
-/*
-	Tailwind - The Utility-First CSS Framework
-	A project by Adam Wathan (@adamwathan), Jonathan Reinink (@reinink),
-	David Hemphill (@davidhemphill) and Steve Schoger (@steveschoger).
-	View the full documentation at https://tailwindcss.com.
-*/
-
 const tailwindUi = require("@tailwindcss/ui");
 const tailwindTypography = require("@tailwindcss/typography");
 
@@ -14,6 +7,7 @@ module.exports = {
 		options: {
 			defaultExtractor: (content) => [...content.matchAll(/(?:class:)*([\w\d-/:%.]+)/gm)].map(([_match, group, ..._rest]) => group),
 			keyframes: true,
+			whitelist: ["h1", "h2", "h3", "p", "blockquote", "strong", "pre"],
 		},
 	},
 	theme: {
@@ -84,10 +78,64 @@ module.exports = {
 		typography: (theme) => ({
 			default: {
 				css: {
-					pre: {
-						backgroundColor: theme("colors.code.background"),
-						color: theme("colors.code.text"),
+					color: theme("colors.gray.700"),
+					"[class~=\"lead\"]": {
+						color: theme("colors.gray.700"),
 					},
+					a: {
+						color: theme("colors.gray.900"),
+					},
+					strong: {
+						color: theme("colors.gray.900"),
+					},
+					"ol > li::before": {
+						color: theme("colors.gray.600"),
+					},
+					"ul > li::before": {
+						backgroundColor: theme("colors.gray.400"),
+					},
+					hr: {
+						borderColor: theme("colors.gray.300"),
+					},
+					blockquote: {
+						color: theme("colors.gray.900"),
+						borderLeftColor: theme("colors.gray.300"),
+					},
+					h1: {
+						color: theme("colors.gray.900"),
+					},
+					h2: {
+						color: theme("colors.gray.900"),
+					},
+					h3: {
+						color: theme("colors.gray.900"),
+					},
+					h4: {
+						color: theme("colors.gray.900"),
+					},
+					"figure figcaption": {
+						color: theme("colors.gray.600"),
+					},
+					code: {
+						color: theme("colors.gray.900"),
+					},
+					pre: {
+						// color: "#282c34",
+						// backgroundColor: "#abb2bf",
+						// color: theme("colors.code.text"),
+						// backgroundColor: theme("colors.code.background"),
+					},
+					thead: {
+						color: theme("colors.gray.900"),
+						borderBottomColor: theme("colors.gray.400"),
+					},
+					"tbody tr": {
+						borderBottomColor: theme("colors.gray.300"),
+					},
+				// pre: {
+				// 	backgroundColor: theme("colors.code.background"),
+				// 	color: theme("colors.code.text"),
+				// },
 				},
 			},
 		}),

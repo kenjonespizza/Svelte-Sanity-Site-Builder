@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-  {@html atomOneDark}
+  <!-- {@html atomOneDark} -->
 </svelte:head>
 
 <Highlight language={javascript} {code} />
