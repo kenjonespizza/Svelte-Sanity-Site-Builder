@@ -92,8 +92,9 @@
                 <img loading=lazy class="w-full" src={urlFor(data.image).quality(80).width(450)} alt={data.image.alt}>
               {/if}
               <div class="absolute inset-0 w-full h-full flex items-center justify-center">
-                <svg class="h-20 w-20 text-indigo-500" fill="currentColor" viewBox="0 0 84 84">
-                  <circle opacity="0.9" cx="42" cy="42" r="42" fill="white" />
+                <span class="animate-ping absolute inline-flex h-20 w-20 rounded-full bg-white opacity-75"></span>
+                <svg class="relative h-20 w-20 text-indigo-500" fill="currentColor" viewBox="0 0 84 84">
+                  <circle class="text-white" opacity="0.9" cx="42" cy="42" r="42" fill="currentColor" />
                   <path d="M55.5039 40.3359L37.1094 28.0729C35.7803 27.1869 34 28.1396 34 29.737V54.263C34 55.8604 35.7803 56.8131 37.1094 55.9271L55.5038 43.6641C56.6913 42.8725 56.6913 41.1275 55.5039 40.3359Z" />
                 </svg>
               </div>
