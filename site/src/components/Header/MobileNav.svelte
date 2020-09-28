@@ -8,10 +8,10 @@
 
 // export let segment = []
 export let themeSettings = [];
-export let menuSettings = [];
+export let headerSettings = [];
 export let siteSettings = [];
 
-  const navItems = menuSettings.headerNavigation || [];
+  const navItems = headerSettings.headerNavigation || [];
 
   function toggleMobileNav() {
   	isMobileNavOpen.update(() => !$isMobileNavOpen);
@@ -40,15 +40,15 @@ export let siteSettings = [];
             <Link classes="flex" ref={siteSettings.homepage._ref}>
               <!-- Logo On Light -->
               {#if themeSettings.logoOnLight || themeSettings.logoOnDark}
-                <img loading=lazy class="hiddenOnDark w-auto" style="height: {menuSettings && menuSettings.logoHeight || 40}px" src={urlFor(themeSettings.logoOnLight || themeSettings.logoOnDark).quality(100).height(menuSettings && menuSettings.logoHeight * 2 || 80)} alt={siteSettings.siteName}>
+                <img loading=lazy class="hiddenOnDark w-auto" style="height: {headerSettings && headerSettings.logoHeight || 40}px" src={urlFor(themeSettings.logoOnLight || themeSettings.logoOnDark).quality(100).height(headerSettings && headerSettings.logoHeight * 2 || 80)} alt={siteSettings.siteName}>
               {/if}
               <!-- Logo On Dark -->
               {#if themeSettings.logoOnLight || themeSettings.logoOnDark}
-                <img loading=lazy class="hiddenOnLight w-auto" style="height: {menuSettings && menuSettings.logoHeight || 40}px" src={urlFor(themeSettings.logoOnDark || themeSettings.logoOnLight).quality(100).height(menuSettings && menuSettings.logoHeight * 2 || 80)} alt={siteSettings.siteName}>
+                <img loading=lazy class="hiddenOnLight w-auto" style="height: {headerSettings && headerSettings.logoHeight || 40}px" src={urlFor(themeSettings.logoOnDark || themeSettings.logoOnLight).quality(100).height(headerSettings && headerSettings.logoHeight * 2 || 80)} alt={siteSettings.siteName}>
               {/if}
               <!-- Show text as logo if no light or dark logo is uploaded -->
               {#if siteSettings.siteName && !(themeSettings.logoOnLight && themeSettings.logoOnDark)}
-                <span class="font-bold text-2xl flex items-center" style="minHeight: {menuSettings && menuSettings.logoHeight || 40}">{siteSettings.siteName}</span>
+                <span class="font-bold text-2xl flex items-center" style="minHeight: {headerSettings && headerSettings.logoHeight || 40}">{siteSettings.siteName}</span>
               {/if}
             </Link>
           </div>

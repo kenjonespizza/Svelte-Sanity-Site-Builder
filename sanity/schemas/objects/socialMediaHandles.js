@@ -45,5 +45,17 @@ export default {
       type: 'url',
       description: 'Leave blank if not applicable.',
     },
+    {
+      name: 'github',
+      title: 'GitHub',
+      type: 'url',
+      description: 'Leave blank if not applicable.',
+    },
+    {
+      name: 'spotify',
+      title: 'Spotify',
+      type: 'url',
+      description: 'Leave blank if not applicable.',
+    },
   ],
 };

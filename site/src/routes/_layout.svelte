@@ -5,8 +5,10 @@
 	export async function preload(page, session) {
 		const globalDataFetch = await client.fetch(`*[][0]{
 			'siteSettings':*[_type == "siteSettings"][0]{...},
-			'menuSettings':*[_type == "menuSettings"][0]{...},
+			'headerSettings':*[_type == "headerSettings"][0]{...},
+			'footerSettings':*[_type == "footerSettings"][0]{...},
 			'themeSettings':*[_type == "themeSettings"][0]{...},
+			'socialMediaSettings':*[_type == "socialMediaSettings"][0]{...},
 			'allPageData': *[defined(pageInfo.slug.current)]{
 				_id,
 				pageInfo,
@@ -16,10 +18,15 @@
 				}
 			}
 		}`)
-		const {menuSettings: menuSettingsArr, siteSettings: siteSettingsArr, themeSettings: themeSettingsArr, allPageData} = globalDataFetch
-		const menuSettings = menuSettingsArr
-		const siteSettings = siteSettingsArr
-		const themeSettings = themeSettingsArr
+		const {
+			headerSettings,
+			footerSettings,
+			siteSettings, 
+			themeSettings, 
+			socialMediaSettings, 
+			allPageData
+		} = globalDataFetch
+
 		const brandColor = {
 			light: {
 				primary: themeSettings.colorPrimaryLight
@@ -136,7 +143,7 @@
 			}
 		}
 
-		return {menuSettings, siteSettings, themeSettings, color, allPageData }
+		return {headerSettings, footerSettings, siteSettings, themeSettings, socialMediaSettings, color, allPageData }
 	}
 
 </script>
@@ -152,7 +159,9 @@
 	export let segment
 	export let siteSettings
 	export let themeSettings
-	export let menuSettings
+	export let headerSettings
+	export let footerSettings
+	export let socialMediaSettings
 	export let color
 
 	export let allPageData
@@ -335,8 +344,8 @@
 </svelte:head>
 
 <!-- Nav Placeholder -->
-<Header {segment} {menuSettings} {siteSettings} {themeSettings} />
+<Header {segment} {headerSettings} {siteSettings} {themeSettings} />
 <main role="main">
 	<slot></slot>
 </main>
-<Footer {menuSettings} />
+<Footer {footerSettings} {socialMediaSettings} />

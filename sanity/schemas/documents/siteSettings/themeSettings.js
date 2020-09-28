@@ -26,7 +26,6 @@ export default {
     // Todo: Add default colors if possible
     isThemeToggleable: true,
     defaultTheme: 'light'
-
   },
   fields: [
     {

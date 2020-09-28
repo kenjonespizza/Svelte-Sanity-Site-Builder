@@ -5,10 +5,10 @@
   import Dropdown from "./Dropdown.svelte";
 
 // export let segment = []
-export let menuSettings = [];
+export let headerSettings = [];
 // export let siteSettings = []
 
-  const navItems = menuSettings.headerNavigation || [];
+  const navItems = headerSettings.headerNavigation || [];
 
 </script>
 

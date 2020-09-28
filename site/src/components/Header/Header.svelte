@@ -9,7 +9,7 @@
   // import {theme} from '../../store';
 
 
-  export let menuSettings = [];
+  export let headerSettings = [];
 export let siteSettings = [];
   export let themeSettings = [];
   
@@ -20,8 +20,8 @@ export let siteSettings = [];
   // This is to assist getting the height of the nav correct before the script funs that sets the filler height
   let initailHeaderHeight = "86px";
   // If there is a button in the header, change the initiasl height
-  if (menuSettings && menuSettings.headerNavigation && menuSettings.headerNavigation.length) {
-  	menuSettings.headerNavigation.forEach((item) => {
+  if (headerSettings && headerSettings.headerNavigation && headerSettings.headerNavigation.length) {
+  	headerSettings.headerNavigation.forEach((item) => {
   		if (item._type === "button") {
   			initailHeaderHeight = "106px";
   		}
@@ -32,7 +32,7 @@ export let siteSettings = [];
 
 <!-- This example requires Tailwind CSS v1.4.0+ -->
 <div class="py-6 phoNav" style="height: {initailHeaderHeight};">
-	<div style="height: {menuSettings.logoHeight}px"></div>
+	<div style="height: {headerSettings.logoHeight}px"></div>
 </div>
 <header class="fixed top-0 z-20 right-0 bg-white w-full navBar">
   <div class="mx-auto px-4 border-b border-gray-100 sm:px-8">
@@ -41,21 +41,21 @@ export let siteSettings = [];
         <Link classes="flex" ref={siteSettings.homepage._ref}>
           <!-- Logo On Light -->
           {#if themeSettings.logoOnLight || themeSettings.logoOnDark}
-            <img loading=lazy class="hiddenOnDark w-auto" style="height: {menuSettings && menuSettings.logoHeight || 40}px" src={urlFor(themeSettings.logoOnLight || themeSettings.logoOnDark).quality(100).height(menuSettings && menuSettings.logoHeight * 2 || 80)} alt={siteSettings.siteName}>
+            <img loading=lazy class="hiddenOnDark w-auto" style="height: {headerSettings && headerSettings.logoHeight || 40}px" src={urlFor(themeSettings.logoOnLight || themeSettings.logoOnDark).quality(100).height(headerSettings && headerSettings.logoHeight * 2 || 80)} alt={siteSettings.siteName}>
           {/if}
           <!-- Logo On Dark -->
           {#if themeSettings.logoOnLight || themeSettings.logoOnDark}
-            <img loading=lazy class="hiddenOnLight w-auto" style="height: {menuSettings && menuSettings.logoHeight || 40}px" src={urlFor(themeSettings.logoOnDark || themeSettings.logoOnLight).quality(100).height(menuSettings && menuSettings.logoHeight * 2 || 80)} alt={siteSettings.siteName}>
+            <img loading=lazy class="hiddenOnLight w-auto" style="height: {headerSettings && headerSettings.logoHeight || 40}px" src={urlFor(themeSettings.logoOnDark || themeSettings.logoOnLight).quality(100).height(headerSettings && headerSettings.logoHeight * 2 || 80)} alt={siteSettings.siteName}>
           {/if}
           <!-- Show text as logo if no light or dark logo is uploaded -->
           {#if siteSettings.siteName && !(themeSettings.logoOnLight && themeSettings.logoOnDark)}
-            <span class="font-bold text-2xl flex items-center" style="minHeight: {menuSettings && menuSettings.logoHeight || 40}">{siteSettings.siteName}</span>
+            <span class="font-bold text-2xl flex items-center" style="minHeight: {headerSettings && headerSettings.logoHeight || 40}">{siteSettings.siteName}</span>
           {/if}
         </Link>
       </div>
       <div class="flex space-x-4 md:space-x-8">
 
-        <Nav {menuSettings} />
+        <Nav {headerSettings} />
         <ThemeToggler />
 
         <div class="-my-2 md:hidden">
@@ -83,6 +83,6 @@ export let siteSettings = [];
     </div>
   </div>
 
-  <MobileNav {menuSettings} {siteSettings} {themeSettings} />
+  <MobileNav {headerSettings} {siteSettings} {themeSettings} />
 
 </header>

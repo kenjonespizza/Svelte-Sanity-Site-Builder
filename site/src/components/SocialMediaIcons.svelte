@@ -3,10 +3,12 @@ import { each } from "svelte/internal";
 import getComponent from './BlockResolver'
 
 export let socialMediaHandles = {}
+console.log('socialMediaHandles1:', socialMediaHandles)
 export let wrapperClasses = "flex space-x-4"
 export let iconClasses = undefined
 
 let socialMediaHandlesArray = Object.entries(socialMediaHandles).slice(1)
+console.log('socialMediaHandlesArray2:', socialMediaHandlesArray)
 </script>
 
 <ul class={wrapperClasses}>

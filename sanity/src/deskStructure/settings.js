@@ -1,7 +1,6 @@
 import S from '@sanity/desk-tool/structure-builder';
 
-import { FcSettings, FcLike, FcMenu } from "react-icons/fc";
-import { RiSettingsLine, RiGlobeLine, RiPaletteLine, RiMenu2Line } from "react-icons/ri";
+import { RiSettingsLine, RiGlobeLine, RiPaletteLine, RiMenu2Line, RiThumbUpLine, RiLayoutTopLine, RiLayoutBottomLine } from "react-icons/ri";
 
 const settings = S.listItem()
 .title('Settings')
@@ -24,10 +23,22 @@ const settings = S.listItem()
           S.editor().schemaType('themeSettings').documentId('themeSettings')
         ),
       S.listItem()
-        .title('Menu')
-        .icon(RiMenu2Line)
+        .title('Header')
+        .icon(RiLayoutTopLine)
         .child(
-          S.editor().schemaType('menuSettings').documentId('menuSettings')
+          S.editor().schemaType('headerSettings').documentId('headerSettings')
+        ),
+      S.listItem()
+        .title('Footer')
+        .icon(RiLayoutBottomLine)
+        .child(
+          S.editor().schemaType('footerSettings').documentId('footerSettings')
+        ),
+      S.listItem()
+        .title('Social Media')
+        .icon(RiThumbUpLine)
+        .child(
+          S.editor().schemaType('socialMediaSettings').documentId('socialMediaSettings')
         )
     ])
 );

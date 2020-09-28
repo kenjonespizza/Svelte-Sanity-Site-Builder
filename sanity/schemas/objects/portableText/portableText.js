@@ -53,7 +53,11 @@ export default {
         {
           type: 'code',
           title: 'Code Snippet',
-        }
+        },
+        {
+          type: 'basicImageWithCaption',
+          title: 'Image',
+        },
       ]
     },
     // You can add additional types here. Note that you can't use

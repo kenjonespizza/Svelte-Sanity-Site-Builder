@@ -10,8 +10,7 @@ export default {
     {
       name: 'alt',
       type: 'string',
-      title: 'Alternative text',
-      description: `Important for accessibility, which is important.`,
+      title: 'Alt text',
       options: {
         isHighlighted: true,
       },

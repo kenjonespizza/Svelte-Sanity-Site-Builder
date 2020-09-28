@@ -72,16 +72,16 @@ export default {
       }
     },
   ],
-  // preview: {
-  //   select: {
-  //     column1: 'column1',
-  //     column2: 'column2',
-  //   },
-  //   prepare: {
-  //     return: {
-  //       title: '',
-  //       subtitle: sectionName,
-  //     }
-  //   }
-  // }
+  preview: {
+    select: {
+      column1: 'column1',
+      disabled: 'disabled',
+    },
+    prepare({column1, disabled}) {
+      return {
+        title: `${disabled ? '⚠️ DISABLED' : blockPreview(column1, "No Content")}`,
+        subtitle: sectionName,
+      }
+    }
+  }
 }

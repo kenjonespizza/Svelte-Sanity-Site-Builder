@@ -5,9 +5,11 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 // Import Documents
-import menuSettings from './documents/siteSettings/menuSettings';
+import headerSettings from './documents/siteSettings/headerSettings';
+import footerSettings from './documents/siteSettings/footerSettings';
 import page from './documents/page';
 import siteSettings from './documents/siteSettings/index';
+import socialMediaSettings from './documents/siteSettings/socialMediaSettings';
 import themeSettings from './documents/siteSettings/themeSettings';
 
 // Import Blog Documents
@@ -18,6 +20,7 @@ import blog from './blog/documents/blog';
 
 // Import Objects
 import basicImage from './objects/basicImage';
+import basicImageWithCaption from './objects/basicImageWithCaption';
 import basicVideo from './objects/basicVideo';
 import button from './objects/button';
 import cta from './objects/cta';
@@ -63,9 +66,11 @@ export default createSchema({
   types: schemaTypes
     .concat([
       // Documents
-      menuSettings,
+      headerSettings,
+      footerSettings,
       page,
       siteSettings,
+      socialMediaSettings,
       themeSettings,
 
       // Blog Documents
@@ -76,6 +81,7 @@ export default createSchema({
 
       // Objects
       basicImage,
+      basicImageWithCaption,
       basicVideo,
       button,
       imageNoAlt,

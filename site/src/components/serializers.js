@@ -1,28 +1,24 @@
 import Link from "./Link.svelte";
 import CodeBlock from "./CodeBlock.svelte";
+import SanityImage from "./SanityImage.svelte";
 
 export const serializers = {
 	types: {
-		// image: props => {
-		//   return {
-		//     component: Image,
-		//     childNodes: props.children,
-		//     props: {
-		//       url: props.node.url
-		//     }
-		//   };
-		// }
-		code: (props) =>
-		// console.log('props:', props)
-			({
-				component: CodeBlock,
-				childNodes: props.children,
-				props: {
-					code: props.node.code,
-					language: props.node.language,
-				},
-			})
-		,
+		code: (props) => ({
+			component: CodeBlock,
+			childNodes: props.children,
+			props: {
+				code: props.node.code,
+				language: props.node.language,
+			},
+		}),
+		basicImageWithCaption: (props) => ({
+			component: SanityImage,
+			childNodes: props.children,
+			props: {
+				image: props.node,
+			},
+		}),
 	},
 	marks: {
 		link: (props) => ({
