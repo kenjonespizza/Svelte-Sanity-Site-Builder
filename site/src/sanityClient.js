@@ -1,18 +1,11 @@
 import sanityClient from "@sanity/client";
-import * as siteConfig from "../../siteConfig";
-
-// console.log("siteConfig:", siteConfig);
-
-console.log("process.env.SANITY_PROJasdfECT_ID:", process.env.SANITY_STUDIO_API_PROJECT_ID);
-
-const { sanityProjectId, sanityDataset } = siteConfig.default;
 
 const client = sanityClient({
-	projectId: process.env.SANITY_STUDIO_API_PROJECT_ID,
-	dataset: process.env.SANITY_STUDIO_API_DATASET,
+	projectId: process.env.SAPPER_APP_SANITY_STUDIO_API_PROJECT_ID,
+	dataset: process.env.SAPPER_APP_SANITY_STUDIO_API_DATASET,
 	// useCdn: true
 
-	useCdn: false,
+	useCdn: process.env.SAPPER_APP_SANITY_USE_CDN,
 	// withCredentials: true, // Add this line
 });
 

@@ -3,7 +3,6 @@
   import Button from "../Button.svelte";
   import TagRenderer from "../TagRenderer.svelte";
   import { urlFor } from "../../utils/helpers";
-console.log("process.env.SANITY_PROJasdfECT_ID22222:", process.env.SANITY_STUDIO_API_PROJECT_ID);
 </script>  
 <script>
   export let data;
