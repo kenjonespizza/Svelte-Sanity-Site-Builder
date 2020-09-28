@@ -1,8 +1,8 @@
 {
   "root": true,
   "api": {
-    "projectId": "nkke0fth",
-    "dataset": "production"
+    "projectId": "xxx",
+    "dataset": "xxx"
   },
   "project": {
     "name": "Osprey Website"

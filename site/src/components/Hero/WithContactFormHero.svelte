@@ -156,7 +156,7 @@
 
                     <div>
                       <span class="block w-full rounded-md shadow-sm">
-                        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-textOnPrimary bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
                           {data.submitButtonText || "Submit"}
                         </button>
                       </span>
@@ -168,11 +168,11 @@
               <div class="px-4 py-6 bg-gray-50 border-t-2 border-gray-100 sm:px-10">
                 <p class="text-xs leading-5 text-gray-500">By submitting this form, you agree to our 
                   {#if data && data.termsPage && data.termsPage.link && data.termsPage.link._ref}
-                    <Link ref={data.termsPage.link._ref} classes="font-medium text-gray-900 underline hover:text-primary">Terms & Services</Link>
+                    <Link ref={data.termsPage.link._ref} classes="font-medium text-gray-900 underline hover:text-primary">Terms & Services</Link>.
                   {:else}
-                    <span class="font-medium text-gray-900">Terms & Services</span>
+                    <span class="font-medium text-gray-900">Terms & Services</span>.
                   {/if}
-                .</p>
+                </p>
               </div>
             </div>
           </div>
