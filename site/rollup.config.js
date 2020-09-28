@@ -9,6 +9,8 @@ import babel from "@rollup/plugin-babel";
 import colors from "kleur";
 import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup";
+import sapperEnv from "sapper-environment";
+
 import pkg from "./package.json";
 
 const { createPreprocessors } = require("./svelte.config.js");
@@ -32,6 +34,7 @@ export default {
 		output: { ...config.client.output(), sourcemap },
 		plugins: [
 			replace({
+				...sapperEnv(),
 				"process.browser": true,
 				"process.env.NODE_ENV": JSON.stringify(mode),
 			}),
