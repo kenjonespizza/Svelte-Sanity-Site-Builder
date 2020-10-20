@@ -16,7 +16,8 @@
     "@sanity/color-input",
     "asset-source-unsplash",
     "dark-theme-blue",
-    "@sanity/code-input"
+    "@sanity/code-input",
+    "url-metadata-input"
   ],
   "env": {
     "development": {

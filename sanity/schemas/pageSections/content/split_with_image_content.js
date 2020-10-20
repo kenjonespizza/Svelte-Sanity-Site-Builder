@@ -10,6 +10,11 @@ export default {
   ],
   fields: [
     {
+      name: 'headingBlock',
+      title: 'Heading & Sub-Heading',
+      type: 'headingBlock',
+    },
+    {
       name: 'content',
       title: 'Content',
       type: 'portableText',
@@ -17,7 +22,7 @@ export default {
     {
       name: 'image',
       title: 'Image',
-      type: 'basicImage',
+      type: 'basicImageWithCaption',
       fieldset: 'image'
     },
     {

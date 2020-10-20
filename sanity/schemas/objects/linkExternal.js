@@ -9,5 +9,11 @@ export default {
       type: 'url',
       description: 'Example: https://www.google.com',
     },
+    // {
+    //   name: 'urltest',
+    //   title: 'Link URL',
+    //   type: 'urlWithMetadata',
+    //   description: 'Example: https://www.google.com',
+    // },
   ]
 }

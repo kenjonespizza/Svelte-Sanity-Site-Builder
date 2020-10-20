@@ -1,6 +1,7 @@
 import Link from "./Link.svelte";
 import CodeBlock from "./CodeBlock.svelte";
 import SanityImage from "./SanityImage.svelte";
+import Buttons from "./Buttons.svelte";
 
 export const serializers = {
 	types: {
@@ -17,6 +18,13 @@ export const serializers = {
 			childNodes: props.children,
 			props: {
 				image: props.node,
+			},
+		}),
+		buttons: (props) => ({
+			component: Buttons,
+			childNodes: props.children,
+			props: {
+				buttons: props.node.buttons,
 			},
 		}),
 	},

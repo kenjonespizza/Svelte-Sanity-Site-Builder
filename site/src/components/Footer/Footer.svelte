@@ -24,13 +24,6 @@
       <SocialMediaIcons socialMediaHandles={socialMediaSettings.socialMediaHandles} iconClasses="h-6 w-6 mx-3  mb-4" wrapperClasses="mt-8 flex flex-wrap justify-center" />
     {/if}
     <div class="mt-4 border-t border-gray-200 w-1/2 mx-auto"></div>
-    <!-- {#if footerSettings.copyright}
-      <div class="mt-6">
-        <p class="text-center text-base leading-6 text-gray-400">
-          {footerSettings.copyright.replace('%year%', new Date()getFullYear())} 
-        </p>
-      </div>
-    {/if} -->
     <div class="mt-4 flex flex-wrap justify-center space-x-3">
       {#if footerSettings.copyright}
         <span class="text-xs leading-6 text-gray-400">{footerSettings.copyright.replace('%year%', new Date().getFullYear())}</span>

@@ -20,6 +20,17 @@ export default {
         // { type: 'single_price_with_details_pricing' },
         // { type: 'three_tiers_with_emphasized_tier_pricing' },
         // { type: 'two_tiers_with_extra_tier_pricing' },
+        // Content
+        { type: 'basic_content' },
+        { type: 'split_with_image_content' },
+        { type: 'split_with_full_height_image_content' },
+        { type: 'two_column_content' },
+        { type: 'three_column_content' },
+        // Cta
+        { type: 'simple_centered_cta' },
+        { type: 'simple_justified_cta' },
+        { type: 'simple_stacked_cta' },
+        { type: 'split_with_image_cta' },
         // Heros
         { type: 'simple_centered_hero' },
         { type: 'with_angled_image_on_right_hero' },
@@ -27,16 +38,6 @@ export default {
         { type: 'split_image_text_hero' },
         { type: 'with_full_width_image_hero' },
         { type: 'with_video_popover_hero' },
-        // Cta
-        { type: 'simple_centered_cta' },
-        { type: 'simple_justified_cta' },
-        { type: 'simple_stacked_cta' },
-        { type: 'split_with_image_cta' },
-        // Content
-        { type: 'basic_content' },
-        { type: 'split_with_image_content' },
-        { type: 'two_column_content' },
-        { type: 'three_column_content' },
         // Stats
         // { type: 'split_with_image_stats' },
         // { type: 'simple_on_brand_stats' },

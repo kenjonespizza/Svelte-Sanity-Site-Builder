@@ -23,6 +23,7 @@ import basicImage from './objects/basicImage';
 import basicImageWithCaption from './objects/basicImageWithCaption';
 import basicVideo from './objects/basicVideo';
 import button from './objects/button';
+import buttons from './objects/buttons';
 import cta from './objects/cta';
 import dropdownMenu from './objects/dropdownMenu'
 import figure from './objects/figure';
@@ -84,6 +85,7 @@ export default createSchema({
       basicImageWithCaption,
       basicVideo,
       button,
+      buttons,
       imageNoAlt,
       cta,
       dropdownMenu,

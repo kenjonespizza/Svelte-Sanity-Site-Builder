@@ -142,6 +142,15 @@ module.exports = {
 		// 		},
 		// 	},
 		// }),
+		typography: (theme) => ({
+			default: {
+				css: {
+					".button": {
+						color: "red",
+					},
+				},
+			},
+		}),
 	},
 	variants: {},
 	plugins: [
@@ -151,5 +160,7 @@ module.exports = {
 	future: {
 		purgeLayersByDefault: true,
 		removeDeprecatedGapUtilities: true,
+		defaultLineHeights: true,
+		standardFontWeights: true,
 	},
 };

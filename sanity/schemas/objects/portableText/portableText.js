@@ -58,6 +58,8 @@ export default {
           type: 'basicImageWithCaption',
           title: 'Image',
         },
+        { type: 'buttons' },
+        { type: 'two_column_content' },
       ]
     },
     // You can add additional types here. Note that you can't use
@@ -69,6 +71,5 @@ export default {
     // },
     // { type: 'instagram' },
     // { type: 'videoEmbed' },
-    // { type: 'math', icon: mathIcon, title: 'Math block' }
   ]
 }

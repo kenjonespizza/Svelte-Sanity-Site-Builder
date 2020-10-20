@@ -17,6 +17,7 @@ import WithLargeAvatarTestimonial from "./Testimonial/WithLargeAvatarTestimonial
 // Content
 import BasicContent from "./Content/BasicContent.svelte";
 import SplitWithImageContent from "./Content/SplitWithImageContent.svelte";
+import SplitWithFullHeightImageContent from "./Content/SplitWithFullHeightImageContent.svelte";
 import TwoColumnContent from "./Content/TwoColumnContent.svelte";
 import ThreeColumnContent from "./Content/ThreeColumnContent.svelte";
 // Icons
@@ -52,6 +53,7 @@ const Components = {
 	// Content
 	basic_content: BasicContent,
 	split_with_image_content: SplitWithImageContent,
+	split_with_full_height_image_content: SplitWithFullHeightImageContent,
 	two_column_content: TwoColumnContent,
 	three_column_content: ThreeColumnContent,
 	// Icons

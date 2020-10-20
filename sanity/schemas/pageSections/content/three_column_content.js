@@ -7,6 +7,11 @@ export default {
   type: 'document',
   fields: [
     {
+      name: 'headingBlock',
+      title: 'Heading & Sub-Heading',
+      type: 'headingBlock',
+    },
+    {
       name: 'column1',
       title: 'Column 1',
       type: 'portableText',

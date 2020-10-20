@@ -17,6 +17,7 @@ export { default as split_with_image_cta } from './cta/split_with_image_cta';
 // Content
 export { default as basic_content } from './content/basic_content';
 export { default as split_with_image_content } from './content/split_with_image_content';
+export { default as split_with_full_height_image_content } from './content/split_with_full_height_image_content';
 export { default as two_column_content } from './content/two_column_content';
 export { default as three_column_content } from './content/three_column_content';
 // Stats

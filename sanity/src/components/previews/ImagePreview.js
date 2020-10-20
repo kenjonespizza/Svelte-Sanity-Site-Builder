@@ -21,6 +21,7 @@ export default ImagePreview;
 
 const Figure = styled.figure`
   margin: 0;
+  width: 100%;
 `
 const Image = styled.img`
   border-radius: ${props => props.roundedCorners ? '20px' : '0'};
