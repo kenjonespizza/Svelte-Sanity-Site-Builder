@@ -343,7 +343,6 @@
   </script>
 </svelte:head>
 
-<!-- Nav Placeholder -->
 <Header {segment} {headerSettings} {siteSettings} {themeSettings} />
 <main role="main">
 	<slot></slot>

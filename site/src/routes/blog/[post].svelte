@@ -1,6 +1,6 @@
 <script context="module">
   export async function preload({ params }) {
-  	try {
+    try {
   		// As with the server route, we have acces to params.slug here
   		const res = await this.fetch(`api/blog/${params.post}`);
   		const { postData } = await res.json();
@@ -95,7 +95,7 @@ function scrolling(e) {
                 {/each}
               </div>
               <div class="ml-3">
-                <p class="text-sm leading-5 font-medium text-gray-700 group-hover:text-gray-900">
+                <p class="text-sm leading-5 font-medium text-gray-700">
                   By: 
                   {#each authors as author, i }
                     <Link ref={author._id} classes="text-indigo-600">{author.pageInfo.name}</Link>{ i + 2 === authors.length && authors.length > 1 ? " and " : i + 1 !== authors.length && authors.length > 1 ? ", " : ""}
@@ -161,7 +161,7 @@ function scrolling(e) {
     {#if post.topics}
           <div class="flex items-start justify-start flex-col space-y-4 xs:space-y-0 xs:flex-row xs:space-x-4">
           {#each post.topics as topic }
-            <a href={`blog/topic/${slugify(topic)}`} rel=prefetch class="capitalize inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium leading-5 bg-indigo-100 text-indigo-800">
+            <a href={`blog/topic/${slugify(topic)}`} rel=prefetch class="capitalize inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium leading-5 bg-indigo-600 text-textOnPrimary">
               <svg class="-ml-0.5 mr-1.5 h-3 w-3 text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fill="none" d="M0 0h24v24H0z"/><path d="M7.784 14l.42-4H4V8h4.415l.525-5h2.011l-.525 5h3.989l.525-5h2.011l-.525 5H20v2h-3.784l-.42 4H20v2h-4.415l-.525 5h-2.011l.525-5H9.585l-.525 5H7.049l.525-5H4v-2h3.784zm2.011 0h3.99l.42-4h-3.99l-.42 4z"/>
               </svg>

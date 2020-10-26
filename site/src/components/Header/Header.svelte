@@ -10,7 +10,7 @@
 
 
   export let headerSettings = [];
-export let siteSettings = [];
+  export let siteSettings = [];
   export let themeSettings = [];
   
   function toggleMobileNav() {

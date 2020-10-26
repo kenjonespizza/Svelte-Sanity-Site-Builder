@@ -10,16 +10,18 @@
 
 <footer class="bg-gray-100">
   <div class="max-w-screen-xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
-    <nav role="navigation" class="-mx-5 -my-2 flex flex-wrap justify-center">
-      {#each navItems as item}
-        <div class="px-5 py-2">
-          <Link
-            link={item}
-            classes="text-base leading-6 text-gray-500 hover:text-gray-900"
-          />
-        </div>
-      {/each}
-    </nav>
+    {#if navItems && navItems.length}
+      <nav role="navigation" class="-mx-5 -my-2 flex flex-wrap justify-center">
+        {#each navItems as item}
+          <div class="px-5 py-2">
+            <Link
+              link={item}
+              classes="text-base leading-6 text-gray-500 hover:text-gray-900"
+            />
+          </div>
+        {/each}
+      </nav>
+    {/if}
     {#if footerSettings.showSocialMediaIcons}
       <SocialMediaIcons socialMediaHandles={socialMediaSettings.socialMediaHandles} iconClasses="h-6 w-6 mx-3  mb-4" wrapperClasses="mt-8 flex flex-wrap justify-center" />
     {/if}
@@ -28,12 +30,14 @@
       {#if footerSettings.copyright}
         <span class="text-xs leading-6 text-gray-400">{footerSettings.copyright.replace('%year%', new Date().getFullYear())}</span>
       {/if}
-      {#each footerSettings.smallLink as item}
-        <Link
-          link={item}
-          classes="text-xs leading-6 text-gray-400 hover:text-gray-900 underline"
-        />
-      {/each}
+      {#if navItems && navItems.length}
+        {#each footerSettings.smallLink as item}
+          <Link
+            link={item}
+            classes="text-xs leading-6 text-gray-400 hover:text-gray-900 underline"
+          />
+        {/each}
+      {/if}
     </div>
     <p class="text-xs text-gray-400 leading-6 text-center">
       Website design &amp; development by{' '}

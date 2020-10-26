@@ -1,8 +1,9 @@
 import sirv from "sirv";
-import Express from "express";
+// import Express from "express";
 import polka from "polka";
 import compression from "compression";
 import * as sapper from "@sapper/server";
+// import rewrite from "express-urlrewrite";
 
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === "development";
@@ -11,6 +12,7 @@ const dev = NODE_ENV === "development";
 // 	.use(
 // 		compression({ threshold: 0 }),
 // 		sirv("static", { dev }),
+// 		rewrite("/", "/author/henry-hollingsworth"),
 // 		sapper.middleware(),
 // 	)
 // 	.listen(PORT, (err) => {

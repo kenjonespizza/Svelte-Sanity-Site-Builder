@@ -18,6 +18,7 @@
     const allPageData = getContext('allPageData'); // Grab all pages link info
     if (ref) {
       linkData = getPageInfoFromRef(ref, allPageData) // Retrun the page info
+      // console.log('allPageData:', allPageData)
     } else {
       linkData = getPageInfoFromRef(link.link[0].link._ref, allPageData) // Retrun the page info
     }
@@ -27,13 +28,15 @@
     linkData = link
   }
 
-  // If link is internal, check if its the homepage
-  if (linkData.homepage && linkData._id && (linkData.homepage[0].homepage._ref === linkData._id)) {
-    linkData.pageInfo.slug.current = ""
-  }
-
   // Use the provided subDirectory prop if it exists, otherwise, resolve using the pages '_type'
   let normalizedSubdirectory = subDirectory === null ? `${resolveSubdirectory(linkData)}` : `${subDirectory}/`
+  
+  // If link is internal, check if its the homepage
+  if (linkData && linkData.homepage && linkData._id && (linkData.homepage[0].homepage._ref === linkData._id)) {
+    linkData.pageInfo.slug.current = ""
+    normalizedSubdirectory = ""
+    // Todo: ... look into if this is a duplicate content thing...
+  }
   
 </script>
 

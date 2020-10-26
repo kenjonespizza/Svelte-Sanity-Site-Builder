@@ -78,79 +78,79 @@ module.exports = {
 				xs: "480px",
 			},
 		},
-		// typography: (theme) => ({
-		// 	default: {
-		// 		css: {
-		// 			color: theme("colors.gray.500"),
-		// 			"[class~=\"lead\"]": {
-		// 				color: theme("colors.gray.700"),
-		// 			},
-		// 			a: {
-		// 				color: theme("colors.gray.900"),
-		// 			},
-		// 			strong: {
-		// 				color: theme("colors.gray.900"),
-		// 			},
-		// 			"ol > li::before": {
-		// 				color: theme("colors.gray.600"),
-		// 			},
-		// 			"ul > li::before": {
-		// 				backgroundColor: theme("colors.gray.400"),
-		// 			},
-		// 			hr: {
-		// 				borderColor: theme("colors.gray.300"),
-		// 			},
-		// 			blockquote: {
-		// 				color: theme("colors.gray.900"),
-		// 				borderLeftColor: theme("colors.gray.300"),
-		// 			},
-		// 			h1: {
-		// 				color: theme("colors.gray.900"),
-		// 			},
-		// 			h2: {
-		// 				color: theme("colors.gray.900"),
-		// 			},
-		// 			h3: {
-		// 				color: theme("colors.gray.900"),
-		// 			},
-		// 			h4: {
-		// 				color: theme("colors.gray.900"),
-		// 			},
-		// 			"figure figcaption": {
-		// 				color: theme("colors.gray.600"),
-		// 			},
-		// 			code: {
-		// 				color: theme("colors.gray.900"),
-		// 			},
-		// 			pre: {
-		// 				// color: "#282c34",
-		// 				// backgroundColor: "#abb2bf",
-		// 				// color: theme("colors.code.text"),
-		// 				// backgroundColor: theme("colors.code.background"),
-		// 			},
-		// 			thead: {
-		// 				color: theme("colors.gray.900"),
-		// 				borderBottomColor: theme("colors.gray.400"),
-		// 			},
-		// 			"tbody tr": {
-		// 				borderBottomColor: theme("colors.gray.300"),
-		// 			},
-		// 		// pre: {
-		// 		// 	backgroundColor: theme("colors.code.background"),
-		// 		// 	color: theme("colors.code.text"),
-		// 		// },
-		// 		},
-		// 	},
-		// }),
 		typography: (theme) => ({
 			default: {
 				css: {
-					".button": {
-						color: "red",
+					color: theme("colors.gray.500"),
+					"[class~=\"lead\"]": {
+						color: theme("colors.gray.700"),
 					},
+					a: {
+						color: theme("colors.gray.900"),
+					},
+					strong: {
+						color: theme("colors.gray.900"),
+					},
+					"ol > li::before": {
+						color: theme("colors.gray.600"),
+					},
+					"ul > li::before": {
+						backgroundColor: theme("colors.gray.400"),
+					},
+					hr: {
+						borderColor: theme("colors.gray.300"),
+					},
+					blockquote: {
+						color: theme("colors.gray.900"),
+						borderLeftColor: theme("colors.gray.300"),
+					},
+					h1: {
+						color: theme("colors.gray.900"),
+					},
+					h2: {
+						color: theme("colors.gray.900"),
+					},
+					h3: {
+						color: theme("colors.gray.900"),
+					},
+					h4: {
+						color: theme("colors.gray.900"),
+					},
+					"figure figcaption": {
+						color: theme("colors.gray.600"),
+					},
+					code: {
+						color: theme("colors.gray.900"),
+					},
+					pre: {
+						// color: "#282c34",
+						// backgroundColor: "#abb2bf",
+						// color: theme("colors.code.text"),
+						// backgroundColor: theme("colors.code.background"),
+					},
+					thead: {
+						color: theme("colors.gray.900"),
+						borderBottomColor: theme("colors.gray.400"),
+					},
+					"tbody tr": {
+						borderBottomColor: theme("colors.gray.300"),
+					},
+				// pre: {
+				// 	backgroundColor: theme("colors.code.background"),
+				// 	color: theme("colors.code.text"),
+				// },
 				},
 			},
 		}),
+		// typography: (theme) => ({
+		// 	default: {
+		// 		css: {
+		// 			".button": {
+		// 				color: "red",
+		// 			},
+		// 		},
+		// 	},
+		// }),
 	},
 	variants: {},
 	plugins: [
